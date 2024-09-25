@@ -11,7 +11,7 @@ const AdminDisplay = () => {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const response = await fetch(`${BackendPort}/api/v1/admin/auth`, { credentials: 'include' })
+                const response = await fetch(`${BackendPort}/admin/auth`, { credentials: 'include' })
                 const data = await response.json();
 
                 if (data.success) {
@@ -41,7 +41,7 @@ const AdminDisplay = () => {
     }, [loginState, navigate]);
 
     const handleLogout = async () => {
-        const response = await fetch(`${BackendPort}/api/v1/admin/logout`, { credentials: 'include' })
+        const response = await fetch(`${BackendPort}/admin/logout`, { credentials: 'include' })
         const data = await response.json();
         setLoginState(false);
     };

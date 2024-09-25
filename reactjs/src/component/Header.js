@@ -12,15 +12,15 @@ export const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const data = process.env.REACT_APP_DEVELOPED_MODE
+  // useEffect(() => {
+  //   const data = process.env.REACT_APP_DEVELOPED_MODE
 
-    if (data) {
-      fetchUserInfo();
-    }
+  //   if (data) {
+  //     fetchUserInfo();
+  //   }
 
 
-  }, []);
+  // }, []);
 
   return (
     <header>

@@ -10,7 +10,7 @@ const WhatsNewVideoComponent = () => {
 
     const handleAddOrUpdate = async () => {
         try {
-            const response = await fetch(`${BackendPort}/api/v1/admin/addWhatsNewVideo`, {
+            const response = await fetch(`${BackendPort}/admin/addWhatsNewVideo`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ Name: name, Platform: platform, TrailerLink: trailerLink }),
@@ -31,7 +31,7 @@ const WhatsNewVideoComponent = () => {
 
     const handleDelete = async (videoId) => {
         try {
-            const response = await fetch(`${BackendPort}/api/v1/admin/deleteWhatsNewVideo`, {
+            const response = await fetch(`${BackendPort}/admin/deleteWhatsNewVideo`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ _id: videoId }),
@@ -49,7 +49,7 @@ const WhatsNewVideoComponent = () => {
 
     const fetchAllVideos = async () => {
         try {
-            const response = await fetch(`${BackendPort}/api/v1/admin/viewWhatsNewVideo`);
+            const response = await fetch(`${BackendPort}/admin/viewWhatsNewVideo`);
             const data = await response.json();
             if (data.success) {
                 setVideos(data.items);

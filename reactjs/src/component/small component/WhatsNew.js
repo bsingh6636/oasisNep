@@ -7,7 +7,7 @@ const [whatsNew , setwhatsNew] = useState(whatsNewFixedData)
 useEffect(()=>{
   const fetchAllVideos = async () => {
     try {
-        const response = await fetch(`${BackendPort}/api/v1/admin/viewWhatsNewVideo`);
+        const response = await fetch(`${BackendPort}/admin/viewWhatsNewVideo`);
         const data = await response.json();
         if (data.success) {
           setwhatsNew(data.items);

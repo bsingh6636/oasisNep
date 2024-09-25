@@ -32,7 +32,7 @@ const AdminLogin = () => {
 
         try {
             if (isSignUp) {
-                const signUp = await fetch(`${BackendPort}/api/v1/admin/register`, {
+                const signUp = await fetch(`${BackendPort}/admin/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, userName, name, phone, password }),
@@ -40,7 +40,7 @@ const AdminLogin = () => {
                 const response = await signUp.json();
                 setSuccessMessage(response.message);
             } else {
-                const signIn = await fetch(`${BackendPort}/api/v1/admin/login`, {
+                const signIn = await fetch(`${BackendPort}/admin/login`, {
                     method: 'POST',
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },

@@ -3,7 +3,7 @@ import { Admin } from "../models/Admin.Schema.js";
 
 export const Auth = async (req,res,next) =>{
     const token = req.cookies.adminToken;
-    console.log(token)
+    console.log("token" , token)
     if(!token){
         return res.status(400).json({sucess:false , message :'Not authenciated Admin'} )
     }
