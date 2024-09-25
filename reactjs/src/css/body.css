@@ -1,0 +1,119 @@
+
+
+#main_logo {
+  shape-image-threshold: inherit;
+  /* border-radius: 60%; */
+  /* background: linear-gradient(red, blue, green); */
+  /* padding: 2px; */
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  padding-top: -3px;
+  margin-top: -0.2em;
+}
+
+
+
+.priceimage {
+  height: 30vh;
+  width: 40vh;
+}
+
+
+#pricecontainer::before {
+  content: ""; /* Required for the pseudo-element to be generated */
+  position: absolute; /* Positions the overlay on top of the container */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* White overlay with 50% opacity */
+  z-index: -1; /* Ensures the overlay is behind the content */
+}
+
+
+.pirceimg {
+  height: 90vh;
+  width: 30%;
+}
+
+.categroyimage {
+  height: 500px;
+}
+.PriceLoneContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  background-color:#ABB2B9;
+}
+
+.objimg {
+  height: 500px;
+  width: 50vw;
+}
+.monthnumber {
+  border: 3px solid black;
+  color: red;
+  font-size: larger;
+  margin-top: 15px;
+  margin-right: 100px;
+  padding: 15 25 15 25;
+  background-color: white;
+}
+.monthnumber:hover {
+  background-color: #abb2b9;
+  border: 3.5px solid black;
+}
+
+.devicenumber {
+  list-style-type: none;
+  margin-right: 100px;
+}
+.monthul {
+  display: flex;
+}
+.radioclass {
+  display: flex;
+}
+.radios {
+  margin: 0 10 0 30px;
+  border-bottom-color: blue;
+}
+.d-block {
+  height: 600px;
+}
+#carousell {
+  height: 520px;
+}
+.carousel-indicators {
+  top: 500px;
+}
+
+
+@media (max-width: 480px) {
+  .d-block {
+    height: 300px;
+  }
+  .objimg {
+    width: 25em;
+    height: 25em;
+    padding-top: 35px;
+  }
+  .monthnumber {
+    margin-top: 15px;
+    margin-right: 40px;
+    padding: 15 25 15 25;
+  }
+  .carousel-indicators {
+    top: 280px;
+  }
+  .carousel-inner{
+    overflow: unset !important;
+    height: 250px !important;
+  }
+}
