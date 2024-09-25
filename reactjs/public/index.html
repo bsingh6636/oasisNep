@@ -2,13 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Purchase Netflix in Nepal , along with other ott"
-    />
+    <meta name="description" content="Purchase Netflix in Nepal, along with other ott" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -16,13 +12,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
-  <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/index.css">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/body.css">
     <link rel="stylesheet" href="../src/component/body.css">
-    <title>OTT OASIS</title>
+    <title>OASIS NEPAL</title>
     <style>
       * {
         margin: 0;
@@ -30,17 +25,115 @@
         box-sizing: border-box;
         font-family: "Open Sans", sans-serif;
       }
+
       body {
-        height: 100vh;
         background-color: black;
         background-size: cover;
         background-position: center;
       }
+
+      /* Loader container */
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #1f1f1f, #383838);
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      /* Responsive spinner */
+      .spinner {
+        width: 100px;
+        height: 100px;
+        border: 12px solid transparent;
+        border-radius: 50%;
+        border-top: 12px solid #ff6b6b;
+        border-bottom: 12px solid #1dd1a1;
+        border-left: 12px solid #54a0ff;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 600px) {
+        .spinner {
+          width: 60px;
+          height: 60px;
+          border-width: 8px;
+        }
+        .loading-text {
+          font-size: 1rem;
+        }
+      }
+
+      @media (min-width: 600px) and (max-width: 1024px) {
+        .spinner {
+          width: 80px;
+          height: 80px;
+          border-width: 10px;
+        }
+        .loading-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Text below the spinner */
+      .loading-text {
+        margin-top: 20px;
+        font-size: 1.4rem;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Fade-out animation */
+      .hide-loader {
+        opacity: 0;
+        visibility: hidden;
+      }
     </style>
   </head>
   <body>
-    
-    <div id="root">Unable to load React componrnts</div>
-   
+    <div class="loader-container">
+      <div>
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Oasis Nepal...</div>
+      </div>
+    </div>
+
+    <!-- React root element -->
+    <div id="root"></div>
+
+    <script>
+      // Function to hide the loader after React components are loaded
+      window.addEventListener("load", function() {
+        const loaderContainer = document.querySelector(".loader-container");
+        if (loaderContainer) {
+          loaderContainer.classList.add("hide-loader");
+        }
+      });
+    </script>
   </body>
 </html>

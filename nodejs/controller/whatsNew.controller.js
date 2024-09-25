@@ -53,20 +53,37 @@ export const viewAllUpdates = asyncErrorHandler( async (req , res ,next)=>{
 })
 
 export const AddNewUpdates = asyncErrorHandler(async (req, res) => {
-  const { Title, Description, ImageUrl } = req.body;  // Corrected 'Descsitption' to 'Description'
-  
-  // Check for missing description
+  const { Title, Description, ImageUrl } = req.body;
+
+  // Validate required fields
   if (!Description) {
-    return res.status(400).json({ success: false, message: "Description missing" });  // Corrected 'sucess' to 'success' and 'messagge' to 'message'
+    return res.status(400).json({
+      success: false,
+      message: "Description is required",
+    });
   }
-  
+
   try {
-    const item = await Updates.Create({ Title, Description, ImageUrl });
-    res.status(200).json({ success: true, item, message: "Item updated successfully" });  // Corrected 'messagge' to 'message'
+    // Use the correct method to create a new update item
+    const item = await Updates.create({ Title, Description, ImageUrl });
+    
+    // Return a success response
+    return res.status(201).json({
+      success: true,
+      item,
+      message: "Item created successfully",
+    });
   } catch (error) {
-    return res.status(400).json({ success: false, error });  // Corrected 'sucess' to 'success'
+    console.error("Error creating item:", error);
+    return res.status(500).json({
+      success: false,
+      message: "An error occurred while creating the item",
+      error: error.message || "Internal Server Error",
+    });
   }
 });
+
+
 
 
 

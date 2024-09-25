@@ -5,8 +5,8 @@ import { Context } from './RoutesAdmin';
 
 const AdminDisplay = () => {
     const [isActive, setIsActive] = useState(false);
-    const { loginState, setLoginState , setUserInfo } = useContext(Context);
-    
+    const { loginState, setLoginState, setUserInfo } = useContext(Context);
+
     const navigate = useNavigate();
     useEffect(() => {
         const verifyUser = async () => {
@@ -57,11 +57,10 @@ const AdminDisplay = () => {
                     Logout
                 </button>
             )}
-            <Link to='/admin/whatsNewVdieo'>
-            <button className='bg-blue-400 hover:bg-blue-600 p-2 m-1 rounded-lg'>WhatsNew Video</button>
-            </Link>
+           
         </div>
     );
 };
 
 export default AdminDisplay;
+

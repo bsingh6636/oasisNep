@@ -1,6 +1,7 @@
 import React, { Suspense, createContext, lazy, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import WhatsNewVideoComponent from './Pages/WhatsNewVideoComponent';
+import Update from './Pages/update';
 
 
 const AdminDashboard = lazy(()=>import('./DashBoardAdmin'))
@@ -21,7 +22,8 @@ const [userInfo , setUserInfo] = useState('')
                 <Route path="/" element={<AdminLogin />} />
                 <Route path="login" element={<AdminLogin />} />
                 <Route path = "dashboard" element={<AdminDashboard/>}/>
-                <Route path = 'whatsNewVdieo' element={<WhatsNewVideoComponent/>}/>
+                <Route path = 'whatsNewVideo' element={<WhatsNewVideoComponent/>}/>
+                <Route path = 'update' element = { <Update/>} />
             </Routes>
             </div>
            </Context.Provider>

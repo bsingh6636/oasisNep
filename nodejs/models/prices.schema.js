@@ -23,6 +23,7 @@ const PricesSchema = new mongoose.Schema({
     plans :{
         type:Object,
     }
-})
+},
+{ timestamps: true })
 
 export const Prices=mongoose.model("Prices",PricesSchema)

@@ -14,20 +14,22 @@ const WhatsNewVideoSchema = mongoose.Schema({
         type: String,
         required: true
     }
-})
+},
+    { timestamps: true })
 
 const UpdatesSchema = mongoose.Schema({
     Title: {
         type: String,
     },
-    Descsitption: {
+    Description: {
         type: String,
         required: true
     },
     ImageUrl: {
         type: String
     },
-})
-export const Updates = mongoose.model('Updates',UpdatesSchema) 
+},
+    { timestamps: true })
+export const Updates = mongoose.model('Updates', UpdatesSchema)
 export const WhatsNewVideo = mongoose.model('WhatsNewVideo', WhatsNewVideoSchema)
 

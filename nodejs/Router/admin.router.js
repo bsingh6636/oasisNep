@@ -13,5 +13,5 @@ router.post('/addWhatsNewVideo', whatsNewVideo)
 router.post('/deleteWhatsNewVideo', deleteVideoByName)
 router.get('/viewWhatsNewVideo', viewAllWhatsNewVideo)
 router.get('/update', viewAllUpdates)
-router.get('/addNewUpdat',AddNewUpdates)
+router.post('/addNewUpdates',AddNewUpdates)
 export default router ;

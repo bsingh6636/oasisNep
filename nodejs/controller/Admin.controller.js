@@ -13,7 +13,7 @@ export const register = async (req, res) => {
         await admin.save();
         const payload = { admin: { id: admin.id } };
         const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '100h' });
-        res.cookie('adminToken', token, { httpOnly: true, secure: true, sameSite: 'Strict' });
+        res.cookie('adminToken', token, { httpOnly: true, secure: true, sameSite: 'None' });
         return res.status(201).json({ sucess: true, message: "User Created Sucess " });
     } catch (error) {
         console.error(error)
@@ -42,7 +42,7 @@ export const login = asyncErrorHandler(async (req, res) => {
 
     const payload = { admin: { id: admin.id } };
     const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '100hr' });
-    res.cookie('adminToken', token, { httpOnly: true, secure: true, sameSite: 'Strict' });
+    res.cookie('adminToken', token, { httpOnly: true, secure: true, sameSite: 'None' });
     return res.json({
         success: true,
         message: "Login successful.",
