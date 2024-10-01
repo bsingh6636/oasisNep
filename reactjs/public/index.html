@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Purchase Netflix in Nepal, along with other ott" />
+    <meta name="description" content="Purchase Netflix in Nepal, along with other OTT services" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -14,9 +14,6 @@
     />
     <link rel="stylesheet" href="../src/index.css">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="../src/css/style.css">
-    <link rel="stylesheet" href="../src/css/body.css">
-    <link rel="stylesheet" href="../src/component/body.css">
     <title>OASIS NEPAL</title>
     <style>
       * {
@@ -27,7 +24,7 @@
       }
 
       body {
-        background-color: black;
+        background-color: #1e1e1e;
         background-size: cover;
         background-position: center;
       }
@@ -45,16 +42,30 @@
         transition: opacity 0.5s ease, visibility 0.5s ease;
       }
 
-      /* Responsive spinner */
-      .spinner {
-        width: 100px;
-        height: 100px;
-        border: 12px solid transparent;
-        border-radius: 50%;
-        border-top: 12px solid #ff6b6b;
-        border-bottom: 12px solid #1dd1a1;
-        border-left: 12px solid #54a0ff;
+      /* Rectangular loader border */
+      .spinner-container {
+        width: 120px;
+        height: 120px;
+        border: 10px solid transparent;
+        border-radius: 10px;
+        border-top: 10px solid #ff6b6b;
+        border-bottom: 10px solid #1dd1a1;
+        border-left: 10px solid #54a0ff;
         animation: spin 1s linear infinite;
+        position: relative;
+      }
+
+      /* White spinner inside the border */
+      .inner-spinner {
+        width: 80px;
+        height: 80px;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        animation: spin-reverse 1s linear infinite;
       }
 
       @keyframes spin {
@@ -66,12 +77,25 @@
         }
       }
 
+      @keyframes spin-reverse {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(-360deg);
+        }
+      }
+
       /* Responsive design */
       @media (max-width: 600px) {
-        .spinner {
+        .spinner-container {
+          width: 80px;
+          height: 80px;
+          border-width: 8px;
+        }
+        .inner-spinner {
           width: 60px;
           height: 60px;
-          border-width: 8px;
         }
         .loading-text {
           font-size: 1rem;
@@ -79,10 +103,14 @@
       }
 
       @media (min-width: 600px) and (max-width: 1024px) {
-        .spinner {
-          width: 80px;
-          height: 80px;
-          border-width: 10px;
+        .spinner-container {
+          width: 100px;
+          height: 100px;
+          border-width: 9px;
+        }
+        .inner-spinner {
+          width: 70px;
+          height: 70px;
         }
         .loading-text {
           font-size: 1.1rem;
@@ -118,7 +146,9 @@
   <body>
     <div class="loader-container">
       <div>
-        <div class="spinner"></div>
+        <div class="spinner-container">
+          <div class="inner-spinner"></div>
+        </div>
         <div class="loading-text">Loading Oasis Nepal...</div>
       </div>
     </div>

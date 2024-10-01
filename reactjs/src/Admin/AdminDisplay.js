@@ -1,12 +1,21 @@
 import { useContext, useEffect, useState } from 'react';
 import { BackendPort } from '../Const/url';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from './RoutesAdmin';
 
 const AdminDisplay = () => {
     const [isActive, setIsActive] = useState(false);
     const { loginState, setLoginState, setUserInfo } = useContext(Context);
-
+    const location = useLocation(); // Get the current location
+        const fullPath = location.pathname; // Original path
+        const modifiedPath = fullPath.replace('/admin', ''); // Remove '/admin'
+        // useEffect(()=>{
+        //     if(!modifiedPath =="/login"){
+        //         console.log(modifiedPath )
+        //     }
+            
+        // },[modifiedPath])
+//check don't allow anouther router , if not 
     const navigate = useNavigate();
     useEffect(() => {
         const verifyUser = async () => {

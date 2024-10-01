@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Pricelist } from "../const";
 import { useParams } from "react-router-dom";
 import "../css/body.css"
 import AllPrices from "./AllPrices";
+import { BackendPort } from "../Const/url";
+import { MyContext } from "./App";
+import { priceUpdate } from "../helper/priceUpdate";
 
 export const Prices = () => {
-  let [searchvalue, setsearchvalue] = useState("");
+  let [searchvalue, setsearchvalue] = useState();
   let [Pricelistcopy, setPricelistcopy] = useState(Pricelist);
+  const { priceListAll , setPriceListAll } = useContext(MyContext)
+  console.log(priceListAll)
   const { cat } = useParams();
 
+
   useEffect(() => {
+
     if (cat === undefined) {
       //nothing
     } else {
@@ -17,6 +24,22 @@ export const Prices = () => {
       setPricelistcopy(searchedlist);
     }
   }, [cat]);
+
+
+
+  useEffect(() => {
+    async function getPrice() {
+      const response =await priceUpdate(Pricelistcopy)
+      setPricelistcopy(response)
+      setPriceListAll(response)
+      console.log('res' , response)
+    }
+    getPrice()
+  }, []);
+  
+  console.log(Pricelistcopy);
+  
+
 
   const searchlist = () => {
     let searchedlist = Pricelist.filter(

@@ -32,7 +32,6 @@ import { BackendPort } from '../../Const/url';
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Data posted successfully:', data);
         // Optionally handle success state here (e.g., reset form, show message, etc.)
       } else {
         console.error('Error posting data:', response.statusText);

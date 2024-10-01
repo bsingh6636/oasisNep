@@ -3,7 +3,7 @@ export const errorHandler = (req,res,next) =>{
     if (!res.headersSent) {
         res.status(500).json({
             success: false,
-            message: 'Something went wrong!',
+            message: 'Something went wrong error Handdler!',
             error: err.message
         });
     } else {

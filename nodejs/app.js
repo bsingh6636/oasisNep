@@ -14,9 +14,26 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json())
-app.use("/api", priceRouter)
+app.use("/api/prices", priceRouter)
 app.use("/api/user", userRouter)
 app.use("/api/admin", adminRouter)
+
+// Catch-all route for undefined routes
+
+
+// app.use('/check' , ( req , res , next ) => {
+//     throw new Error("Error by app js");
+    
+// })
+
+
+app.use((err, req, res, next) => {
+    if(err){
+        console.error(err); // Log the error for debugging
+        res.status(500).json({ message: 'Something went wrong.' });
+    }
+   
+});
 
 dbconnection()
 export default app;

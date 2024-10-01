@@ -41,7 +41,7 @@ export const login = asyncErrorHandler(async (req, res) => {
     }
 
     const payload = { admin: { id: admin.id } };
-    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '100hr' });
+    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '300hr' });
     res.cookie('adminToken', token, { httpOnly: true, secure: true, sameSite: 'None' });
     return res.json({
         success: true,

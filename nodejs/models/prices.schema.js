@@ -22,6 +22,12 @@ const PricesSchema = new mongoose.Schema({
     },
     plans :{
         type:Object,
+    },
+    Note : {
+        type : String
+    } ,
+    Status : {
+        type : String
     }
 },
 { timestamps: true })

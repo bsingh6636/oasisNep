@@ -15,12 +15,12 @@ const AllPrices = ({Pricelistcopy}) => {
       }
 
       return (
-        <Link to={"/prices/" + Pricelist.Name} key={index + 1} className='linkheader'>
+        <Link to={"/prices/" + Pricelist.Name} key={Pricelist.Id} className='linkheader'>
           <div className="p-4 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:m-1 hover:animate-pulse shadow-lg m-1 rounded-lg overflow-hidden ">
             <div className="relative">
               <img
-                src={Pricelist.imgid}
-                alt="url not loaded"
+                src={Pricelist.imgid ? Pricelist.imgid : Pricelist.ImageId }
+                alt= 'image not flound'
                 className="w-[250px] h-[250px] rounded-3xl object-cover"
               />
               {Pricelist.plans && (
