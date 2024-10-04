@@ -29,7 +29,8 @@ app.use("/api/admin", adminRouter)
 
 app.use((err, req, res, next) => {
     if(err){
-        console.error(err); // Log the error for debugging
+        // console.error(err); 
+        console.log('error')
         res.status(500).json({ message: 'Something went wrong.' });
     }
    

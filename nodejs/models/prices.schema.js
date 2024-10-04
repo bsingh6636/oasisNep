@@ -8,7 +8,7 @@ const PricesSchema = new mongoose.Schema({
     },
     Id :{
         type:String,
-        required:true,
+        // required:true,
     },
     ImageId:{
         type:String,
@@ -28,6 +28,9 @@ const PricesSchema = new mongoose.Schema({
     } ,
     Status : {
         type : String
+    } , 
+    MonthlyPass : {
+        type : Object 
     }
 },
 { timestamps: true })

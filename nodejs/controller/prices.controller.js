@@ -3,7 +3,6 @@ import { asyncErrorHandler } from "../utils/asynchandler.js";
 
 export const addprice = async (req, res, next) => {
     const { Name, Id, ImageId, Category, Info, plans, Status , Note } = req.body;
-    console.log(plans)
     const item = await Prices.findOne({ Name })
     if (item) {
         return res.status(500).json({

@@ -4,7 +4,7 @@ import { Admin } from '../models/Admin.Schema.js';
 export const Auth = async (req, res, next) => {
     console.log("Received request for authentication"); // Log request
     const token = req.cookies.adminToken;
-
+    let isAuthOnly = req.originalUrl == '/api/admin/auth'
     if (!token) {
         console.log("No token found");
         return res.status(401).json({ success: false, message: 'Not authenticated Admin' });
@@ -18,11 +18,9 @@ export const Auth = async (req, res, next) => {
         if (!admin) {
             console.log("Admin not found");
             return res.status(404).json({ success: false, message: 'Admin not found' });
-        } else {
-            delete admin.password
-            res.status(200).json({ success: true, admin });
-        }
-        next();
+        } delete admin.password
+        if (isAuthOnly) return res.status(200).json({ success: true, admin });
+        else next();
 
         // Call next to proceed to the next middleware or route handler
     } catch (error) {

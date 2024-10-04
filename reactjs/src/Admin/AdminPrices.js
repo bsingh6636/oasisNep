@@ -69,7 +69,7 @@ const AdminPrices = () => {
       if (editingPrice) {
         await axios.put(`${BackendPort}/prices/${editingPrice._id}`, form);
       } else {
-        await axios.post(`${BackendPort}/prices`, form);
+        await axios.post(`${BackendPort}/prices`, form , { withCredentials: true });
       }
       fetchPrices();
       // Reset form after submission
@@ -97,7 +97,7 @@ const AdminPrices = () => {
 
   const handleDelete = async (Name) => {
     if (window.confirm('Are you sure you want to delete this price?')) {
-      await axios.delete(`${BackendPort}/prices/${Name}`);
+      await axios.delete(`${BackendPort}/prices/${Name}` , { withCredentials : true});
       fetchPrices();
     }
   };

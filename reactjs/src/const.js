@@ -387,5 +387,9 @@ export const Category = [
     {
         name: "software",
         imgurl: "https://res.cloudinary.com/bsingh6636/image/upload/v1716583570/page/software-Logo_bzticr.png"
+    },
+    {
+        name : "games" ,
+        imgurl : "https://graphicsfamily.com/wp-content/uploads/edd/2021/09/Gaming-Logo-Design-Template-1180x664.jpg"
     }
 ]

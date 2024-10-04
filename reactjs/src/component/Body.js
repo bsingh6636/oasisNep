@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/category.css";
-import { CategoryCards } from "./CategoryCards";
+// import { CategoryCards } from "./CategoryCards";
 import { Carouseel } from "./carousel/Carousel";
 import WhatsNew from "./small component/WhatsNew";
 import SearchBar from "./small component/SearchBar";
@@ -11,7 +11,7 @@ export const Body = () => {
     <>
       <SearchBar />
       <Carouseel />
-      <CategoryCards />
+      {/* <CategoryCards /> */}
       <WhatsNew />
       <Update />
       <AllPrices />
