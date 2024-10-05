@@ -7,15 +7,8 @@ const AdminDisplay = () => {
     const [isActive, setIsActive] = useState(false);
     const { loginState, setLoginState, setUserInfo } = useContext(Context);
     const location = useLocation(); // Get the current location
-        const fullPath = location.pathname; // Original path
-        const modifiedPath = fullPath.replace('/admin', ''); // Remove '/admin'
-        // useEffect(()=>{
-        //     if(!modifiedPath =="/login"){
-        //         console.log(modifiedPath )
-        //     }
-            
-        // },[modifiedPath])
-//check don't allow anouther router , if not 
+    const fullPath = location.pathname; // Original path
+    // const modifiedPath = fullPath.replace('/admin', ''); 
     const navigate = useNavigate();
     useEffect(() => {
         const verifyUser = async () => {
@@ -54,7 +47,6 @@ const AdminDisplay = () => {
         const data = await response.json();
         setLoginState(false);
     };
-
     return (
         <div
             className={`p-4 rounded-lg shadow-lg transition-transform transform ${isActive ? 'bg-blue-500 text-white scale-100' : 'bg-gray-100 text-black'}`}
@@ -66,7 +58,7 @@ const AdminDisplay = () => {
                     Logout
                 </button>
             )}
-           
+
         </div>
     );
 };

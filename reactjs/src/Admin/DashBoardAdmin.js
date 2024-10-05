@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const AdminDashboard = () => {
   
   const [isProfileVisible, setProfileVisible] = useState(true);
-  const { userInfo } = useContext(Context);
+  const { userInfo  , loginState} = useContext(Context);
   const { userName, name, email, phone } = userInfo;
-
+  // console.log(loginState)
   return (
     <div className="flex h-screen bg-gray-50">
      

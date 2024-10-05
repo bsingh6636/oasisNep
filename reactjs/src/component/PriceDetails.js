@@ -135,12 +135,14 @@ export const PriceDetails = () => {
                 Add to Cart
               </button>
             </>
-          ) : (
+          ) :  (
+            
             <p className="mt-4 text-gray-700 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg shadow-sm">
               Contact Admin for this Item
             </p>
           )}
         </div>
+        {console.log(details)}
       </div>
       <FAQ chosenMonth={chosenMonth} details={details} />
       <CommentSection />
