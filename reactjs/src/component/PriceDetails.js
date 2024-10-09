@@ -8,16 +8,17 @@ import FAQ from "./small component/FAQ";
 import CommentSection from "./small component/CommentSection";
 import { MyContext } from "./App";
 import { priceUpdate } from "../helper/priceUpdate";
+import { PriceDetailsShimmer } from "../import";
 
 export const PriceDetails = () => {
   const dispatch = useDispatch();
   const [details, setDetails] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedDevice, setSelectedDevice] = useState("1");
-  const [chosenMonth, setChosenMonth] = useState(null); // Updated name
+  const [chosenMonth, setChosenMonth] = useState(null);
   const { object } = useParams();
   const { priceListAll, setPriceListAll } = useContext(MyContext);
-  const [Pricelist, setPricelist] = useState(priceListAll || []); // Ensure priceListAll is set or empty
+  const [Pricelist, setPricelist] = useState(priceListAll || []);
 
   useEffect(() => {
     async function getAllPrice() {
@@ -39,7 +40,7 @@ export const PriceDetails = () => {
         setSelectedMonth(firstMonthValue);
       }
     }
-  }, [Pricelist, object, setPriceListAll]); // Added missing dependencies
+  }, [Pricelist, object, setPriceListAll]);
 
   const handleMonthClick = (key, value) => {
     setChosenMonth(key);
@@ -52,10 +53,17 @@ export const PriceDetails = () => {
 
   const additemtocart = (e) => {
     const { id, Name, imgid } = details;
+    dispatch(
+      addItem({
+        id,
+        name: Name,
+        selectedMonth,
+        selectedDevice,
+        image: imgid,
+        cost: totalCost,
+      })
+    );
 
-    dispatch(addItem({ id, name: Name, selectedMonth, selectedDevice, image: imgid, cost: totalCost }));
-
-    // Handle ripple effect
     const button = e.currentTarget;
     const ripple = document.createElement("span");
     ripple.className = "ripple";
@@ -64,11 +72,12 @@ export const PriceDetails = () => {
 
     button.appendChild(ripple);
     ripple.addEventListener("animationend", () => {
-      ripple.remove(); // Remove the ripple element after animation ends
+      ripple.remove();
     });
   };
 
-  if (!details) return <div className="text-center text-gray-500">Loading...</div>;
+  // Return Shimmer if details are not available (loading state)
+  if (!details) return <PriceDetailsShimmer />;
 
   return (
     <div className="max-w-4xl mx-auto p-8 shadow-lg rounded-lg bg-gradient-to-br from-gray-50 to-gray-200">
@@ -83,8 +92,11 @@ export const PriceDetails = () => {
         <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">{details.Name}</h1>
           <p className="bg-white p-4 rounded-lg shadow-inner text-gray-700">{details.Info}</p>
-          {details.Note && (<p className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg mt-4 text-gray-800"> {details.Note} </p>)}
-
+          {details.Note && (
+            <p className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg mt-4 text-gray-800">
+              {details.Note}
+            </p>
+          )}
 
           {details.plans ? (
             <>
@@ -93,10 +105,11 @@ export const PriceDetails = () => {
                 {Object.entries(details.plans).map(([key, value]) => (
                   <button
                     key={key}
-                    className={`px-4 py-2 rounded-md border shadow-sm transition-colors duration-200 transform ${selectedMonth === value
+                    className={`px-4 py-2 rounded-md border shadow-sm transition-colors duration-200 transform ${
+                      selectedMonth === value
                         ? "bg-blue-500 text-white border-blue-500"
                         : "bg-gray-100 text-gray-800 border-gray-300"
-                      } hover:bg-blue-400 hover:scale-105`}
+                    } hover:bg-blue-400 hover:scale-105`}
                     onClick={() => handleMonthClick(key, value)}
                   >
                     {key}
@@ -117,10 +130,11 @@ export const PriceDetails = () => {
                       onChange={handleDeviceChange}
                     />
                     <span
-                      className={`px-4 py-2 rounded-md border shadow-sm transition-colors duration-200 transform ${selectedDevice === `${num}`
+                      className={`px-4 py-2 rounded-md border shadow-sm transition-colors duration-200 transform ${
+                        selectedDevice === `${num}`
                           ? "bg-blue-500 text-white border-blue-500"
                           : "bg-gray-100 text-gray-800 border-gray-300"
-                        } hover:bg-blue-400 hover:scale-105`}
+                      } hover:bg-blue-400 hover:scale-105`}
                     >
                       {num}
                     </span>
@@ -135,8 +149,7 @@ export const PriceDetails = () => {
                 Add to Cart
               </button>
             </>
-          ) :  (
-            
+          ) : (
             <p className="mt-4 text-gray-700 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg shadow-sm">
               Contact Admin for this Item
             </p>

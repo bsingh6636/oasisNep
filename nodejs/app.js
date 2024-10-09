@@ -10,7 +10,7 @@ const app = express()
 app.use(cookieParser())
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://www.ottnp.xyz'],
+    origin: ['http://localhost:3000', 'https://www.ottnp.xyz' , 'http://localhost:3001'],
     credentials: true
 }));
 app.use(express.json())
