@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Pricelist } from "../const";
+import React, { useContext, useEffect, useState, useMemo } from "react";
+import { Pricelist as PricelistMock } from "../const";
 import { useParams } from "react-router-dom";
 import "../css/body.css";
 import AllPrices from "./AllPrices";
@@ -10,34 +10,29 @@ export const Prices = () => {
   const { priceListAll, setPriceListAll } = useContext(MyContext);
   const { cat } = useParams();
   const [searchValue, setSearchValue] = useState("");
-  const [priceListCopy, setPriceListCopy] = useState(Pricelist);
+  const [priceListCopy, setPriceListCopy] = useState(priceListAll || PricelistMock);
 
-  // Function to filter the price list based on category and search value
-  const filterPrices = () => {
-    return Pricelist.filter((item) => {
+  // Memoize filtering logic to avoid recalculating on every render
+  const filteredPrices = useMemo(() => {
+    return priceListCopy.filter((item) => {
       const matchesCategory = cat ? item.category === cat : true;
       const matchesSearch = item.Name.toLowerCase().includes(searchValue.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  };
+  }, [priceListCopy, cat, searchValue]);
 
   useEffect(() => {
-    const filteredList = filterPrices();
-    setPriceListCopy(filteredList);
-  }, [cat, searchValue]); // Dependency on both cat and searchValue
-
-  useEffect(() => {
-    const updatePrices = async () => {
-      const response = await priceUpdate(priceListCopy);
-      setPriceListCopy(response);
-      setPriceListAll(response);
-      console.log('Updated Prices:', response);
-    };
-    
-    if (priceListCopy.length) {
+    // Fetch and update prices only if priceListAll is empty
+    if (!priceListAll.length) {
+      const updatePrices = async () => {
+        const response = await priceUpdate(PricelistMock);
+        setPriceListAll(response);
+        setPriceListCopy(response);
+        console.log('Prices updated from API:', response);
+      };
       updatePrices();
     }
-  }, [priceListCopy.length, setPriceListAll]); // Run when priceListCopy length changes
+  }, [priceListAll, setPriceListAll]);
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
@@ -45,12 +40,14 @@ export const Prices = () => {
 
   const buttonFilter = (buttonName) => {
     setSearchValue(""); // Clear search when applying a filter
-    setPriceListCopy(Pricelist.filter((data) => data.category === buttonName));
+    setPriceListCopy(
+      PricelistMock.filter((data) => data.category === buttonName)
+    );
   };
 
   const clearFilters = () => {
     setSearchValue(""); // Clear search input
-    setPriceListCopy(Pricelist); // Reset to the full list
+    setPriceListCopy(priceListAll.length ? priceListAll : PricelistMock); // Reset to the full list from context or mock
   };
 
   return (
@@ -88,7 +85,7 @@ export const Prices = () => {
           Clear All
         </button>
       </div>
-      <AllPrices Pricelistcopy={priceListCopy} />
+      <AllPrices Pricelistcopy={filteredPrices} />
     </div>
   );
 };
