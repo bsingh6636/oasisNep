@@ -55,7 +55,7 @@ const SearchedResultDisplay = ({ searchedItem }) => {
                         to={`/prices/${item.Name}`} 
                         key={item.id} 
                         className="no-underline"
-                    > {console.log(item)}
+                    > 
                         <div className="flex items-center p-3 border-b border-gray-700 bg-gray-800 hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:animate-scaleHover shadow-lg rounded-lg">
                             <img
                                 src={item.ImageId}

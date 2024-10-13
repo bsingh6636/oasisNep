@@ -28,7 +28,6 @@ export const Prices = () => {
         const response = await priceUpdate(PricelistMock);
         setPriceListAll(response);
         setPriceListCopy(response);
-        console.log('Prices updated from API:', response);
       };
       updatePrices();
     }

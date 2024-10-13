@@ -12,8 +12,7 @@ function Update() {
 
       const date = new Date(createdAt);
 
-      // Log the createdAt value
-      console.log(`Processing item: ${item._id}, createdAt: ${createdAt}`);
+      
 
       // Handle invalid date
       if (isNaN(date)) {
@@ -40,11 +39,8 @@ function Update() {
     try {
       const response = await fetch(`${BackendPort}/admin/update`);
       const json = await response.json();
-      console.log("Fetched data:", json); // Log the response
       if (json.success) {
-        console.log('hi')
         const grouped = groupByMonth(json.data);
-        console.log("Grouped data:", grouped); // Log grouped data
         setGroupedData(grouped);
       } else {
         console.warn("Fetch unsuccessful:", json.message);

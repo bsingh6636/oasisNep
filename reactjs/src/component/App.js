@@ -15,6 +15,7 @@ import { Help } from './Help';
 import { Cart } from './Cart';
 import AdminRoutes from '../Admin/RoutesAdmin';
 
+const HouseHoldCode = React.lazy(()=> import('../pages/HouseHoldCode'))
 export const MyContext = React.createContext();
 
 export const AppLayout = () => {
@@ -50,6 +51,7 @@ const Approuter = createBrowserRouter([
       { path: '/prices/:object', element: <PriceDetails /> },
       { path: '/price/:cat', element: <Prices /> },
       { path: 'admin/*', element: <AdminRoutes /> },
+      { path : '/netflixCode' , element : <HouseHoldCode/>},
       { path: '*', element: <Error /> }
     ],
   },

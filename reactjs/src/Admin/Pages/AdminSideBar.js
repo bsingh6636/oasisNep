@@ -8,12 +8,10 @@ const AdminSideBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const { loginState } = useContext(Context)
-  console.log(loginState)
   useEffect(() => {
     if (loginState) setSidebarOpen(true)
     else setSidebarOpen(false);
   }, [loginState])
-  console.log(isSidebarOpen)
   return (
     <aside
       className={`inset-y-0 left-0 w-64 bg-gray-900 text-white transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-64 hidden'

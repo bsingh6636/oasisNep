@@ -1,5 +1,4 @@
 const developmentmode = process.env.REACT_APP_DEVELOPED_MODE;
-console.log(developmentmode === 'DEVELOPMENT')
 export const BackendPort = developmentmode === 'DEVELOPMENT' 
   ? 'http://localhost:9999/api' 
   : 'https://oasis-nep.vercel.app/api';

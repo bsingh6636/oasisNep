@@ -4,7 +4,6 @@ import { twilioWhatsApp } from "../utils/twilio.js";
 export const saveUserIp = asyncErrorHandler(async (req, res, next) => {
     const { userIpDetails } = req.body;
     const userIpAdress = userIpDetails.ip
-    console.log("ip",userIpAdress)
     const org = userIpDetails.org
     if (org == 'AS55836 Reliance Jio Infocomm Limited' || 'AS133982 Excitel Broadband Private Limited') {
         return res.status(200).json({
