@@ -5,6 +5,7 @@ const HouseHoldCode = () => {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [optionSelected, setOptionSelected] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,37 +37,70 @@ const HouseHoldCode = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <h1 className="text-2xl font-semibold text-center mb-4 text-gray-800">Get Your Household Code</h1>
-        
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-4">
+      <div className="bg-gray-800 shadow-lg rounded-xl p-6 w-full max-w-md">
+        <h1 className="text-2xl font-bold text-center mb-6">Get Your Netflix Household Code</h1>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-all"
-            disabled={loading}
-          >
-            {loading ? 'Fetching...' : 'Get Code'}
-          </button>
-        </form>
+        {/* Instructions at the top */}
+        <p className="text-center text-gray-300 mb-6">
+          Select <span className="font-semibold">"Watch Temporarily"</span> or <span className="font-semibold">"I'm Travelling"</span>. 
+          After selecting, click on send email to proceed and get the code.
+        </p>
 
+        {/* Options Section */}
+        {/* {!optionSelected && (
+          <div className="space-y-4 mb-6">
+            <button
+              onClick={() => setOptionSelected(true)}
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-lg transition-all"
+            >
+              Watch Temporarily
+            </button>
+            <button
+              onClick={() => setOptionSelected(true)}
+              className="w-full bg-purple-600 hover:bg-purple-500 text-white p-3 rounded-lg transition-all"
+            >
+              I’m Travelling
+            </button>
+          </div>
+        )} */}
+
+        {/* Email Input Section */}
+        { (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="email"
+              className="w-full p-3 border border-gray-600 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your account email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            {/* Instructions below the input field */}
+            <p className="text-sm text-gray-400">
+              Enter the email associated with your account to receive the code.
+            </p>
+
+            <button
+              type="submit"
+              className="w-full bg-green-600 hover:bg-green-500 p-3 rounded-lg transition-all disabled:opacity-50"
+              disabled={loading}
+            >
+              {loading ? 'Fetching...' : 'Get Code'}
+            </button>
+          </form>
+        )}
+
+        {/* Success & Error Message Section */}
         {code && (
-          <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-center">
-            Your Code: <span className="font-mono font-semibold">{code}</span>
+          <div className="mt-4 p-4 bg-green-200 text-green-900 rounded-lg text-center">
+            <p>Your Code: <span className="font-mono font-bold">{code}</span></p>
           </div>
         )}
 
         {error && (
-          <div className="mt-4 p-4 bg-red-100 text-red-800 rounded-lg text-center">
+          <div className="mt-4 p-4 bg-red-200 text-red-900 rounded-lg text-center">
             {error}
           </div>
         )}
