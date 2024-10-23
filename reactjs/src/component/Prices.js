@@ -30,7 +30,7 @@ export const Prices = () => {
          setPriceListAll(response);
          setPriceListCopy(response);
        } catch (error) {
-         console.log('error : ' , error)
+         console.log('failed to fetch prices ' , )
        }
       };
       updatePrices();
