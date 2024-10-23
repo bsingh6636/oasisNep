@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      scale :{
+        '1.009' : '1.009'
+      },
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out forwards',
         scaleHover: 'scaleHover 0.102s ease-in-out forwards', // Custom scale hover animation

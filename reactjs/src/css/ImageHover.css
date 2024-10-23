@@ -1,0 +1,29 @@
+.image-hover-container {
+    display: inline-block;
+    perspective: 1000px; /* Ensure 3D effect */
+  }
+  
+  .card {
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+    border: 10px solid white;
+  }
+  
+  .card:hover {
+    box-shadow: 0px 15px 35px -5px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Optional: Styling the gallery */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  

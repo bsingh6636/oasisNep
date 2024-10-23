@@ -31,6 +31,7 @@ function Update() {
       acc[monthYear].push(item);
 
       return acc;
+      // eslint-disable-next-line
     }, {});
   };
 
@@ -54,6 +55,7 @@ function Update() {
 
   React.useEffect(() => {
     getUpdates();
+    // eslint-disable-next-line
   }, []);
 
   return (

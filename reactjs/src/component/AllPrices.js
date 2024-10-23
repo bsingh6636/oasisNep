@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pricelist as prices } from '../const';
 import { Link } from 'react-router-dom';
+import ImageHover from '../pages/ImageHover';
 
 const AllPrices = ({ Pricelistcopy }) => {
     if (!Pricelistcopy) {
@@ -18,13 +19,9 @@ const AllPrices = ({ Pricelistcopy }) => {
 
                 return (
                     <Link to={`/prices/${Pricelist.Name}`} key={Pricelist.Id} className='linkheader'>
-                        <div className="transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-md m-2 p-4">
+                        <div className="transform transition-all duration-300 ease-in-out hover:scale-1.009 hover:shadow-2xl rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-md m-2 p-1">
                             <div className="relative">
-                                <img
-                                    src={Pricelist.imgid ? Pricelist.imgid : Pricelist.ImageId}
-                                    alt='Image not found'
-                                    className="w-full h-[250px] rounded-3xl object-cover mb-2"
-                                />
+                                <ImageHover  className="custom-image" imageUrl={Pricelist.imgid ? Pricelist.imgid : Pricelist.ImageId} />
                                 {Pricelist.plans && (
                                     <span className="absolute bottom-1 left-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-bold p-2 rounded shadow-lg">
                                         {firstPlanKey} month @ {firstPlanValue}

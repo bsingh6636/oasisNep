@@ -1,12 +1,11 @@
 // src/AdminDashboard.js
 import React, { useContext, useState } from 'react';
 import { Context } from './RoutesAdmin';
-import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
   
   const [isProfileVisible, setProfileVisible] = useState(true);
-  const { userInfo  , loginState} = useContext(Context);
+  const { userInfo  } = useContext(Context);
   const { userName, name, email, phone } = userInfo;
   return (
     <div className="flex h-screen bg-gray-50">

@@ -25,9 +25,13 @@ export const Prices = () => {
     // Fetch and update prices only if priceListAll is empty
     if (!priceListAll.length) {
       const updatePrices = async () => {
-        const response = await priceUpdate(PricelistMock);
-        setPriceListAll(response);
-        setPriceListCopy(response);
+       try {
+         const response = await priceUpdate(PricelistMock);
+         setPriceListAll(response);
+         setPriceListCopy(response);
+       } catch (error) {
+         console.log('error : ' , error)
+       }
       };
       updatePrices();
     }

@@ -1,14 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { BackendPort } from '../Const/url';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Context } from './RoutesAdmin';
 
 const AdminDisplay = () => {
     const [isActive, setIsActive] = useState(false);
     const { loginState, setLoginState, setUserInfo } = useContext(Context);
-    const location = useLocation(); // Get the current location
-    const fullPath = location.pathname; // Original path
-    // const modifiedPath = fullPath.replace('/admin', ''); 
     const navigate = useNavigate();
     useEffect(() => {
         const verifyUser = async () => {
@@ -32,6 +29,7 @@ const AdminDisplay = () => {
         };
 
         verifyUser()
+        // eslint-disable-next-line
     }, [navigate, setLoginState]);
 
     useEffect(() => {
@@ -40,11 +38,14 @@ const AdminDisplay = () => {
         } else {
             navigate('/admin/login');
         }
+        // eslint-disable-next-line
     }, [loginState, navigate]);
 
     const handleLogout = async () => {
         const response = await fetch(`${BackendPort}/admin/logout`, { credentials: 'include' })
         const data = await response.json();
+        console.log(data)
+        //needs handling , when network reponse faile or any error
         setLoginState(false);
     };
     return (

@@ -5,7 +5,6 @@ const HouseHoldCode = () => {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [optionSelected, setOptionSelected] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,25 +46,7 @@ const HouseHoldCode = () => {
           After selecting, click on send email to proceed and get the code.
         </p>
 
-        {/* Options Section */}
-        {/* {!optionSelected && (
-          <div className="space-y-4 mb-6">
-            <button
-              onClick={() => setOptionSelected(true)}
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-lg transition-all"
-            >
-              Watch Temporarily
-            </button>
-            <button
-              onClick={() => setOptionSelected(true)}
-              className="w-full bg-purple-600 hover:bg-purple-500 text-white p-3 rounded-lg transition-all"
-            >
-              I’m Travelling
-            </button>
-          </div>
-        )} */}
-
-        {/* Email Input Section */}
+      
         { (
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
