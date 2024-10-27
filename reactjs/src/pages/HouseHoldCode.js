@@ -60,7 +60,7 @@ const HouseHoldCode = () => {
 
             {/* Instructions below the input field */}
             <p className="text-sm text-gray-400">
-              Enter the email associated with your account to receive the code.
+            Enter the Netflix email associated with your account to receive the code.
             </p>
 
             <button

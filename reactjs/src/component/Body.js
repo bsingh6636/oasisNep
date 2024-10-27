@@ -5,13 +5,12 @@ import SearchBar from "./small component/SearchBar";
 import Update from "./Update";
 import AllPrices from "./AllPrices";
 import { CategoryCards } from "./CategoryCards";
-import SimpleSlider from "./carousel/Carousel";
+import { CarouselTransition } from "./carousel/Carousel";
 export const Body = () => {
   return (
     <>
       <SearchBar />
-      {/* <Carouseel /> */}
-      {/* <SimpleSlider/> */}
+      {/* <CarouselTransition/> */}
       <CategoryCards/>
       <WhatsNew />
       <Update />

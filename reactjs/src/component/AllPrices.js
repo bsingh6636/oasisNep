@@ -2,12 +2,14 @@ import React from 'react';
 import { Pricelist as prices } from '../const';
 import { Link } from 'react-router-dom';
 import ImageHover from '../pages/ImageHover';
+import { AllPricesShimmer } from '../import';
 
 const AllPrices = ({ Pricelistcopy }) => {
     if (!Pricelistcopy) {
         Pricelistcopy = prices;
     }
-
+    console.log(Pricelistcopy.length)
+    // return Pricelistcopy.length < 1 ? <AllPricesShimmer/> : (
     return (
         <div className="flex flex-wrap justify-center gap-6 p-6">
             {Pricelistcopy && Pricelistcopy.map((Pricelist) => {
