@@ -9,8 +9,8 @@ const AllPrices = ({ Pricelistcopy }) => {
         Pricelistcopy = prices;
     }
     console.log(Pricelistcopy.length)
-    // return Pricelistcopy.length < 1 ? <AllPricesShimmer/> : (
-    return (
+    return Pricelistcopy.length < 1 ? <AllPricesShimmer/> : (
+    // return (
         <div className="flex flex-wrap justify-center gap-6 p-6">
             {Pricelistcopy && Pricelistcopy.map((Pricelist) => {
                 let firstPlanKey, firstPlanValue;
