@@ -2,17 +2,16 @@ import React from 'react';
 import { Pricelist as prices } from '../const';
 import { Link } from 'react-router-dom';
 import ImageHover from '../pages/ImageHover';
-import { AllPricesShimmer } from '../import';
+import AllPricesShimmer from './small component/Shimmer/AllPricesShimmer';
 
 const AllPrices = ({ Pricelistcopy }) => {
     if (!Pricelistcopy) {
         Pricelistcopy = prices;
     }
-    console.log(Pricelistcopy.length)
     return Pricelistcopy.length < 1 ? <AllPricesShimmer/> : (
     // return (
         <div className="flex flex-wrap justify-center gap-6 p-6">
-            {Pricelistcopy && Pricelistcopy.map((Pricelist) => {
+            {Pricelistcopy && Pricelistcopy.map((Pricelist , index) => {
                 let firstPlanKey, firstPlanValue;
                 if (Pricelist.plans) {
                     firstPlanKey = Object.keys(Pricelist.plans)[0];
@@ -20,7 +19,7 @@ const AllPrices = ({ Pricelistcopy }) => {
                 }
 
                 return (
-                    <Link to={`/prices/${Pricelist.Name}`} key={Pricelist.Id} className='linkheader'>
+                    <Link to={`/prices/${Pricelist.Name}`} key={index}  className='linkheader'>
                         <div className="transform transition-all duration-300 ease-in-out hover:scale-1.009 hover:shadow-2xl rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-md m-2 p-1">
                             <div className="relative">
                                 <ImageHover  className="custom-image" imageUrl={Pricelist.imgid ? Pricelist.imgid : Pricelist.ImageId} />

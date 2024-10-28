@@ -32,7 +32,8 @@ fetchAllVideos()
               <iframe
                 width="100%"
                 height="200"
-                src={`${item.TrailerLink}`}
+                src={item.TrailerLink.replace('youtube.com','youtube-nocookie.com')}
+                // src={item.TrailerLink.replace("youtube.com", "youtube-nocookie.com")}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

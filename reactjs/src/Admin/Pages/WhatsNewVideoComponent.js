@@ -20,7 +20,7 @@ const WhatsNewVideoComponent = () => {
                 setName('');
                 setPlatform('');
                 setTrailerLink('');
-               
+
             } else {
                 setError(data.message || 'Failed to add/update video');
             }
@@ -38,7 +38,7 @@ const WhatsNewVideoComponent = () => {
             });
             const data = await response.json();
             if (data.success) {
-               
+
             } else {
                 setError(data.message || 'Failed to delete video');
             }
@@ -75,13 +75,13 @@ const WhatsNewVideoComponent = () => {
                     onChange={(e) => setName(e.target.value)}
                     className="border p-2 rounded mr-2 w-full"
                 />
-                <input
-                    type="text"
-                    placeholder="Platform"
+
+                <select
                     value={platform}
                     onChange={(e) => setPlatform(e.target.value)}
-                    className="border p-2 rounded mr-2 w-full"
-                />
+                    className="border p-2 rounded mr-2 w-full">
+                    {['Netflix', 'Prime Video'].map((platform) => (<option key={platform} value={platform}>{platform}</option>))}
+                </select>
                 <input
                     type="text"
                     placeholder="Trailer Link"
@@ -109,7 +109,7 @@ const WhatsNewVideoComponent = () => {
             <div>
                 <h2 className="text-xl font-semibold mb-2">All Videos</h2>
                 <ul className="list-disc pl-5">
-                    
+
                     {videos.map((video) => (
                         <li key={video._id} className="mb-2 flex items-center">
                             <div className="flex-1">
