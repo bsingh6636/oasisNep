@@ -23,10 +23,10 @@ export const Pricelist = [
         category: "ott",
         status :'shared',
         plans: {
-            "1": "280",
-            "3": "840",
-            "6": "1650",
-            "12": "3150"
+            "1": "300",
+            "3": "880",
+            "6": "1700",
+            "12": "3200"
         },
     },
     {
@@ -75,9 +75,8 @@ export const Pricelist = [
         category: "ott",
         status :'private',
         plans: {
-            "1": "250",
-            "6": "900",
-            "12": "1500",
+           
+           "12": "2000",
         },
     },
     {
@@ -138,10 +137,8 @@ export const Pricelist = [
         category: "ott",
         status :'shared',
         plans: {
-            "1": "180",
-            "3": "450",
-            "6": "650",
-            "12": "750",
+            "6": "700",
+            "12": "1200",
         },
     },
     {
@@ -177,8 +174,8 @@ export const Pricelist = [
         category: "ott",
         status :'shared',
         plans: {
-            "6": "750",
-            "12": "1250"
+            "6": "900",
+            "12": "1400"
         }
     },
     {
@@ -202,7 +199,7 @@ export const Pricelist = [
         category: "music",
         status :'private',
         plans: {
-            "12": "800",
+            "12": "1800",
         },
     },
     {
@@ -250,10 +247,8 @@ export const Pricelist = [
         Info: "An Indian subscription video-on-demand and over-the-top streaming service.",
         status :'shared',
         plans: {
-            "1": "250",
-            "3": "500",
             "6": "850",
-            "12": "1000",
+            "12": "1400",
         },
     },
     {
@@ -315,8 +310,8 @@ export const Pricelist = [
         category: "18+",
         status:'undefined',
         plans: {
-            "1": "350",
-            "3": "900",
+            "1": "500",
+            "3": "1200",
         },
     },
     {
@@ -327,8 +322,8 @@ export const Pricelist = [
         category: "18+",
         status:'undefined',
         plans: {
-            "1": "350",
-            "3": "900",
+            "1": "500",
+            "3": "1200",
         },
     },
     {
@@ -339,8 +334,8 @@ export const Pricelist = [
         category: "18+",
         status:'undefined',
         plans: {
-            "1": "350",
-            "3": "900",
+            "1": "500",
+            "3": "1200",
         },
     },
     {
@@ -351,8 +346,8 @@ export const Pricelist = [
         category: "18+",
         status:'undefined',
         plans: {
-            "1": "350",
-            "3": "900",
+            "1": "500",
+            "3": "1200",
         },
     },
     {
@@ -363,8 +358,8 @@ export const Pricelist = [
         category: "18+",
         status:'undefined',
         plans: {
-            "1": "350",
-            "3": "900",
+            "1": "500",
+            "3": "1200",
         },
     },
     //30 Id taken

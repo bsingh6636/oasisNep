@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
 
-config({ path: "./config.env" })
+config({ path: "./.env" })
 
 export const MONGO_URI = process.env.MONGO_URI
 

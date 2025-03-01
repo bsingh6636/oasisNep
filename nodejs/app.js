@@ -1,6 +1,5 @@
 import cors from 'cors'
 import express from "express"
-import { dbconnection } from "./dbConnection.js";
 import priceRouter from "./Router/prices.router.js"
 import userRouter from "./Router/userInfo.router.js"
 import adminRouter from "./Router/admin.router.js"
@@ -10,7 +9,7 @@ const app = express()
 app.use(cookieParser())
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://www.ottnp.xyz' , 'http://localhost:3001'],
+    origin: ['https://subscriptionnepal.com', 'https://pagee-kappa.vercel.app','http://localhost:3000', 'https://www.ottnp.xyz' , 'http://localhost:3001'],
     credentials: true
 }));
 app.use(express.json())
@@ -35,6 +34,4 @@ app.use((err, req, res, next) => {
     }
    
 });
-
-dbconnection()
 export default app;
