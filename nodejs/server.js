@@ -1,6 +1,6 @@
 import app from "./app.js"
 import { PORT } from "./import.js"
-import { dbconnection } from "./dbconnection.js"
+import { dbconnection } from "./dbConnection.js"
 
 dbconnection().then(()=>{
     console.log('Connection to database');
