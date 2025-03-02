@@ -9,7 +9,7 @@ const app = express()
 app.use(cookieParser())
 
 app.use(cors({
-    origin: ['https://subscriptionnepal.com', 'https://pagee-kappa.vercel.app','http://localhost:3000', 'https://www.ottnp.xyz' , 'http://localhost:3001'],
+    origin: ['https://subscriptionnepal.shop', 'https://pagee-kappa.vercel.app','http://localhost:3000', 'http://localhost:3001'],
     credentials: true
 }));
 app.use(express.json())
