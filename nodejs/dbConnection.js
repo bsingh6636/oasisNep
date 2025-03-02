@@ -8,6 +8,6 @@ export const dbconnection = () => {
         console.log("Successfully Connected to database");
     }).catch((err) => {
         console.log("Failed to connect to db", err);
-        throw err;  // Re-throw to catch in outer block
+        throw err;  // Re-tthrow to catch in outer block
     });
 };
