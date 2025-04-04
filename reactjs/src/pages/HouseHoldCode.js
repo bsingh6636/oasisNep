@@ -13,13 +13,15 @@ const HouseHoldCode = () => {
     setCode('');
 
     try {
-      const response = await fetch('https://web.loophj.com/getCodes', {
+      const response = await fetch('https://test.loophj.com/getCodes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
       });
+
+      console.log(response)
 
       const data = await response.json();
 
