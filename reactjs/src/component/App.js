@@ -22,13 +22,16 @@ export const AppLayout = () => {
   
   const [priceListAll, setPriceListAll] = useState([])
   return (
-    <div className=' bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
+    <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
       {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
 
       <Provider store={reduxstore}>
         <MyContext.Provider value={{ priceListAll, setPriceListAll }} >
           <Navbar />
+          <div className='md:px-10 lg:px-20' >
+
           <Outlet />
+          </div>
           <Footer />
         </MyContext.Provider>
       </Provider>
