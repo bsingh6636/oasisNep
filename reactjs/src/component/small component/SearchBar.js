@@ -45,7 +45,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
+    <div className={`p-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
       <div ref={searchRef} className="relative max-w-2xl mx-auto">
         {/* Search Input */}
         <div className="relative">

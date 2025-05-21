@@ -79,29 +79,7 @@ function Update() {
     // eslint-disable-next-line
   }, []);
 
-  // Generate skeleton loaders for loading state
-  const renderSkeletons = () => {
-    return Array(3).fill(0).map((_, index) => (
-      <div key={`skeleton-${index}`} className="my-6 animate-pulse">
-        <div className={`h-8 w-48 mx-auto rounded ${isDarkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-        <div className="flex overflow-x-auto space-x-4 p-4 mt-4">
-          {Array(3).fill(0).map((_, cardIndex) => (
-            <div 
-              key={`card-skeleton-${cardIndex}`} 
-              className={`flex-none w-72 sm:w-80 lg:w-96 p-4 border rounded-lg ${
-                isDarkMode 
-                  ? 'border-gray-700 bg-gray-800' 
-                  : 'border-gray-200 bg-white'
-              }`}
-            >
-              <div className={`h-48 w-full rounded-xl ${isDarkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-              <div className={`h-10 w-full mt-4 rounded ${isDarkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ));
-  };
+  
 
   // Error display component
   const ErrorDisplay = ({ message }) => (
@@ -150,7 +128,7 @@ function Update() {
   };
 
   return (
-    <div className={`p-4 max-w-screen-xl mx-auto transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`p-4  mx-auto transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
       <h1 className={`text-3xl font-bold text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
         Updates
       </h1>
@@ -276,3 +254,34 @@ function Update() {
 }
 
 export default Update;
+
+ export const renderSkeletons = () => {
+  return Array(3).fill(0).map((_, index) => (
+    <div key={`skeleton-${index}`} className="my-10 animate-pulseSoft">
+      {/* Section Title Placeholder */}
+      <div className="h-5 w-40 mx-auto rounded bg-gray-200 dark:bg-gray-700 mb-6"></div>
+
+      {/* Horizontal Card Row */}
+      <div className="flex overflow-x-auto space-x-5 px-4">
+        {Array(3).fill(0).map((_, cardIndex) => (
+          <div
+            key={`card-skeleton-${cardIndex}`}
+            className="flex-none w-72 sm:w-80 lg:w-96 p-5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm transition-all"
+          >
+            {/* Image Placeholder */}
+            <div className="h-44 w-full rounded-lg bg-gray-200 dark:bg-gray-700"></div>
+
+            {/* Title Placeholder */}
+            <div className="h-4 w-3/4 mt-5 rounded-md bg-gray-200 dark:bg-gray-700"></div>
+
+            {/* Subtitle Placeholder */}
+            <div className="h-4 w-1/2 mt-3 rounded-md bg-gray-200 dark:bg-gray-700"></div>
+
+            {/* Button Placeholder */}
+            <div className="h-10 w-full mt-6 rounded-lg bg-gray-200 dark:bg-gray-700"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ));
+};
