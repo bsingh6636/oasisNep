@@ -7,7 +7,7 @@ export const Auth = async (req, res, next) => {
     let isAuthOnly = req.originalUrl == '/api/admin/auth'
     if (!token) {
         console.log("No token found");
-        return res.status(401).json({ success: false, message: 'Not authenticated Admin' });
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
     }
 
     try {

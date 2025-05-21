@@ -4,6 +4,7 @@ import priceRouter from "./Router/prices.router.js"
 import userRouter from "./Router/userInfo.router.js"
 import adminRouter from "./Router/admin.router.js"
 import cookieParser from "cookie-parser";
+import router from './Router/router.js'
 const app = express()
 
 app.use(cookieParser())
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use("/api/prices", priceRouter)
 app.use("/api/user", userRouter)
 app.use("/api/admin", adminRouter)
+app.use('/api', router  )
 
 // Catch-all route for undefined routes
 

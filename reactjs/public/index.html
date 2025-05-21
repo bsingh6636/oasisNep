@@ -16,126 +16,208 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>OASIS NEPAL</title>
     <style>
-      /* * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Open Sans", sans-serif;
-      } */
-
-      /* body {
-        background-color: #1e1e1e;
-        background-size: cover;
-        background-position: center;
-      } */
-
-      /* Loader container */
+      /* Modern Loader Styles */
       .loader-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background: linear-gradient(135deg, #1f1f1f, #383838);
-        position: fixed;
         width: 100%;
+        position: fixed;
         z-index: 9999;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
       }
 
-      /* Rectangular loader border */
-      .spinner-container {
-        width: 120px;
-        height: 120px;
-        border: 10px solid transparent;
-        border-radius: 10px;
-        border-top: 10px solid #ff6b6b;
-        border-bottom: 10px solid #1dd1a1;
-        border-left: 10px solid #54a0ff;
-        animation: spin 1s linear infinite;
+      .loader-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(0.9);
+        animation: pulse 2s infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+
+      .loader-logo {
         position: relative;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b6b, #1dd1a1, #54a0ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       }
 
-      /* White spinner inside the border */
-      .inner-spinner {
-        width: 80px;
-        height: 80px;
-        background-color: white;
+      .loader-logo::before {
+        content: "";
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-        animation: spin-reverse 1s linear infinite;
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 1;
       }
 
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+      .loader-logo::after {
+        content: "OASIS";
+        position: absolute;
+        font-size: 24px;
+        font-weight: 800;
+        color: #302b63;
+        z-index: 2;
+        letter-spacing: 2px;
       }
 
-      @keyframes spin-reverse {
-        0% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(-360deg);
-        }
+      .loader-bars {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 50px;
+        width: 100px;
+        margin-bottom: 20px;
       }
 
-      /* Responsive design */
-      @media (max-width: 600px) {
-        .spinner-container {
-          width: 70px;
-          height: 70px;
-          border-width: 6px;
-        }
-        .inner-spinner {
-          width: 50px;
-          height: 50px;
-        }
-        .loading-text {
-          font-size: 0.9rem;
-          margin-top: 15px;
-        }
+      .bar {
+        display: inline-block;
+        width: 6px;
+        height: 20px;
+        margin: 0 4px;
+        border-radius: 4px;
+        animation: sound 0.8s linear infinite alternate;
+        transform-origin: bottom;
       }
 
-      @media (min-width: 600px) and (max-width: 1024px) {
-        .spinner-container {
-          width: 100px;
-          height: 100px;
-          border-width: 9px;
-        }
-        .inner-spinner {
-          width: 70px;
-          height: 70px;
-        }
-        .loading-text {
-          font-size: 1.1rem;
-        }
+      .bar:nth-child(1) {
+        animation-delay: 0.2s;
+        background-color: #ff6b6b;
       }
 
-      /* Text below the spinner */
+      .bar:nth-child(2) {
+        animation-delay: 0.4s;
+        background-color: #ff9ff3;
+      }
+
+      .bar:nth-child(3) {
+        animation-delay: 0.6s;
+        background-color: #54a0ff;
+      }
+
+      .bar:nth-child(4) {
+        animation-delay: 0.8s;
+        background-color: #1dd1a1;
+      }
+
+      .bar:nth-child(5) {
+        animation-delay: 1s;
+        background-color: #feca57;
+      }
+
+      @keyframes sound {
+        0% { height: 10px; }
+        100% { height: 40px; }
+      }
+
       .loading-text {
-        margin-top: 20px;
-        font-size: 1.4rem;
-        color: white;
-        font-weight: bold;
         text-align: center;
-        animation: fadeIn 1s ease-in-out infinite alternate;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
       }
 
-      @keyframes fadeIn {
-        0% {
-          opacity: 0.5;
-        }
-        100% {
-          opacity: 1;
-        }
+      .loading-text::after {
+        content: "...";
+        position: absolute;
+        width: 0;
+        animation: ellipsis 1.5s infinite;
+        overflow: hidden;
+      }
+
+      @keyframes ellipsis {
+        0% { width: 0; }
+        33% { width: 0.7em; }
+        66% { width: 1.4em; }
+        100% { width: 2.1em; }
+      }
+
+      /* Streaming services icons */
+      .streaming-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .icon-bubble {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+        transform: scale(0);
+        animation: popIn 0.5s forwards;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .icon-bubble:nth-child(1) { animation-delay: 0.2s; }
+      .icon-bubble:nth-child(2) { animation-delay: 0.4s; }
+      .icon-bubble:nth-child(3) { animation-delay: 0.6s; }
+      .icon-bubble:nth-child(4) { animation-delay: 0.8s; }
+
+      @keyframes popIn {
+        0% { transform: scale(0); }
+        80% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+
+      .icon-bubble i {
+        font-size: 22px;
+      }
+
+      .netflix-color { color: #e50914; }
+      .prime-color { color: #00a8e1; }
+      .hotstar-color { color: #1f80e0; }
+      .spotify-color { color: #1db954; }
+
+      /* Progress bar */
+      .progress-container {
+        width: 220px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #ff6b6b, #54a0ff, #1dd1a1);
+        animation: loading 3s ease-in-out forwards;
+        background-size: 200% 100%;
+        animation: loading 3s forwards, gradient 2s ease infinite;
+      }
+
+      @keyframes loading {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
 
       /* Fade-out animation */
@@ -143,15 +225,72 @@
         opacity: 0;
         visibility: hidden;
       }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .loader-logo {
+          width: 120px;
+          height: 120px;
+        }
+        
+        .loader-logo::before {
+          width: 104px;
+          height: 104px;
+        }
+        
+        .loader-logo::after {
+          font-size: 20px;
+        }
+        
+        .loading-text {
+          font-size: 1rem;
+        }
+        
+        .icon-bubble {
+          width: 34px;
+          height: 34px;
+          margin: 0 6px;
+        }
+        
+        .icon-bubble i {
+          font-size: 18px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="loader-container">
-      <div>
-        <div class="spinner-container">
-          <div class="inner-spinner"></div>
+      <div class="loader-content">
+        <div class="loader-logo"></div>
+        
+        <div class="loader-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <div class="loading-text">Loading Oasis Nepal...</div>
+        
+        <div class="loading-text">Loading Oasis Nepal</div>
+        
+        <div class="streaming-icons">
+          <div class="icon-bubble">
+            <i class="fab fa-netflix netflix-color"></i>
+          </div>
+          <div class="icon-bubble">
+            <i class="fab fa-amazon prime-color"></i>
+          </div>
+          <div class="icon-bubble">
+            <i class="fas fa-play-circle hotstar-color"></i>
+          </div>
+          <div class="icon-bubble">
+            <i class="fab fa-spotify spotify-color"></i>
+          </div>
+        </div>
+        
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
       </div>
     </div>
 
@@ -161,10 +300,19 @@
     <script>
       // Function to hide the loader after React components are loaded
       window.addEventListener("load", function() {
-        const loaderContainer = document.querySelector(".loader-container");
-        if (loaderContainer) {
-          loaderContainer.classList.add("hide-loader");
-        }
+        setTimeout(function() {
+          const loaderContainer = document.querySelector(".loader-container");
+          if (loaderContainer) {
+            loaderContainer.classList.add("hide-loader");
+            
+            // Completely remove loader from DOM after animation completes
+            setTimeout(function() {
+              if (loaderContainer && loaderContainer.parentNode) {
+                loaderContainer.parentNode.removeChild(loaderContainer);
+              }
+            }, 1000);
+          }
+        }, 1000); // Add a minimum display time so users see the nice loader
       });
     </script>
   </body>

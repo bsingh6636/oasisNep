@@ -388,3 +388,45 @@ export const Category = [
         imgurl : "https://graphicsfamily.com/wp-content/uploads/edd/2021/09/Gaming-Logo-Design-Template-1180x664.jpg"
     }
 ]
+export const oldCarouselItem = [
+  {
+    id: 1,
+    image: "https://res.cloudinary.com/bsingh6636/image/upload/v1717157641/page/20240529035057_pan_ux15zj.avif",
+    title: "Panchayat",
+    description: "Get Prime Video at 20% OFF",
+    badge: "HOT DEAL",
+    ctaText: "Get Offer"
+  },
+  {
+    id: 2,
+    image: "https://res.cloudinary.com/bsingh6636/image/upload/v1716585466/page/ott_mvrnlk.png",
+    title: "All OTT Platforms",
+    description: "Bundle & save up to 40% on subscriptions",
+    badge: "TRENDING",
+    ctaText: "View Plans"
+  },
+  {
+    id: 3,
+    image: "https://res.cloudinary.com/bsingh6636/image/upload/v1716585467/page/music_xf8x5o.png",
+    title: "Music Streaming",
+    description: "Premium accounts at lowest prices",
+    badge: "NEW",
+    ctaText: "Subscribe Now"
+  },
+  {
+    id: 4,
+    image: 'https://res.cloudinary.com/bsingh6636/image/upload/v1717101257/page/SUSBCRIPTION-NEPAL_eddy09.png',
+    title: "Netflix Premium",
+    description: "Ultra HD streaming starting at ₹199/month",
+    badge: "BESTSELLER",
+    ctaText: "Join Now"
+  },
+  {
+    id: 5,
+    image: 'https://www.koimoi.com/wp-content/new-galleries/2021/09/kota-factory-season-2-review-002.jpg',
+    title: "Kota Factory",
+    description: "Exclusive student offers on all streaming plans",
+    badge: "LIMITED TIME",
+    ctaText: "Grab Deal"
+  }
+];

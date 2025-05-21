@@ -21,14 +21,15 @@ export const MyContext = React.createContext();
 export const AppLayout = () => {
   
   const [priceListAll, setPriceListAll] = useState([])
+  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
       {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
 
       <Provider store={reduxstore}>
-        <MyContext.Provider value={{ priceListAll, setPriceListAll }} >
+        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode }} >
           <Navbar />
-          <div className='md:px-10 lg:px-20' >
+          <div className='' >
 
           <Outlet />
           </div>

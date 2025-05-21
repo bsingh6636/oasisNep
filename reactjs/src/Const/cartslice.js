@@ -20,7 +20,9 @@ const cartslice =createSlice({
             saveCartToLocalStorage(state)
         },
         deleteItemCart:(state,action) =>{
-            state.items = state.items.filter((items)=> items.id!==action.payload)
+            console.log("Before:", JSON.parse(JSON.stringify(state.items)));
+    console.log("Payload:", action.payload);
+            state.items = state.items.filter((items)=> items.Id!==action.payload)
             saveCartToLocalStorage(state)
         }
     }
