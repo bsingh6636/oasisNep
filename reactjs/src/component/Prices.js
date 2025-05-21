@@ -6,6 +6,7 @@ import { MyContext } from "./App";
 import { priceUpdate } from "../helper/priceUpdate";
 import AllPricesShimmer from './small component/Shimmer/AllPricesShimmer';
 import { Search, Filter, X, ChevronRight } from "lucide-react";
+import { renderSkeletons } from "./Update";
 
 export const Prices = () => {
   const { priceListAll, setPriceListAll } = useContext(MyContext);
@@ -215,7 +216,8 @@ export const Prices = () => {
         
         {/* Cards Grid */}
         {isLoading ? (
-          <AllPricesShimmer />
+          // <AllPricesShimmer />
+          renderSkeletons()
         ) : (
           <AllPrices Pricelistcopy={filteredPrices} />
         )}
