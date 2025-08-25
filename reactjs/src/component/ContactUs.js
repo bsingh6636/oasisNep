@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const ContactUs = () => {
+const ContactUs = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeCard, setActiveCard] = useState(null);
 

@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 
-export const Error = () => {
+const Error = () => {
   const err = useRouteError();
   console.log(err);
   const notfoundImage404 = 'https://outscal.io/_next/image?url=%2Fimages%2F404.jpg&w=1080&q=75';
@@ -23,3 +23,5 @@ export const Error = () => {
     </div>
   );
 };
+
+export default Error;

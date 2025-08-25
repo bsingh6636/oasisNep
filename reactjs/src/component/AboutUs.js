@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export const AboutUs = () => {
+const AboutUs = () => {
   const [isVisible, setIsVisible] = useState({
     header: false,
     content: false,
