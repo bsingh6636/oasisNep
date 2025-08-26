@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Order = sequelize.define("orders", {
+  const Order = sequelize.define('orders', {
     status: {
       type: Sequelize.ENUM('pending', 'approved', 'rejected', 'expired'),
       defaultValue: 'pending'

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addItem } from "../redux/cartSlice";
-import { fetchServices } from "../redux/serviceSlice";
-import "../css/ripple.css";
-import FAQ from "./small component/FAQ";
-import { PriceDetailsShimmer } from "../import";
-import { ShoppingCart, Check } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../redux/cartSlice';
+import { fetchServices } from '../redux/serviceSlice';
+import '../css/ripple.css';
+import FAQ from './small component/FAQ';
+import { PriceDetailsShimmer } from '../import';
+import { ShoppingCart, Check } from 'lucide-react';
 
 const PriceDetails = () => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const PriceDetails = () => {
             <div className="w-full md:w-1/2 bg-gray-100 dark:bg-black">
               <img
                 className="w-full h-full object-contain"
-                src={details.imageUrl || "/api/placeholder/600/600"}
+                src={details.imageUrl || '/api/placeholder/600/600'}
                 alt={details.name}
               />
             </div>
@@ -77,7 +77,7 @@ const PriceDetails = () => {
               <button
                 onClick={handleAddToCart}
                 className={`w-full font-medium py-3 rounded-md mt-6 transition-all duration-300 ${
-                  isAdded ? "bg-green-600" : "bg-blue-600 hover:bg-blue-700"
+                  isAdded ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'
                 } text-white`}
               >
                 {isAdded ? (

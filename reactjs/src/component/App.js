@@ -1,9 +1,11 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Navbar } from './Header';
 import { Footer } from './Footer';
 import { Body } from './Body';
 import AdminRoutes from '../Admin/RoutesAdmin';
+import { subscribeToPush } from '../utils/push';
+import { useSelector } from 'react-redux';
 
 const Prices = lazy(() => import('./Prices'));
 const Error = lazy(() => import('./Error'));
@@ -22,13 +24,21 @@ const ChatPage = lazy(() => import('../pages/ChatPage'));
 const HouseHoldCode = lazy(() => import('../pages/HouseHoldCode'));
 
 export const AppLayout = () => {
+  const { user } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    if (user) {
+      subscribeToPush();
+    }
+  }, [user]);
+
   return (
     <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
       <Navbar />
       <div className='' >
         <Suspense fallback={<div className="flex justify-center items-center h-screen">
-    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
-  </div>}>
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+        </div>}>
           <Outlet />
         </Suspense>
       </div>
@@ -60,8 +70,8 @@ const Approuter = createBrowserRouter([
       { path: '/orders', element: <OrderTrackingPage /> },
       { path: '/chat', element: <ChatPage /> },
       { path: '*', element: <Error /> }
-    ],
-  },
+    ]
+  }
 ]);
 
 

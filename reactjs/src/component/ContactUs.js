@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const ContactUs = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -10,14 +10,14 @@ const ContactUs = () => {
       const cards = document.querySelectorAll('.contact-card');
       const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
       const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-      
+
       cards.forEach(card => {
         card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
       });
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -39,7 +39,7 @@ const ContactUs = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
           <div className="absolute inset-0 bg-grid-pattern-light opacity-10"></div>
         </div>
-        
+
         {/* Dark background (visible only in dark mode) */}
         <div className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#1e0e3d,transparent_60%)]"></div>
@@ -49,7 +49,7 @@ const ContactUs = () => {
           <div className="absolute inset-0 bg-grid-pattern-dark opacity-5"></div>
         </div>
       </div>
-      
+
       {/* Content container */}
       <div className={`relative z-10 flex flex-col justify-center items-center min-h-screen p-4 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="w-full max-w-md">
@@ -61,16 +61,16 @@ const ContactUs = () => {
             <p className="text-gray-600 dark:text-gray-400 mb-4">
               We'd love to hear from you!
             </p>
-            
+
             {/* Animated underline */}
             <div className="w-24 h-1 mx-auto relative overflow-hidden rounded-full">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 animate-gradient-x"></div>
             </div>
           </div>
-          
+
           {/* Contact cards */}
           <div className="space-y-5">
-            <ContactCard 
+            <ContactCard
               icon={<WhatsAppIcon />}
               label="WhatsApp"
               value="+977 980-4805541"
@@ -81,8 +81,8 @@ const ContactUs = () => {
               setActiveCard={setActiveCard}
               id="whatsapp"
             />
-            
-            <ContactCard 
+
+            <ContactCard
               icon={<EmailIcon />}
               label="Email"
               value="ottnepal4474@gmail.com"
@@ -93,8 +93,8 @@ const ContactUs = () => {
               setActiveCard={setActiveCard}
               id="email"
             />
-            
-            <ContactCard 
+
+            <ContactCard
               icon={<TelegramIcon />}
               label="Telegram"
               value="bsingh4474"
@@ -106,30 +106,30 @@ const ContactUs = () => {
               id="telegram"
             />
           </div>
-          
+
           {/* Social media section */}
           <div className="mt-10">
             <h3 className="text-xl font-semibold text-center mb-6 text-gray-700 dark:text-gray-300">
               Follow Us
             </h3>
             <div className="flex justify-center space-x-6">
-              <SocialLink 
+              <SocialLink
                 href="https://www.facebook.com/onlinepurchasenepal6636"
                 icon={<FacebookIcon />}
                 label="Facebook"
                 lightColor="from-blue-500 to-blue-600"
                 darkColor="from-blue-600 to-blue-700"
               />
-              
-              <SocialLink 
+
+              <SocialLink
                 href="https://whatsapp.com/channel/0029VaFZsmD2Jl89TAqCbl1j"
                 icon={<WhatsAppChannelIcon />}
                 label="WhatsApp Channel"
                 lightColor="from-green-500 to-green-600"
                 darkColor="from-green-600 to-green-700"
               />
-              
-              <SocialLink 
+
+              <SocialLink
                 href="https://t.me/purchase6636"
                 icon={<TelegramChannelIcon />}
                 label="Telegram Channel"
@@ -138,17 +138,17 @@ const ContactUs = () => {
               />
             </div>
           </div>
-          
+
           {/* Contact decoration */}
           <div className="mt-12 text-center">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full p-3 animate-pulse-slow bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm shadow-md dark:shadow-none">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                className="w-6 h-6 text-indigo-600 dark:text-indigo-400" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-indigo-600 dark:text-indigo-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -167,11 +167,11 @@ const ContactUs = () => {
 // Enhanced contact card component
 const ContactCard = ({ icon, label, value, link, lightColors, darkColors, activeCard, setActiveCard, id }) => {
   const isActive = activeCard === id;
-  
+
   return (
-    <a 
+    <a
       href={link}
-      target="_blank" 
+      target="_blank"
       rel="noreferrer"
       className="block"
       onMouseEnter={() => setActiveCard(id)}
@@ -179,31 +179,31 @@ const ContactCard = ({ icon, label, value, link, lightColors, darkColors, active
       onTouchStart={() => setActiveCard(id)}
       onTouchEnd={() => setTimeout(() => setActiveCard(null), 1000)}
     >
-      <div 
+      <div
         className={`contact-card relative rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-500 ease-out
           ${isActive ? 'bg-white/70 dark:bg-gray-800/50 shadow-glow-light dark:shadow-glow-dark' : 'bg-white/50 dark:bg-gray-800/30 shadow-md dark:shadow-lg'}`}
         style={{ transformStyle: 'preserve-3d', perspective: '1000px', transform: 'rotateX(0) rotateY(0)' }}
       >
         {/* Gradient border */}
-        <div 
+        <div
           className={`absolute inset-0 bg-gradient-to-r ${lightColors} dark:${darkColors} opacity-0 transition-opacity duration-500 ${
             isActive ? 'opacity-30' : ''
           }`}
         ></div>
-        
+
         {/* Card content with 3D effect */}
         <div className="relative z-10 p-4 flex items-center" style={{ transform: 'translateZ(20px)' }}>
           {/* Icon container */}
-          <div 
+          <div
             className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center mr-4 transition-all duration-500 ${
-              isActive 
-                ? `bg-gradient-to-r ${lightColors} dark:${darkColors} shadow-glow-light dark:shadow-glow-dark` 
+              isActive
+                ? `bg-gradient-to-r ${lightColors} dark:${darkColors} shadow-glow-light dark:shadow-glow-dark`
                 : 'bg-gray-200 dark:bg-gray-700'
             }`}
           >
             <div className="text-white">{icon}</div>
           </div>
-          
+
           {/* Text content */}
           <div>
             <div className="text-sm font-medium mb-1 text-gray-500 dark:text-gray-400">{label}</div>
@@ -213,9 +213,9 @@ const ContactCard = ({ icon, label, value, link, lightColors, darkColors, active
               {value}
             </div>
           </div>
-          
+
           {/* Arrow icon */}
-          <div 
+          <div
             className={`ml-auto transform transition-all duration-500 ${
               isActive ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0'
             }`}
@@ -233,9 +233,9 @@ const ContactCard = ({ icon, label, value, link, lightColors, darkColors, active
 // Social media link component
 const SocialLink = ({ href, icon, label, lightColor, darkColor }) => {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noreferrer"
       className="group relative"
       aria-label={label}

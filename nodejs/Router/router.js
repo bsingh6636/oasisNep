@@ -1,5 +1,5 @@
 import express from 'express';
-import { CarouselController } from "../controller/Carousel.Controlller.js";
+import { CarouselController } from '../controller/Carousel.Controlller.js';
 
 let router = express.Router();
 

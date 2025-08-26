@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const ChatNotification = sequelize.define("chat_notifications", {
+  const ChatNotification = sequelize.define('chat_notifications', {
     is_muted: {
       type: Sequelize.BOOLEAN,
       defaultValue: false

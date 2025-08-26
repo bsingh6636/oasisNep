@@ -4,10 +4,10 @@ import serviceReducer from './serviceSlice';
 import cartReducer from './cartSlice';
 
 export const store = configureStore({
-    reducer: {
-        auth: authReducer,
-        services: serviceReducer,
-        cart: cartReducer,
-    },
-    devTools: true,
+  reducer: {
+    auth: authReducer,
+    services: serviceReducer,
+    cart: cartReducer
+  },
+  devTools: true
 });

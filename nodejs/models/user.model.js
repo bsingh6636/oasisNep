@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, Sequelize) => {
-  const User = sequelize.define("users", {
+  const User = sequelize.define('users', {
     name: {
       type: Sequelize.STRING,
       allowNull: false
@@ -21,6 +21,10 @@ module.exports = (sequelize, Sequelize) => {
     role: {
       type: Sequelize.ENUM('customer', 'admin'),
       defaultValue: 'customer'
+    },
+    pushSubscription: {
+      type: Sequelize.TEXT,
+      allowNull: true
     }
   }, {
     hooks: {
@@ -33,11 +37,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     // Add this to prevent the password hash from being sent back
     defaultScope: {
-      attributes: { exclude: ['password_hash'] },
+      attributes: { exclude: ['password_hash'] }
     },
     scopes: {
       withPassword: {
-        attributes: {},
+        attributes: {}
       }
     }
   });

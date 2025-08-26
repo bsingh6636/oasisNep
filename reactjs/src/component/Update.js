@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 // This component is self-contained and does not need Redux state for now.
 // It relies on Tailwind's dark mode feature, which is toggled in the Header.
@@ -12,37 +12,37 @@ function Update() {
     try {
       setLoading(true);
       setError(null);
-      
+
       // Assuming BackendPort is correctly configured elsewhere
-      const BackendPort = 'http://localhost:8080'; 
+      const BackendPort = 'http://localhost:8080';
       const response = await fetch(`${BackendPort}/admin/update`);
-      
+
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
       }
-      
+
       const json = await response.json();
-      
+
       if (json.success) {
         const groupByMonth = (data) => {
-            if (!Array.isArray(data)) return {};
-            return data.reduce((acc, item) => {
-                if (!item || !item.createdAt) return acc;
-                const date = new Date(item.createdAt);
-                if (isNaN(date)) return acc;
-                const monthYear = date.toLocaleString("default", { month: "long", year: "numeric" });
-                if (!acc[monthYear]) acc[monthYear] = [];
-                acc[monthYear].push(item);
-                return acc;
-            }, {});
+          if (!Array.isArray(data)) return {};
+          return data.reduce((acc, item) => {
+            if (!item || !item.createdAt) return acc;
+            const date = new Date(item.createdAt);
+            if (isNaN(date)) return acc;
+            const monthYear = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+            if (!acc[monthYear]) acc[monthYear] = [];
+            acc[monthYear].push(item);
+            return acc;
+          }, {});
         };
         const grouped = groupByMonth(json.data || []);
         setGroupedData(grouped);
       } else {
-        setError(json.message || "Failed to fetch updates");
+        setError(json.message || 'Failed to fetch updates');
       }
     } catch (error) {
-      setError(error.message || "An error occurred while fetching updates");
+      setError(error.message || 'An error occurred while fetching updates');
     } finally {
       setLoading(false);
     }
@@ -65,7 +65,7 @@ function Update() {
   return (
     <div className="p-4 mx-auto text-gray-900 dark:text-gray-100">
       <h1 className="text-3xl font-bold text-center mb-8">Updates</h1>
-      
+
       {loading ? (
         renderSkeletons()
       ) : error ? (
@@ -88,18 +88,18 @@ function Update() {
 
 export default Update;
 
- export const renderSkeletons = () => {
-    return Array(3).fill(0).map((_, index) => (
-        <div key={`skeleton-${index}`} className="my-10 animate-pulse">
-          <div className="h-5 w-40 mx-auto rounded bg-gray-200 dark:bg-gray-700 mb-6"></div>
-          <div className="flex overflow-x-auto space-x-5 px-4">
-            {Array(3).fill(0).map((_, cardIndex) => (
-              <div key={`card-skeleton-${cardIndex}`} className="flex-none w-80 p-5 rounded-xl bg-gray-50 dark:bg-gray-800">
-                <div className="h-44 w-full rounded-lg bg-gray-200 dark:bg-gray-700"></div>
-                <div className="h-4 w-3/4 mt-5 rounded-md bg-gray-200 dark:bg-gray-700"></div>
-              </div>
-            ))}
+export const renderSkeletons = () => {
+  return Array(3).fill(0).map((_, index) => (
+    <div key={`skeleton-${index}`} className="my-10 animate-pulse">
+      <div className="h-5 w-40 mx-auto rounded bg-gray-200 dark:bg-gray-700 mb-6"></div>
+      <div className="flex overflow-x-auto space-x-5 px-4">
+        {Array(3).fill(0).map((_, cardIndex) => (
+          <div key={`card-skeleton-${cardIndex}`} className="flex-none w-80 p-5 rounded-xl bg-gray-50 dark:bg-gray-800">
+            <div className="h-44 w-full rounded-lg bg-gray-200 dark:bg-gray-700"></div>
+            <div className="h-4 w-3/4 mt-5 rounded-md bg-gray-200 dark:bg-gray-700"></div>
           </div>
-        </div>
-      ));
+        ))}
+      </div>
+    </div>
+  ));
 };

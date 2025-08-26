@@ -10,8 +10,8 @@ const config = {
     host: 'imap.gmail.com',
     port: 993,
     tls: true,
-    authTimeout: 3000,
-  },
+    authTimeout: 3000
+  }
 };
 
 // Function to search for recent emails and automate message extraction

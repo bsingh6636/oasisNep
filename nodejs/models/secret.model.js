@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Secret = sequelize.define("secrets", {
+  const Secret = sequelize.define('secrets', {
     secret_value_encrypted: {
       type: Sequelize.TEXT,
       allowNull: false

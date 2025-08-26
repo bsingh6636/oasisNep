@@ -5,43 +5,45 @@ import Update from './Pages/update';
 import AdminSideBar from './Pages/AdminSideBar';
 import AdminPrices from './AdminPrices';
 import CarouselAdmin from './Carousel';
-import { Loader2 } from "lucide-react";
+import AdminChatPage from './Pages/AdminChatPage';
+import { Loader2 } from 'lucide-react';
 
 
-const AdminDashboard = lazy(() => import('./DashBoardAdmin'))
-const AdminDisplay = lazy(() => import('./AdminDisplay'))
-const AdminLogin = lazy(() => import('./AdminLogin'))
+const AdminDashboard = lazy(() => import('./DashBoardAdmin'));
+const AdminDisplay = lazy(() => import('./AdminDisplay'));
+const AdminLogin = lazy(() => import('./AdminLogin'));
 
-export const Context = createContext()
+export const Context = createContext();
 
 const AdminRoutes = () => {
-    const [loginState, setLoginState] = useState(false)
-    const [userInfo, setUserInfo] = useState('')
-    return (
-        <Suspense fallback={<AdminLoader />}>
-            <Context.Provider value={{ loginState, setLoginState, setUserInfo, userInfo }}>
+  const [loginState, setLoginState] = useState(false);
+  const [userInfo, setUserInfo] = useState('');
+  return (
+    <Suspense fallback={<AdminLoader />}>
+      <Context.Provider value={{ loginState, setLoginState, setUserInfo, userInfo }}>
 
-                <AdminDisplay />
-                <div className='flex'>
-                    <div className=''>
-                        <AdminSideBar />
-                    </div>
-                    <div className='w-full'>
-                        <Routes>
-                            <Route path="dashboard" element={<AdminDashboard />} />
-                            <Route path="/" element={<AdminLogin />} />
-                            <Route path="login" element={<AdminLogin />} />
-                            <Route path='whatsNewVideo' element={<WhatsNewVideoComponent />} />
-                            <Route path='update' element={<Update />} />
-                            <Route path='prices' element={<AdminPrices/>}/>
-                            <Route path='carousel' element={<CarouselAdmin/>}/>
-                        </Routes>
-                    </div>
-                </div>
+        <AdminDisplay />
+        <div className='flex'>
+          <div className=''>
+            <AdminSideBar />
+          </div>
+          <div className='w-full'>
+            <Routes>
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="/" element={<AdminLogin />} />
+              <Route path="login" element={<AdminLogin />} />
+              <Route path='whatsNewVideo' element={<WhatsNewVideoComponent />} />
+              <Route path='update' element={<Update />} />
+              <Route path='prices' element={<AdminPrices/>}/>
+              <Route path='carousel' element={<CarouselAdmin/>}/>
+              <Route path='chat' element={<AdminChatPage/>}/>
+            </Routes>
+          </div>
+        </div>
 
-            </Context.Provider>
-        </Suspense>
-    );
+      </Context.Provider>
+    </Suspense>
+  );
 };
 
 export default AdminRoutes;

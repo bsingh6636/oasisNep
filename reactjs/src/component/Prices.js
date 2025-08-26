@@ -1,25 +1,25 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addItem } from "../redux/cartSlice";
-import axios from "axios";
-import { Pricelist } from "../const"; // Corrected path
+import React, { useEffect, useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/cartSlice';
+import axios from 'axios';
+import { Pricelist } from '../const'; // Corrected path
 import AllPricesShimmer from './small component/Shimmer/AllPricesShimmer';
-import { Search, Filter, X, ShoppingCart } from "lucide-react";
+import { Search, Filter, X, ShoppingCart } from 'lucide-react';
 
 const Prices = () => {
   const dispatch = useDispatch();
   const [prices, setPrices] = useState(Pricelist);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchValue, setSearchValue] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [searchValue, setSearchValue] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
     const fetchPrices = async () => {
       try {
         // aip call to /prices not /api/prices
-        const response = await axios.get("http://localhost:8080/prices");
+        const response = await axios.get('http://localhost:8080/prices');
         setPrices(response.data);
         setLoading(false);
       } catch (error) {
@@ -35,11 +35,11 @@ const Prices = () => {
 
   const filteredServices = useMemo(() => {
     let filtered = prices;
-    if (activeFilter !== "all") {
-        filtered = filtered.filter(service => service.category === activeFilter);
+    if (activeFilter !== 'all') {
+      filtered = filtered.filter(service => service.category === activeFilter);
     }
     if (searchValue) {
-        filtered = filtered.filter(service => service.name.toLowerCase().includes(searchValue.toLowerCase()));
+      filtered = filtered.filter(service => service.name.toLowerCase().includes(searchValue.toLowerCase()));
     }
     return filtered;
   }, [prices, activeFilter, searchValue]);
@@ -49,7 +49,7 @@ const Prices = () => {
   };
 
   const clearSearch = () => {
-    setSearchValue("");
+    setSearchValue('');
   };
 
   const handleFilterClick = (category) => {
@@ -61,8 +61,8 @@ const Prices = () => {
   };
 
   const filterOptions = useMemo(() => {
-        const categories = prices.filter(s => s.category).map(s => s.category).filter((v, i, a) => a.indexOf(v) === i);
-    return ["all", ...categories];
+    const categories = prices.filter(s => s.category).map(s => s.category).filter((v, i, a) => a.indexOf(v) === i);
+    return ['all', ...categories];
   }, [prices]);
 
 
@@ -135,19 +135,19 @@ const AllPrices = ({ services, onAddToCart }) => {
         <div key={service.Id} className="block group">
           <div className="relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200">
             <Link to={`/prices/${service.Name}`} className="block">
-                <div className="pb-[100%] relative">
-                    <img src={service.ImageId || "/api/placeholder/400/400"} alt={service.Name} className="absolute top-0 left-0 w-full h-full object-cover"/>
-                </div>
-                <div className="p-3">
-                    <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1 line-clamp-2">{service.Name}</h3>
-                    <p className="text-xs font-semibold text-purple-700 dark:text-purple-400">NPR {service.plans ? Object.values(service.plans)[0] : 'N/A'}</p>
-                </div>
+              <div className="pb-[100%] relative">
+                <img src={service.ImageId || '/api/placeholder/400/400'} alt={service.Name} className="absolute top-0 left-0 w-full h-full object-cover"/>
+              </div>
+              <div className="p-3">
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1 line-clamp-2">{service.Name}</h3>
+                <p className="text-xs font-semibold text-purple-700 dark:text-purple-400">NPR {service.plans ? Object.values(service.plans)[0] : 'N/A'}</p>
+              </div>
             </Link>
             <div className="p-3 pt-0">
-                <button onClick={() => onAddToCart(service)} className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center">
-                    <ShoppingCart size={14} className="mr-2" />
+              <button onClick={() => onAddToCart(service)} className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center">
+                <ShoppingCart size={14} className="mr-2" />
                     Add to Cart
-                </button>
+              </button>
             </div>
           </div>
         </div>

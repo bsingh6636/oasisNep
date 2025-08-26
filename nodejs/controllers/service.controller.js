@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require('../models');
 const Service = db.service;
 
 // Retrieve all Services from the database.
@@ -9,7 +9,7 @@ exports.findAll = async (req, res) => {
   } catch (error) {
     res.status(500).send({
       message:
-        error.message || "Some error occurred while retrieving services."
+        error.message || 'Some error occurred while retrieving services.'
     });
   }
 };
@@ -29,7 +29,7 @@ exports.findOne = async (req, res) => {
     }
   } catch (error) {
     res.status(500).send({
-      message: "Error retrieving Service with id=" + id
+      message: 'Error retrieving Service with id=' + id
     });
   }
 };

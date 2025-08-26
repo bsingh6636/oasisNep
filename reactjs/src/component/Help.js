@@ -1,5 +1,5 @@
-import React from 'react'
-import { Household } from './HelpSection/Household'
+import React from 'react';
+import { Household } from './HelpSection/Household';
 
 const Help = () => {
   return (

@@ -100,7 +100,7 @@ const CarouselAdmin = () => {
       <div className="bg-gray-800 p-4 shadow-md">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Carousel Admin Dashboard</h1>
-          <button 
+          <button
             onClick={handleAddNew}
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors"
           >
@@ -142,9 +142,9 @@ const CarouselAdmin = () => {
                   {/* Image Preview */}
                   <div className="h-48 bg-gray-700 relative overflow-hidden">
                     {item.image ? (
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
+                      <img
+                        src={item.image}
+                        alt={item.title}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -158,28 +158,28 @@ const CarouselAdmin = () => {
                       </span>
                     )}
                   </div>
-                  
+
                   {/* Content */}
                   <div className="p-4">
                     <h3 className="text-lg font-semibold mb-2 line-clamp-1">{item.title}</h3>
                     <p className="text-gray-400 text-sm mb-4 line-clamp-2">{item.description}</p>
-                    
+
                     {item.ctaText && (
                       <div className="text-sm text-gray-300 mb-4">
                         <span className="font-medium">CTA: </span>
                         {item.ctaText}
                       </div>
                     )}
-                    
+
                     {/* Actions */}
                     <div className="flex justify-end space-x-2 mt-2">
-                      <button 
+                      <button
                         onClick={() => handleEdit(item)}
                         className="p-2 text-blue-400 hover:text-blue-300 hover:bg-gray-700 rounded-md transition-colors"
                       >
                         <Edit size={18} />
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleDelete(item._id)}
                         className="p-2 text-red-400 hover:text-red-300 hover:bg-gray-700 rounded-md transition-colors"
                       >
@@ -202,7 +202,7 @@ const CarouselAdmin = () => {
               <h2 className="text-xl font-semibold">
                 {isEditing ? 'Edit Carousel Item' : 'Add New Carousel Item'}
               </h2>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-400 hover:text-gray-200"
               >

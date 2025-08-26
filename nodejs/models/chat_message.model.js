@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const ChatMessage = sequelize.define("chat_messages", {
+  const ChatMessage = sequelize.define('chat_messages', {
     message: {
       type: Sequelize.TEXT,
       allowNull: false
