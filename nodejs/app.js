@@ -1,8 +1,8 @@
 import cors from 'cors'
 import express from "express"
 import priceRouter from "./Router/prices.router.js"
-import userRouter from "./Router/userInfo.router.js"
 import adminRouter from "./Router/admin.router.js"
+import userRouter from "./Router/user.router.js"
 import cookieParser from "cookie-parser";
 import router from './Router/router.js'
 const app = express()
@@ -15,9 +15,9 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use("/api/prices", priceRouter)
-app.use("/api/user", userRouter)
 app.use("/api/admin", adminRouter)
-app.use('/api', router  )
+router.use('api/user', userRouter);
+app.use('/api', router )
 
 // Catch-all route for undefined routes
 
