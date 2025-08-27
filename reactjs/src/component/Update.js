@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BackendPort } from "../Const/url";
-import { MyContext } from "./App";
+import { MyContext } from "../App";
 
 function Update() {
   const [groupedData, setGroupedData] = useState({});

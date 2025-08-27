@@ -6,10 +6,10 @@ import { addItem } from "../Const/cartslice";
 import "../css/ripple.css";
 import FAQ from "./small component/FAQ";
 // import CommentSection from "./small component/CommentSection";
-import { MyContext } from "./App";
 import { priceUpdate } from "../helper/priceUpdate";
 import { PriceDetailsShimmer } from "../import";
 import { ShoppingCart, Check, Plus, ArrowUpRight } from "lucide-react";
+import { MyContext } from "../App";
 
 export const PriceDetails = () => {
   const dispatch = useDispatch();

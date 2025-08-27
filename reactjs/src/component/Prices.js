@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useMemo } from "react";
 import { Pricelist as PricelistMock } from "../const";
 import { useParams, Link } from "react-router-dom";
 import "../css/body.css";
-import { MyContext } from "./App";
+import { MyContext } from "../App";
 import { priceUpdate } from "../helper/priceUpdate";
 import AllPricesShimmer from './small component/Shimmer/AllPricesShimmer';
 import { Search, Filter, X, ChevronRight } from "lucide-react";

@@ -5,7 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { deleteItemCart } from "../Const/cartslice";
 import PaymentOtions from './small component/PaymentOtions';
-import { MyContext } from './App';
+import { MyContext } from '../App';
 
 export const Cart = () => {
     const cartItems = useSelector((store) => store.cart.items)
