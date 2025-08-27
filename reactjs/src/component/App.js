@@ -1,41 +1,48 @@
-import React, { useState } from 'react';
-import { Navbar } from './Header';
-import Prices from './Prices';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { Error } from './Error';
-import { Body } from './Body';
-import { PriceDetails } from './PriceDetails';
-import { AboutUs } from './AboutUs';
+import { Navbar } from './Header';
 import { Footer } from './Footer';
-import { ContactUs } from './ContactUs';
-import Update from './Update';
-import { Provider } from 'react-redux';
-import reduxstore from '../Const/Reduxstore';
-import { Help } from './Help';
-import { Cart } from './Cart';
+import { Body } from './Body';
 import AdminRoutes from '../Admin/RoutesAdmin';
+import { subscribeToPush } from '../utils/push';
+import { useSelector } from 'react-redux';
 
-const HouseHoldCode = React.lazy(()=> import('../pages/HouseHoldCode'))
-export const MyContext = React.createContext();
+const Prices = lazy(() => import('./Prices'));
+const Error = lazy(() => import('./Error'));
+const PriceDetails = lazy(() => import('./PriceDetails'));
+const AboutUs = lazy(() => import('./AboutUs'));
+const ContactUs = lazy(() => import('./ContactUs'));
+const Update = lazy(() => import('./Update'));
+const Help = lazy(() => import('./Help'));
+const Cart = lazy(() => import('./Cart'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const ProfilePage = lazy(() => import('../pages/ProfilePage'));
+const CheckoutPage = lazy(() => import('../pages/CheckoutPage'));
+const OrderTrackingPage = lazy(() => import('../pages/OrderTrackingPage'));
+const ChatPage = lazy(() => import('../pages/ChatPage'));
+const HouseHoldCode = lazy(() => import('../pages/HouseHoldCode'));
 
 export const AppLayout = () => {
-  
-  const [priceListAll, setPriceListAll] = useState([])
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { user } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    if (user) {
+      subscribeToPush();
+    }
+  }, [user]);
+
   return (
     <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
-      {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
-
-      <Provider store={reduxstore}>
-        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode }} >
-          <Navbar />
-          <div className='' >
-
+      <Navbar />
+      <div className='' >
+        <Suspense fallback={<div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+        </div>}>
           <Outlet />
-          </div>
-          <Footer />
-        </MyContext.Provider>
-      </Provider>
+        </Suspense>
+      </div>
+      <Footer />
     </div>
   );
 };
@@ -56,9 +63,15 @@ const Approuter = createBrowserRouter([
       { path: '/price/:cat', element: <Prices /> },
       { path: 'admin/*', element: <AdminRoutes /> },
       { path : '/netflixCode' , element : <HouseHoldCode/>},
+      { path: '/login', element: <LoginPage /> },
+      { path: '/register', element: <RegisterPage /> },
+      { path: '/profile', element: <ProfilePage /> },
+      { path: '/checkout', element: <CheckoutPage /> },
+      { path: '/orders', element: <OrderTrackingPage /> },
+      { path: '/chat', element: <ChatPage /> },
       { path: '*', element: <Error /> }
-    ],
-  },
+    ]
+  }
 ]);
 
 

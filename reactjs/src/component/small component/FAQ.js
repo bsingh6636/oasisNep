@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const FAQ = ({ choosedMonth, details }) => {
   const [questionsFAQ, setQuestionsFAQ] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
   const questionsFAQShared = [
-    { question: "Will it be my private account?", answer: "No, it’s a Shared Account. You'll get a private profile." },
-    { question: "Will my Profile be PIN Protected?", answer: "Yes" },
-    { question: "Can I share my account with my friends?", answer: "No. Use it for personal purposes only." },
-    { question: "Can I use this Account on my Smart TV?", answer: "No" },
-    { question: "How can I renew this Account after expiry?", answer: "You just need to contact us." },
+    { question: 'Will it be my private account?', answer: 'No, it’s a Shared Account. You\'ll get a private profile.' },
+    { question: 'Will my Profile be PIN Protected?', answer: 'Yes' },
+    { question: 'Can I share my account with my friends?', answer: 'No. Use it for personal purposes only.' },
+    { question: 'Can I use this Account on my Smart TV?', answer: 'No' },
+    { question: 'How can I renew this Account after expiry?', answer: 'You just need to contact us.' }
   ];
 
   const questionsFAQPrivate = [
-    { question: "Will it be my private account?", answer: "Yes, it'll be a private account." },
-    { question: "Can I share my account with my friends?", answer: "It's up to you." },
-    { question: "Can I use this Account on my Smart TV?", answer: "Yes" },
-    { question: "How can I renew this Account after expiry?", answer: "You just need to contact us." },
-    { question: "Can I change user settings?", answer: "Contact me for more info." },
+    { question: 'Will it be my private account?', answer: 'Yes, it\'ll be a private account.' },
+    { question: 'Can I share my account with my friends?', answer: 'It\'s up to you.' },
+    { question: 'Can I use this Account on my Smart TV?', answer: 'Yes' },
+    { question: 'How can I renew this Account after expiry?', answer: 'You just need to contact us.' },
+    { question: 'Can I change user settings?', answer: 'Contact me for more info.' }
   ];
 
   useEffect(() => {
-    if (details.status === "shared") {
+    if (details.status === 'shared') {
       setQuestionsFAQ(questionsFAQShared);
-    } else if (details.status === "private") {
+    } else if (details.status === 'private') {
       setQuestionsFAQ(questionsFAQPrivate);
     }
     // eslint-disable-next-line
@@ -53,8 +53,8 @@ const FAQ = ({ choosedMonth, details }) => {
           </h2>
           <div
             id={`faq-answer-${index}`}
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-              }`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            }`}
           >
             <p className="mt-2 text-gray-700">{item.answer}</p>
           </div>

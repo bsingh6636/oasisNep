@@ -33,8 +33,8 @@ const SearchBar = () => {
     setSearchItem(
       query.length > 1
         ? Pricelist.filter((item) =>
-            item.Name.toLowerCase().includes(query.toLowerCase())
-          )
+          item.Name.toLowerCase().includes(query.toLowerCase())
+        )
         : []
     );
   };
@@ -56,8 +56,8 @@ const SearchBar = () => {
             type="text"
             placeholder="Search services..."
             className={`w-full p-2 py-3 pl-12 pr-5 rounded-xl border ${
-              darkMode 
-                ? 'border-gray-700 bg-gray-800 text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20' 
+              darkMode
+                ? 'border-gray-700 bg-gray-800 text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20'
                 : 'border-gray-200 bg-white text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
             } outline-none transition-all shadow-sm`}
             aria-label="Search services"
@@ -68,7 +68,7 @@ const SearchBar = () => {
             </svg>
           </div>
           {searchValue && (
-            <button 
+            <button
               onClick={() => {
                 setSearchValue('');
                 setSearchItem([]);
@@ -88,8 +88,8 @@ const SearchBar = () => {
         {/* Search Results */}
         {isFocused && searchedItem.length > 0 && (
           <div className={`absolute z-10 mt-2 w-full rounded-xl shadow-lg border overflow-hidden ${
-            darkMode 
-              ? 'bg-gray-800 border-gray-700' 
+            darkMode
+              ? 'bg-gray-800 border-gray-700'
               : 'bg-white border-gray-100'
           } transition-colors duration-300`}>
             <div className="py-1 max-h-60 sm:max-h-80 overflow-y-auto">
@@ -98,9 +98,9 @@ const SearchBar = () => {
                 const firstPlanValue = item.plans[firstPlanKey];
 
                 return (
-                  <Link 
-                    to={`/prices/${item.Name}`} 
-                    key={item.id} 
+                  <Link
+                    to={`/prices/${item.Name}`}
+                    key={item.id}
                     className={`block px-4 py-3 ${
                       darkMode ? 'hover:bg-gray-700' : 'hover:bg-blue-50'
                     } transition-colors`}
@@ -144,8 +144,8 @@ const SearchBar = () => {
         {/* Empty State */}
         {isFocused && searchValue.length > 1 && searchedItem.length === 0 && (
           <div className={`absolute z-10 mt-2 w-full rounded-xl shadow-lg border ${
-            darkMode 
-              ? 'bg-gray-800 border-gray-700' 
+            darkMode
+              ? 'bg-gray-800 border-gray-700'
               : 'bg-white border-gray-100'
           } transition-colors duration-300`}>
             <div className="text-center py-4">

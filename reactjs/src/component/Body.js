@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 // import { Carouseel } from "./carousel/Carousel";
-import WhatsNew from "./small component/WhatsNew";
-import SearchBar from "./small component/SearchBar";
+import WhatsNew from './small component/WhatsNew';
+import SearchBar from './small component/SearchBar';
 // import Update from "./Update";
 // import AllPrices from "./AllPrices";
-import { DynamicCategorySection } from "./CategoryCards";
-import { CarouselTransition } from "./carousel/Carousel";
+import { DynamicCategorySection } from './CategoryCards';
+import { CarouselTransition } from './carousel/Carousel';
 export const Body = () => {
   return (
     <>
@@ -16,7 +16,7 @@ export const Body = () => {
       <WhatsNew />
       {/* <Update /> */}
       {/* <AllPrices /> */}
-      
+
     </>
   );
 };

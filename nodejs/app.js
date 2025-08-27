@@ -1,39 +1,34 @@
-import cors from 'cors'
-import express from "express"
-import priceRouter from "./Router/prices.router.js"
-import userRouter from "./Router/userInfo.router.js"
-import adminRouter from "./Router/admin.router.js"
-import cookieParser from "cookie-parser";
-import router from './Router/router.js'
-const app = express()
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
-app.use(cookieParser())
+
+const app = express();
 
 app.use(cors({
-    origin: ['https://subscriptionnepal.shop', 'https://pagee-kappa.vercel.app','http://localhost:3000', 'http://localhost:3001'],
-    credentials: true
+  origin: 'http://localhost:3000', // No array if you're using credentials
+  credentials: true
 }));
-app.use(express.json())
-app.use("/api/prices", priceRouter)
-app.use("/api/user", userRouter)
-app.use("/api/admin", adminRouter)
-app.use('/api', router  )
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
-// Catch-all route for undefined routes
-
-
-// app.use('/check' , ( req , res , next ) => {
-//     throw new Error("Error by app js");
-    
-// })
+const db = require('./models');
+// In development, you might use { force: true } to drop and re-sync db
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Db');
+// });
+db.sequelize.sync();
 
 
-app.use((err, req, res, next) => {
-    if(err){
-        // console.error(err); 
-        console.log('error')
-        res.status(500).json({ message: 'Something went wrong.' });
-    }
-   
+// simple route
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the service rental platform API.' });
 });
-export default app;
+
+// routes
+require('./allRoutes')(app);
+
+
+module.exports = app;

@@ -8,7 +8,7 @@ import { BackendPort } from '../../Const/url';
 // Enhanced Image component with fallback and loading states
 const EnhancedImage = ({ src, alt, className }) => {
   const [imageStatus, setImageStatus] = useState('loading');
-  
+
   return (
     <div className={`${className} relative overflow-hidden`}>
       {imageStatus === 'loading' && (
@@ -16,14 +16,14 @@ const EnhancedImage = ({ src, alt, className }) => {
           <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      
+
       {imageStatus === 'error' && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 text-gray-400">
           <ImageOff className="w-10 h-10 mb-2" />
           <span className="text-sm font-medium">{alt || 'Image not available'}</span>
         </div>
       )}
-      
+
       <img
         src={src}
         alt={alt}
@@ -44,7 +44,7 @@ const Badge = ({ text, variant = 'default' }) => {
     new: 'from-emerald-600 to-green-700',
     trending: 'from-purple-600 to-violet-700',
     limited: 'from-amber-500 to-orange-600',
-    bestseller: 'from-fuchsia-600 to-pink-700',
+    bestseller: 'from-fuchsia-600 to-pink-700'
   };
 
   // Determine which variant to use based on text
@@ -93,7 +93,7 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
     } catch (error) {
       console.error('Error fetching carousel items:', error);
     }
-  }
+  };
 
   // Reset autoplay timeout
   const resetTimeout = () => {
@@ -116,12 +116,12 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!carouselRef.current) return;
-      
+
       // Only handle keys if the carousel or its children have focus
       if (!carouselRef.current.contains(document.activeElement) && document.activeElement !== document.body) {
         return;
       }
-      
+
       if (e.key === 'ArrowLeft') {
         goToPrevious();
         e.preventDefault();
@@ -143,7 +143,7 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
     setIsHovering(true);
     setIsAutoPlaying(false);
   };
-  
+
   const handleMouseLeave = () => {
     setIsHovering(false);
     setIsAutoPlaying(true);
@@ -154,11 +154,11 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
     if (isAnimating) return;
     setIsAnimating(true);
     resetTimeout();
-    
+
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? items.length - 1 : prevIndex - 1
     );
-    
+
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -166,11 +166,11 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
     if (isAnimating) return;
     setIsAnimating(true);
     resetTimeout();
-    
+
     setCurrentIndex((prevIndex) =>
       prevIndex === items.length - 1 ? 0 : prevIndex + 1
     );
-    
+
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -178,9 +178,9 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
     if (isAnimating || index === currentIndex) return;
     setIsAnimating(true);
     resetTimeout();
-    
+
     setCurrentIndex(index);
-    
+
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -210,7 +210,7 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
   return (
     <div className="relative w-full mx-auto overflow-hidden bg-gray-900 p-3 sm:p-4 md:p-6 lg:p-8">
       {/* Main carousel container */}
-      <div 
+      <div
         ref={carouselRef}
         className="relative max-w-7xl mx-auto rounded-2xl shadow-2xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500"
         onMouseEnter={handleMouseEnter}
@@ -246,11 +246,11 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
                       alt={`${item.title} promotional image`}
                       className="w-full h-full"
                     />
-                    
+
                     {/* Badge */}
                     {item.badge && <Badge text={item.badge} />}
                   </div>
-                  
+
                   {/* Content container - Better spacing and padding on all devices */}
                   <div className="flex flex-col justify-center w-full lg:w-2/5 p-4 sm:p-5 md:p-6 lg:p-8">
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-white leading-tight">
@@ -259,11 +259,11 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
                     <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 md:mb-6 line-clamp-3">
                       {item.description}
                     </p>
-                    <button 
-                      className="self-start bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 
-                        text-white font-semibold py-2 px-4 md:py-2.5 md:px-6 rounded-full shadow-lg 
-                        hover:shadow-blue-700/20 hover:shadow-xl transition-all duration-300 transform 
-                        hover:-translate-y-0.5 text-sm md:text-base focus:outline-none focus:ring-2 
+                    <button
+                      className="self-start bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
+                        text-white font-semibold py-2 px-4 md:py-2.5 md:px-6 rounded-full shadow-lg
+                        hover:shadow-blue-700/20 hover:shadow-xl transition-all duration-300 transform
+                        hover:-translate-y-0.5 text-sm md:text-base focus:outline-none focus:ring-2
                         focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                       aria-label={item.ctaText}
                     >
@@ -279,10 +279,10 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
         {/* Enhanced navigation arrows with better visibility and touch targets */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 sm:left-3 md:left-4 top-1/2 transform -translate-y-1/2 
+          className="absolute left-2 sm:left-3 md:left-4 top-1/2 transform -translate-y-1/2
             bg-gray-900/70 hover:bg-gray-900/90 text-white p-1.5 sm:p-2 md:p-3
             rounded-full shadow-lg backdrop-blur-sm transition-all duration-300
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
             focus:ring-offset-gray-800 z-10"
           aria-label="Previous slide"
           disabled={isAnimating}
@@ -292,10 +292,10 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
 
         <button
           onClick={goToNext}
-          className="absolute right-2 sm:right-3 md:right-4 top-1/2 transform -translate-y-1/2 
+          className="absolute right-2 sm:right-3 md:right-4 top-1/2 transform -translate-y-1/2
             bg-gray-900/70 hover:bg-gray-900/90 text-white p-1.5 sm:p-2 md:p-3
             rounded-full shadow-lg backdrop-blur-sm transition-all duration-300
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 
+            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
             focus:ring-offset-gray-800 z-10"
           aria-label="Next slide"
           disabled={isAnimating}
@@ -310,28 +310,28 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full ${
-                currentIndex === index 
-                ? `w-6 sm:w-8 md:w-10 h-1.5 sm:h-2 bg-blue-500` 
-                : `w-2 sm:w-2.5 md:w-3 h-1.5 sm:h-2 bg-gray-600 hover:bg-gray-500`
+                currentIndex === index
+                  ? 'w-6 sm:w-8 md:w-10 h-1.5 sm:h-2 bg-blue-500'
+                  : 'w-2 sm:w-2.5 md:w-3 h-1.5 sm:h-2 bg-gray-600 hover:bg-gray-500'
               }`}
               aria-label={`Go to slide ${index + 1}`}
-              aria-current={currentIndex === index ? "true" : "false"}
+              aria-current={currentIndex === index ? 'true' : 'false'}
               disabled={isAnimating}
             />
           ))}
         </div>
       </div>
-      
+
       {/* Autoplay toggle with better visibility */}
       <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 right-3 sm:right-4 md:right-5 z-20">
         <button
           onClick={() => setIsAutoPlaying(prev => !prev)}
           className={`p-1.5 sm:p-2 rounded-full transition-all duration-300 
             focus:outline-none focus:ring-2 focus:ring-blue-500 
-            ${isAutoPlaying 
-              ? 'bg-blue-600 text-white hover:bg-blue-700' 
-              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
-          aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+            ${isAutoPlaying
+      ? 'bg-blue-600 text-white hover:bg-blue-700'
+      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+          aria-label={isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'}
         >
           {isAutoPlaying ? (
             <Pause className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -340,7 +340,7 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
           )}
         </button>
       </div>
-      
+
       {/* Enhanced decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-700/10 blur-3xl"></div>

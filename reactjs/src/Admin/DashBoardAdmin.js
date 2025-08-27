@@ -15,10 +15,10 @@ const AdminDashboard = () => {
       const now = new Date();
       setCurrentTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
     };
-    
+
     updateTime();
     const interval = setInterval(updateTime, 60000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -45,11 +45,11 @@ const AdminDashboard = () => {
           </div>
           <h1 className="text-xl font-bold">Admin Portal</h1>
         </div>
-        
+
         <div className="flex items-center space-x-4">
           <span className={`hidden sm:block ${darkMode ? 'text-gray-300' : 'text-gray-500'}`}>{currentTime}</span>
-          
-          <button 
+
+          <button
             onClick={toggleDarkMode}
             className={`p-2 rounded-full ${darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-gray-200 text-gray-700'}`}
             aria-label="Toggle dark mode"
@@ -64,7 +64,7 @@ const AdminDashboard = () => {
               </svg>
             )}
           </button>
-          
+
           <div className="relative">
             <button className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-medium">
               {userName ? userName.charAt(0).toUpperCase() : 'A'}
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
               </span>
             </h2>
           </div>
-          
+
           <button
             className={`mt-4 md:mt-0 px-4 py-2 rounded-lg transition-all duration-300 ${
               darkMode
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
               <div className={`p-6 ${darkMode ? 'border-b border-gray-700' : 'border-b'}`}>
                 <h3 className="text-xl font-semibold">Admin Profile</h3>
               </div>
-              
+
               <div className="p-6 space-y-4">
                 {/* Profile Image */}
                 <div className="flex justify-center mb-6">
@@ -124,7 +124,7 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Profile Details */}
                 <div className={`${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-50 text-gray-600'} p-4 rounded-lg`}>
                   <div className="flex items-center space-x-3">
@@ -133,14 +133,14 @@ const AdminDashboard = () => {
                     </svg>
                     <p className="text-sm">{name}</p>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3 mt-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <p className="text-sm">{email}</p>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3 mt-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -148,11 +148,11 @@ const AdminDashboard = () => {
                     <p className="text-sm">{phone}</p>
                   </div>
                 </div>
-                
+
                 <button
                   className={`w-full mt-6 px-4 py-3 rounded-lg ${
                     darkMode
-                      ? 'bg-green-600 hover:bg-green-700 text-white' 
+                      ? 'bg-green-600 hover:bg-green-700 text-white'
                       : 'bg-green-600 hover:bg-green-700 text-white'
                   } transition-colors duration-300 font-medium`}
                   onClick={() => alert('Profile updated')}
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
             darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white'
           } rounded-xl shadow-sm p-6 ${isProfileVisible ? 'lg:col-span-2' : 'lg:col-span-3'}`}>
             <h3 className="text-xl font-semibold mb-6">Dashboard Overview</h3>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-green-50'}`}>
                 <div className="flex justify-between items-start">
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-blue-50'}`}>
                 <div className="flex justify-between items-start">
                   <div>
@@ -207,7 +207,7 @@ const AdminDashboard = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-purple-50'}`}>
                 <div className="flex justify-between items-start">
                   <div>
@@ -226,7 +226,7 @@ const AdminDashboard = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-amber-50'}`}>
                 <div className="flex justify-between items-start">
                   <div>

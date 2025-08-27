@@ -16,12 +16,12 @@ const HouseHoldCode = () => {
       const response = await fetch('https://test.loophj.com/getCodes', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email })
       });
 
-      console.log(response)
+      console.log(response);
 
       const data = await response.json();
 
@@ -44,11 +44,11 @@ const HouseHoldCode = () => {
 
         {/* Instructions at the top */}
         <p className="text-center text-gray-300 mb-6">
-          Select <span className="font-semibold">"Watch Temporarily"</span> or <span className="font-semibold">"I'm Travelling"</span>. 
+          Select <span className="font-semibold">"Watch Temporarily"</span> or <span className="font-semibold">"I'm Travelling"</span>.
           After selecting, click on send email to proceed and get the code.
         </p>
 
-      
+
         { (
           <form onSubmit={handleSubmit} className="space-y-4">
             <input

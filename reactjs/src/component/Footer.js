@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const Footer = () => {
   return (
@@ -17,15 +17,15 @@ export const Footer = () => {
               <h2 className="text-lg font-bold mb-1">Oasis Nepal</h2>
               <p className="text-xs text-gray-400">&copy; 2025 Oasis Nepal. All rights reserved.</p>
             </div>
-            
+
             {/* Contact Us section */}
             <div className="text-center">
               <h3 className="text-base font-semibold mb-3 uppercase tracking-wider text-gray-300">Contact Us</h3>
               <div className="space-y-2">
-                <a 
-                  href="https://wa.me/+9779804805541" 
-                  target="_blank" 
-                  className="block text-sm text-gray-300 hover:text-white transition-colors" 
+                <a
+                  href="https://wa.me/+9779804805541"
+                  target="_blank"
+                  className="block text-sm text-gray-300 hover:text-white transition-colors"
                   rel="noreferrer"
                 >
                   <span className="inline-flex items-center">
@@ -35,8 +35,8 @@ export const Footer = () => {
                     +977 980-4805541
                   </span>
                 </a>
-                <a 
-                  href="mailto:ottnepal4474@gmail.com" 
+                <a
+                  href="mailto:ottnepal4474@gmail.com"
                   className="block text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   <span className="inline-flex items-center">
@@ -48,14 +48,14 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
-            
+
             {/* Social Media section */}
             <div className="text-center pb-3">
               <h3 className="text-base font-semibold mb-3 uppercase tracking-wider text-gray-300">Follow Us</h3>
               <div className="flex justify-center space-x-5">
-                <a 
-                  href="https://www.facebook.com/onlinepurchasenepal6636" 
-                  target="_blank" 
+                <a
+                  href="https://www.facebook.com/onlinepurchasenepal6636"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -65,9 +65,9 @@ export const Footer = () => {
                     </svg>
                   </div>
                 </a>
-                <a 
-                  href="https://t.me/bsingh4474" 
-                  target="_blank" 
+                <a
+                  href="https://t.me/bsingh4474"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -77,9 +77,9 @@ export const Footer = () => {
                     </svg>
                   </div>
                 </a>
-                <a 
-                  href="https://wa.me/+9779804805541" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/+9779804805541"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -109,7 +109,7 @@ export const Footer = () => {
               </p>
               <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} Oasis Nepal. All rights reserved.</p>
             </div>
-            
+
             <div className="lg:col-span-1">
               <h3 className="text-base font-semibold mb-4 uppercase tracking-wider text-gray-300">Quick Links</h3>
               <ul className="space-y-2">
@@ -135,15 +135,15 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="lg:col-span-1">
               <h3 className="text-base font-semibold mb-4 uppercase tracking-wider text-gray-300">Contact Us</h3>
               <ul className="space-y-3">
                 <li>
-                  <a 
-                    href="https://wa.me/+9779804805541" 
-                    target="_blank" 
-                    className="flex items-center text-gray-400 hover:text-white transition-colors duration-200" 
+                  <a
+                    href="https://wa.me/+9779804805541"
+                    target="_blank"
+                    className="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
                     rel="noreferrer"
                   >
                     <svg className="w-5 h-5 mr-3 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
@@ -153,8 +153,8 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="mailto:ottnepal4474@gmail.com" 
+                  <a
+                    href="mailto:ottnepal4474@gmail.com"
                     className="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     <svg className="w-5 h-5 mr-3 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
@@ -173,13 +173,13 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="lg:col-span-1">
               <h3 className="text-base font-semibold mb-4 uppercase tracking-wider text-gray-300">Follow Us</h3>
               <div className="flex space-x-4">
-                <a 
-                  href="https://www.facebook.com/onlinepurchasenepal6636" 
-                  target="_blank" 
+                <a
+                  href="https://www.facebook.com/onlinepurchasenepal6636"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -189,9 +189,9 @@ export const Footer = () => {
                     </svg>
                   </div>
                 </a>
-                <a 
-                  href="https://t.me/bsingh4474" 
-                  target="_blank" 
+                <a
+                  href="https://t.me/bsingh4474"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -201,9 +201,9 @@ export const Footer = () => {
                     </svg>
                   </div>
                 </a>
-                <a 
-                  href="https://wa.me/+9779804805541" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/+9779804805541"
+                  target="_blank"
                   rel="noreferrer"
                   className="group"
                 >
@@ -214,14 +214,14 @@ export const Footer = () => {
                   </div>
                 </a>
               </div>
-              
+
               {/* Newsletter subscription */}
               <div className="mt-6">
                 <h4 className="text-sm font-medium mb-3 text-gray-300">Subscribe to our newsletter</h4>
                 <div className="flex">
-                  <input 
-                    type="email" 
-                    className="w-full bg-gray-800 border border-gray-700 rounded-l-lg py-2 px-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500" 
+                  <input
+                    type="email"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-l-lg py-2 px-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     placeholder="Your email"
                   />
                   <button className="bg-blue-600 hover:bg-blue-700 rounded-r-lg px-3 transition-colors duration-200">
@@ -234,7 +234,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Divider */}
         <div className="hidden md:block">
           <div className="border-t border-gray-800 my-8"></div>

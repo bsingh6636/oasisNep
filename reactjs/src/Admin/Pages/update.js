@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BackendPort } from '../../Const/url';
 
-  const Update = () => {
+const Update = () => {
   // State for form inputs
   const [formData, setFormData] = useState({
     Title: '',
@@ -25,14 +25,14 @@ import { BackendPort } from '../../Const/url';
       const response = await fetch(`${BackendPort}/admin/addNewUpdates`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         // Optionally handle success state here (e.g., reset form, show message, etc.)
       } else {
         console.error('Error posting data:', response.statusText);

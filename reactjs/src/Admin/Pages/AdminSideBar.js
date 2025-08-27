@@ -5,7 +5,7 @@ import { Home, DollarSign, Video, Bell, Image, Settings, LogOut, Menu, ChevronRi
 
 const AdminSideBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const { userInfo  } = useContext(Context);
+  const { userInfo  } = useContext(Context);
   const location = useLocation();
 
   // Navigation items array with path, name, and icon
@@ -15,7 +15,7 @@ const AdminSideBar = () => {
     { path: '/admin/whatsNewVideo', name: 'What\'s New Video', icon: <Video size={18} /> },
     { path: '/admin/update', name: 'Updates', icon: <Bell size={18} /> },
     { path: '/admin/carousel', name: 'Carousel', icon: <Image size={18} /> },
-    { path: '/admin/settings', name: 'Settings', icon: <Settings size={18} /> },
+    { path: '/admin/settings', name: 'Settings', icon: <Settings size={18} /> }
   ];
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const AdminSideBar = () => {
       </button>
 
       {isSidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
           onClick={toggleSidebar}
         ></div>
