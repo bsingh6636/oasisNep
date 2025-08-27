@@ -17,6 +17,7 @@ const Help = React.lazy(() => import('./component/Help').then(m => ({ default: m
 const Cart = React.lazy(() => import('./component/Cart').then(m => ({ default: m.Cart })));
 const AdminRoutes = React.lazy(() => import('./Admin/RoutesAdmin'));
 const HouseHoldCode = React.lazy(() => import('./pages/HouseHoldCode'));
+const SignIn = React.lazy(() => import('./app/login'));
 export const MyContext = React.createContext();
 
 export const AppLayout = () => {
@@ -59,6 +60,8 @@ const Approuter = createBrowserRouter([
       { path: '/price/:cat', element: <Prices /> },
       { path: 'admin/*', element: <AdminRoutes /> },
       { path : '/netflixCode' , element : <HouseHoldCode/>},
+      { path: 'signIn', element : <SignIn />  },
+      { path: 'signUp', element : <SignIn />  },
       { path: '*', element: <Error /> }
     ],
   },

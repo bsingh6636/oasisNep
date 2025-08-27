@@ -16,16 +16,16 @@ app.use(cors({
 app.use(express.json())
 app.use("/api/prices", priceRouter)
 app.use("/api/admin", adminRouter)
-router.use('api/user', userRouter);
-app.use('/api', router )
+router.use("/api/user", userRouter);
+// app.use('/api', router )
+
 
 // Catch-all route for undefined routes
 
 
-// app.use('/check' , ( req , res , next ) => {
-//     throw new Error("Error by app js");
-    
-// })
+app.use('/check' , ( req , res , next ) => {
+    res.status(200).json({ message: "success" })
+})
 
 
 app.use((err, req, res, next) => {

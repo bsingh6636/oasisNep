@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ label, type = "text", name, value, onChange, placeholder }) => {
+export const Input = ({ label, type = "text", name, value, onChange, placeholder }) => {
   return (
     <div className="w-full">
       {label && (
@@ -30,4 +30,3 @@ const Input = ({ label, type = "text", name, value, onChange, placeholder }) => 
   );
 };
 
-export default Input;
