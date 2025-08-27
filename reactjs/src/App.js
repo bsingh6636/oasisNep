@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Navbar } from './Header';
-import Prices from './Prices';
+import { Navbar } from './component/Header';
+import Prices from './component/Prices';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { Error } from './Error';
-import { Body } from './Body';
-import { PriceDetails } from './PriceDetails';
-import { AboutUs } from './AboutUs';
-import { Footer } from './Footer';
-import { ContactUs } from './ContactUs';
-import Update from './Update';
+import { Error } from './component/Error';
+import { Body } from './component/Body';
+import { PriceDetails } from './component/PriceDetails';
+import { AboutUs } from './component/AboutUs';
+import { Footer } from './component/Footer';
+import { ContactUs } from './component/ContactUs';
+import Update from './component/Update';
 import { Provider } from 'react-redux';
-import reduxstore from '../Const/Reduxstore';
-import { Help } from './Help';
-import { Cart } from './Cart';
-import AdminRoutes from '../Admin/RoutesAdmin';
+import reduxstore from './Const/Reduxstore';
+import { Help } from './component/Help';
+import { Cart } from './component/Cart';
+import AdminRoutes from './Admin/RoutesAdmin';
 
-const HouseHoldCode = React.lazy(()=> import('../pages/HouseHoldCode'))
+const HouseHoldCode = React.lazy(()=> import('./pages/HouseHoldCode'))
 export const MyContext = React.createContext();
 
 export const AppLayout = () => {
