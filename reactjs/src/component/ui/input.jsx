@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Input = ({ label, type = "text", name, value, onChange, placeholder }) => {
+export const Input = ({ label, type = "text", name, value, onChange, placeholder, required }) => {
   return (
     <div className="w-full">
       {label && (

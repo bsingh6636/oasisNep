@@ -11,6 +11,7 @@ import { Loader2 } from "lucide-react";
 const AdminDashboard = lazy(() => import('./DashBoardAdmin'))
 const AdminDisplay = lazy(() => import('./AdminDisplay'))
 const AdminLogin = lazy(() => import('./AdminLogin'))
+const AdminChat = lazy(() => import('./app/Chat'))
 
 export const Context = createContext()
 
@@ -35,6 +36,7 @@ const AdminRoutes = () => {
                             <Route path='update' element={<Update />} />
                             <Route path='prices' element={<AdminPrices/>}/>
                             <Route path='carousel' element={<CarouselAdmin/>}/>
+                            <Route path="chat" element={<AdminChat />} />
                         </Routes>
                     </div>
                 </div>

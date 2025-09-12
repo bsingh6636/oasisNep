@@ -32,14 +32,14 @@ const AdminDisplay = () => {
         // eslint-disable-next-line
     }, [navigate, setLoginState]);
 
-    useEffect(() => {
-        if (loginState) {
-            navigate('/admin/dashboard');
-        } else {
-            navigate('/admin/login');
-        }
-        // eslint-disable-next-line
-    }, [loginState, navigate]);
+    // useEffect(() => {
+    //     if (loginState) {
+    //         navigate('/admin/dashboard');
+    //     } else {
+    //         navigate('/admin/login');
+    //     }
+    //     // eslint-disable-next-line
+    // }, [loginState, navigate]);
 
     const handleLogout = async () => {
         const response = await fetch(`${BackendPort}/admin/logout`, { credentials: 'include' })
@@ -48,6 +48,7 @@ const AdminDisplay = () => {
         //needs handling , when network reponse faile or any error
         setLoginState(false);
     };
+    return null;
     return (
         <div
             className={`p-4 rounded-lg shadow-lg transition-transform transform ${isActive ? 'bg-blue-500 text-white scale-100' : 'bg-gray-100 text-black'}`}

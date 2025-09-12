@@ -1,7 +1,7 @@
 // src/services/api.js
 import axios from 'axios';
 
-const BASE_URL =
+export const BASE_URL =
   process.env.NODE_ENV === 'production'
     ? 'https://api.yourdomain.com' // Production
     : 'http://localhost:8080/api/';     // Development

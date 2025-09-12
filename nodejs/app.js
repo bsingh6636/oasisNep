@@ -4,7 +4,9 @@ import priceRouter from "./Router/prices.router.js"
 import adminRouter from "./Router/admin.router.js"
 import userRouter from "./Router/user.router.js"
 import cookieParser from "cookie-parser";
-import router from './Router/router.js'
+// import router from './Router/router.js'
+import http from 'http'
+import initializeSocket from './utils/socket.js'
 const app = express()
 
 app.use(cookieParser())
@@ -16,7 +18,7 @@ app.use(cors({
 app.use(express.json())
 app.use("/api/prices", priceRouter)
 app.use("/api/admin", adminRouter)
-router.use("/api/user", userRouter);
+app.use("/api/user", userRouter);
 // app.use('/api', router )
 
 
@@ -36,4 +38,7 @@ app.use((err, req, res, next) => {
     }
    
 });
-export default app;
+
+const server = http.createServer(app);
+initializeSocket(server);
+export default server;

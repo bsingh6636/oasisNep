@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { Navbar } from './component/Header';
+import React, { use, useState } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Footer } from './component/Footer';
 import { Provider } from 'react-redux';
 import reduxstore from './Const/Reduxstore';
 import Loader from './component/ui/loader';
+import { getRequest } from './services.js/axios';
+import Profile from './app/profile';
+import Chat from './app/chat';
+import AuthPage from './app/login';
+import Header from './component/Header';
+import useDevice from './hooks/useDeivce';
 // Lazy imports
 const Prices = React.lazy(() => import('./component/Prices'));
 const Error = React.lazy(() => import('./component/Error').then(m => ({ default: m.Error })));
@@ -17,26 +22,44 @@ const Help = React.lazy(() => import('./component/Help').then(m => ({ default: m
 const Cart = React.lazy(() => import('./component/Cart').then(m => ({ default: m.Cart })));
 const AdminRoutes = React.lazy(() => import('./Admin/RoutesAdmin'));
 const HouseHoldCode = React.lazy(() => import('./pages/HouseHoldCode'));
-const SignIn = React.lazy(() => import('./app/login'));
+
+
+
 export const MyContext = React.createContext();
 
 export const AppLayout = () => {
-  
+
   const [priceListAll, setPriceListAll] = useState([])
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [user, setUser] = useState(null);
+  const device = useDevice();
+
+  const getUser = async () => {
+    try {
+      const user = await getRequest('user/auth');
+      setUser(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  React.useEffect(() => {
+    if (!user?._id) {
+      getUser()
+    }
+  }, [user])
   return (
     <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
       {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
 
       <Provider store={reduxstore}>
-        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode }} >
-          <Navbar />
-       
+        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode, user, device }} >
+          <Header />
 
-         <React.Suspense fallback={ <Loader /> } >
-           <Outlet />
-         </React.Suspense>
-        
+          <React.Suspense fallback={<Loader />} >
+            <Outlet />
+          </React.Suspense>
+
           <Footer />
         </MyContext.Provider>
       </Provider>
@@ -59,9 +82,11 @@ const Approuter = createBrowserRouter([
       { path: '/prices/:object', element: <PriceDetails /> },
       { path: '/price/:cat', element: <Prices /> },
       { path: 'admin/*', element: <AdminRoutes /> },
-      { path : '/netflixCode' , element : <HouseHoldCode/>},
-      { path: 'signIn', element : <SignIn />  },
-      { path: 'signUp', element : <SignIn />  },
+      { path: '/netflixCode', element: <HouseHoldCode /> },
+      { path: 'signIn', element: <AuthPage /> },
+      { path: 'signUp', element: <AuthPage /> },
+      { path : 'user/profile', element : <Profile /> },
+      { path : 'chat' , element : <Chat /> },
       { path: '*', element: <Error /> }
     ],
   },

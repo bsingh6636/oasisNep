@@ -1,50 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { MyContext } from "../App";
-import "../css/Header.css";
+import { MyContext } from "../../App";
+import NaveAvatar from "../ui/nameAvatar";
+import { navLinks, socialLinks } from "./headerLinks";
 
-// NAV LINKS (used for both desktop + mobile)
-const navLinks = [
-  { path: "/", name: "Home", icon: "fa-home" },
-  { path: "/prices", name: "Prices", icon: "fa-tag" },
-  { path: "/updates", name: "Updates", icon: "fa-bell" },
-  { path: "/aboutUs", name: "About Us", icon: "fa-info-circle" },
-  { path: "/help", name: "Help", icon: "fa-question-circle" },
-  { path: "/contact", name: "Suppot", icon: "fa-envelope" },
-  { path: "signIn", name: "Sign In", icon: "fa-user" },
-];
 
-// SOCIAL LINKS (used for both header + mobile menu)
-const socialLinks = [
-  {
-    href: "https://www.facebook.com/onlinepurchasenepal6636",
-    icon: "fa-facebook",
-    color: "text-blue-600 hover:text-blue-400",
-    label: "Facebook",
-  },
-  {
-    href: "https://t.me/bsingh4474",
-    icon: "fa-telegram",
-    color: "text-blue-400 hover:text-blue-300",
-    label: "Telegram",
-  },
-  {
-    href: "https://wa.me/+9779804805541",
-    icon: "fa-whatsapp",
-    color: "text-green-500 hover:text-green-400",
-    label: "WhatsApp",
-  },
-];
-
-export const Navbar = () => {
+export const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const { isDarkMode, setIsDarkMode } = useContext(MyContext);
+  const { isDarkMode, setIsDarkMode, user } = useContext(MyContext);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // ✅ Load dark mode preference
+  const [state , setState] = useState({
+    navLinks : navLinks
+  })
+
+  const updateState = updates => setState( prev => ({ ...prev, ...updates }) )
+
   useEffect(() => {
     const stored = localStorage.getItem("isDarkMode");
     const prefersDark = stored === "true" || stored === null;
@@ -53,14 +27,22 @@ export const Navbar = () => {
     document.documentElement.classList.toggle("dark", prefersDark);
   }, [setIsDarkMode]);
 
-  // ✅ Detect scroll
+  useEffect(() =>{
+    if(user?._id){
+    const newNavLink =  navLinks.filter((link) => link.path !== "signIn")
+    updateState({navLinks : newNavLink})
+    }else{
+      updateState({navLinks : navLinks})
+    }
+  },[user?._id])
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Toggle Dark Mode
+
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
@@ -69,12 +51,13 @@ export const Navbar = () => {
   };
 
   return (
+    <>
+      <HeaderSocial />
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${isDarkMode ? "dark" : ""
         } ${isScrolled ? "shadow-lg" : "shadow-md"}`}
     >
       {/* Social Bar */}
-      <HeaderSocial />
 
       <nav
         className={`mx-auto px-4 py-2 flex items-center justify-between transition-colors duration-300 ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-800"
@@ -105,7 +88,7 @@ export const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center space-x-8">
           <ul className="flex space-x-6">
-            {navLinks.map((item) => (
+            {state.navLinks.map((item) => (
               <li key={item.path}>
                 <Link
                   to={item.path}
@@ -123,13 +106,17 @@ export const Navbar = () => {
             ))}
           </ul>
 
-          {/* Cart + Dark Toggle */}
+          
           <NavActions
             cartItems={cartItems}
             toggleDarkMode={toggleDarkMode}
             isDarkMode={isDarkMode}
           />
+
+        { user?._id && <NaveAvatar name={user?.name} />}
+
         </div>
+
 
         {/* Mobile Nav Toggle */}
         <div className="lg:hidden flex items-center space-x-4">
@@ -149,13 +136,11 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div
           className={`lg:hidden absolute top-full left-0 right-0 shadow-xl py-4 px-6 z-50 ${isDarkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
             }`}
         >
-          {/* Search */}
           <div className="mb-4">
             <div className="relative">
               <input
@@ -168,9 +153,8 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Links */}
           <ul className="space-y-1">
-            {navLinks.map((item) => (
+            {state.navLinks.map((item) => (
               <li key={item.path}>
                 <Link
                   to={item.path}
@@ -185,7 +169,7 @@ export const Navbar = () => {
             ))}
           </ul>
 
-          {/* Socials */}
+
           <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
             <h3 className="mb-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
               Connect with us
@@ -195,6 +179,7 @@ export const Navbar = () => {
         </div>
       )}
     </header>
+    </>
   );
 };
 
@@ -202,7 +187,6 @@ export const Navbar = () => {
 
 const NavActions = ({ cartItems, toggleDarkMode, isDarkMode }) => (
   <div className="flex items-center space-x-4">
-    {/* Cart */}
     <Link to="/cart" className="relative group">
       <div
         className={`p-2 rounded-full flex items-center ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"
@@ -217,7 +201,6 @@ const NavActions = ({ cartItems, toggleDarkMode, isDarkMode }) => (
       </div>
     </Link>
 
-    {/* Dark Toggle */}
     <button
       onClick={toggleDarkMode}
       className={`p-2 rounded-full ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"
@@ -236,7 +219,7 @@ const HeaderSocial = () => (
   <div className="hidden md:block w-full transition-colors duration-300 py-2 bg-black dark:bg-gray-800 text-white dark:text-gray-200">
     <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
       <div className="mb-2 sm:mb-0 text-sm">
-        <i className="fa-solid fa-headset mr-1" /> Customer Support:{" "}
+        <i className="fa-solid fa-headset mr-1" /> Support:{" "}
         <a href="tel:+9779804805541" className="hover:text-blue-400">
           +977 9804 805 541
         </a>
@@ -263,15 +246,5 @@ const SocialLinks = ({ showLabels = false }) => (
   </div>
 );
 
-// // 🔹 CSS for spin animation
-// const style = document.createElement("style");
-// style.textContent = `
-//   @keyframes spin-slow { 
-//     0% { transform: rotate(0deg); } 
-//     100% { transform: rotate(360deg); } 
-//   }
-//   .animate-spin-slow { animation: spin-slow 8s linear infinite; }
-// `;
-// document.head.appendChild(style);
 
-export default Navbar;
+export default Header;
