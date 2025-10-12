@@ -201,7 +201,7 @@ const NavActions = ({ cartItems, toggleDarkMode, isDarkMode }) => (
       </div>
     </Link>
 
-    <button
+    {/* <button
       onClick={toggleDarkMode}
       className={`p-2 rounded-full ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"
         }`}
@@ -211,7 +211,7 @@ const NavActions = ({ cartItems, toggleDarkMode, isDarkMode }) => (
         className={`fa-solid ${isDarkMode ? "fa-sun text-yellow-300" : "fa-moon text-gray-700"
           } text-lg`}
       />
-    </button>
+    </button> */}
   </div>
 );
 
