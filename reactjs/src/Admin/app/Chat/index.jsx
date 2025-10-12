@@ -42,7 +42,6 @@ const AdminChat = () => {
             console.log("Disconnecting socket for user:", userInfo.name);
             socket.disconnect();
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userInfo?._id]);
 
     const handleSendMessage = (messageText) => {

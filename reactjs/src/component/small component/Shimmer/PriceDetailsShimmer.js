@@ -30,4 +30,4 @@ const PriceDetailsShimmer = () => {
 };
 
 export default PriceDetailsShimmer;
-;
+

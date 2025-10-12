@@ -24,7 +24,7 @@ const WhatsNewVideoComponent = () => {
             } else {
                 setError(data.message || 'Failed to add/update video');
             }
-        } catch (/* err */) {
+        } catch (err) {
             setError('An error occurred while adding/updating the video');
         }
     };
@@ -42,7 +42,8 @@ const WhatsNewVideoComponent = () => {
             } else {
                 setError(data.message || 'Failed to delete video');
             }
-        } catch (/* err */) {
+        } catch (err ) {
+            console.log(error)
             setError('An error occurred while deleting the video');
         }
     };
@@ -56,7 +57,8 @@ const WhatsNewVideoComponent = () => {
             } else {
                 setError(data.message || 'Failed to fetch videos');
             }
-        } catch (/* err */) {
+        } catch (error) {
+            console.error('Error fetching videos:', error);
             setError('An error occurred while fetching videos');
         }
     };
