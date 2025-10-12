@@ -262,7 +262,7 @@ const AdminLogin = () => {
                                                     name="password"
                                                     value={credentials.password}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                                                    className="w-full px-4 py-2 text-card border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
                                                 />
                                                 <button
                                                     type="button"
@@ -326,7 +326,7 @@ const AdminLogin = () => {
                                             name="password"
                                             value={credentials.password}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                                            className="w-full px-4 text-card py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
                                         />
                                         <button
                                             type="button"
@@ -423,7 +423,7 @@ const InputField = ({ label, type, name, value, onChange, icon }) => (
                 name={name}
                 value={value}
                 onChange={onChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 text-card border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
                 autoComplete={type === 'password' ? 'current-password' : name === 'email' ? 'email' : ''}
             />
             {icon && (

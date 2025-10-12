@@ -91,9 +91,9 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 ">
       <div className="w-full max-w-md">
-        <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+        <Card className="shadow-2xl border-0  backdrop-blur-sm">
           <CardHeader className="space-y-1 pb-6">
             <div className="flex flex-col items-center space-y-2 mt-3">
               {/* <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
@@ -128,7 +128,7 @@ const AuthPage = () => {
 
                   return (
                     <div key={field.key} className={field.key === 'email' || field.key === 'password' || field.key === 'confirmPassword' ? 'sm:col-span-2' : ''}>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-400 mb-1">
                         {field.label} {field.required && <sup className="text-destructive">*</sup>}
                       </label>
                       <div className="relative">
@@ -200,7 +200,7 @@ const AuthPage = () => {
                 type="button"
                 variant="outline" 
                 onClick={toggleAuthMode} 
-                className="w-full h-11 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 font-medium rounded-lg transition-all duration-200"
+                className="w-full h-11 border-gray-200 text-gray-500 font-medium rounded-lg transition-all duration-200"
               >
                 {isSignIn ? "Create New Account" : "Sign In Instead"}
               </Button>

@@ -49,7 +49,7 @@ export const AppLayout = () => {
     }
   }, [user])
   return (
-    <div className='bg-gradient-to-br from-gray-200 via-blue-200 to-green-300  min-h-screen'>
+    <div className='bg-gradient-to-br bg-gray-900  min-h-screen'>
       {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
 
       <Provider store={reduxstore}>
