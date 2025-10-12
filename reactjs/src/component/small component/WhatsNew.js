@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { TMDB_API_KEY } from '../../Const/url';
+import { BackendPort } from '../../Const/url';
+import axios from 'axios';
 
 // Enhanced WhatsNew component with responsive design and device-specific card limits
 const WhatsNew = () => {
@@ -35,8 +36,9 @@ const WhatsNew = () => {
         
         // Option 2: Using TMDB API (need to replace with your API key)
         // Example API call to get trending/new content
-        const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`);
-        const data = await response.json();
+        // const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`);
+        const response = await axios.get(BackendPort + '/whatToWatch');
+        const data = await response.data;
         
         // Transform the data to match our component needs
         if (data.results) {

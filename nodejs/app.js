@@ -26,7 +26,7 @@ app.use('/api', router )
 // Catch-all route for undefined routes
 
 
-app.use('/check' , ( req , res , next ) => {
+app.use('/api/check' , ( req , res , next ) => {
     res.status(200).json({ message: "success" })
 })
 
