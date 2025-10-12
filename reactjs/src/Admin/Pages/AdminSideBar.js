@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../RoutesAdmin';
-import { Home, DollarSign, Video, Bell, Image, Settings, LogOut, Menu, ChevronRight } from 'lucide-react';
+import { Home, DollarSign, Video, Bell, Image, Menu, ChevronRight } from 'lucide-react';
 
 const AdminSideBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);

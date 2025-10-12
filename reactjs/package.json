@@ -23,7 +23,6 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1",
     "react-slick": "^0.30.2",
-    "react-spring": "^9.7.4",
     "socket.io-client": "^4.8.1",
     "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^4.2.3"
@@ -32,13 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
   "browserslist": {
     "production": [
@@ -53,6 +47,9 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"
   }

@@ -26,7 +26,7 @@ const FAQ = ({ choosedMonth, details }) => {
     } else if (details.status === "private") {
       setQuestionsFAQ(questionsFAQPrivate);
     }
-    // eslint-disable-next-line
+     
   }, []);
 
   const toggleFAQ = (index) => {

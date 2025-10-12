@@ -19,6 +19,10 @@ export const ChatBox = ({ initialMessages = [], onSendMessage, isTyping = false,
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
 
   const handleSend = () => {
     if (messageInput.trim()) {

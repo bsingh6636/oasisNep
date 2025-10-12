@@ -1,4 +1,4 @@
-const MobileNav = ({ }) =>{
+const MobileNav = () =>{
     return(
         <>
         </>

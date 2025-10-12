@@ -1,6 +1,4 @@
-import { BiExpandVertical } from "react-icons/bi";
 
-const developmentmode = process.env.REACT_APP_DEVELOPED_MODE;
 // export const BackendPort = developmentmode === 'DEVELOPMENT' 
 //   ? 'http://localhost:8080/api' 
 //   : 'https://oasis-nep.vercel.app/api';

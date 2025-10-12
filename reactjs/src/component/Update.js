@@ -76,7 +76,7 @@ function Update() {
 
   useEffect(() => {
     getUpdates();
-    // eslint-disable-next-line
+     
   }, []);
 
   

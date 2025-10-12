@@ -330,7 +330,7 @@ export const PriceDetails = () => {
           <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-lg p-4 mb-4 transition-colors duration-200">
             <h3 className="font-medium text-amber-700 dark:text-amber-400 mb-1 transition-colors duration-200">Feature Coming Soon!</h3>
             <p className="text-amber-800 dark:text-amber-200 text-sm transition-colors duration-200">
-              We're working hard to bring you this feature. Stay tuned for updates.
+              We&apos;re working hard to bring you this feature. Stay tuned for updates.
             </p>
           </div>
           
@@ -339,7 +339,7 @@ export const PriceDetails = () => {
       </div>
 
       {/* Add CSS animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes ripple {
           to {
             transform: scale(4);

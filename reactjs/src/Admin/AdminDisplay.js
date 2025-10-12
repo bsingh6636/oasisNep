@@ -29,8 +29,8 @@ const AdminDisplay = () => {
         };
 
         verifyUser()
-        // eslint-disable-next-line
-    }, [navigate, setLoginState]);
+         
+    }, [navigate, setLoginState, setUserInfo]);
 
     // useEffect(() => {
     //     if (loginState) {
@@ -48,7 +48,6 @@ const AdminDisplay = () => {
         //needs handling , when network reponse faile or any error
         setLoginState(false);
     };
-    return null;
     return (
         <div
             className={`p-4 rounded-lg shadow-lg transition-transform transform ${isActive ? 'bg-blue-500 text-white scale-100' : 'bg-gray-100 text-black'}`}

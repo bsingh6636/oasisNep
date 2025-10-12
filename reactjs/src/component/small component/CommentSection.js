@@ -13,7 +13,7 @@ const CommentSection = () => {
             {/* Coming Soon Feature */}
             <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg">
                 <p className="text-yellow-700 font-semibold">Feature Coming Soon!</p>
-                <p className="text-gray-600">We're working hard to bring you this feature. Stay tuned for updates.</p>
+                <p className="text-gray-600">We&apos;re working hard to bring you this feature. Stay tuned for updates.</p>
             </div>
         </div>
     );
