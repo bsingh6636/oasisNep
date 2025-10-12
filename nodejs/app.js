@@ -4,6 +4,7 @@ import priceRouter from "./Router/prices.router.js"
 import adminRouter from "./Router/admin.router.js"
 import userRouter from "./Router/user.router.js"
 import cookieParser from "cookie-parser";
+import router from "./Router/router.js"
 // import router from './Router/router.js'
 import http from 'http'
 import initializeSocket from './utils/socket.js'
@@ -19,7 +20,7 @@ app.use(express.json())
 app.use("/api/prices", priceRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/user", userRouter);
-// app.use('/api', router )
+app.use('/api', router )
 
 
 // Catch-all route for undefined routes
