@@ -1,5 +1,7 @@
 import React from 'react';
 import { telegramImageUrl, whatsappImageUrl } from '../../Const/url';
+import { BsWhatsapp } from 'react-icons/bs';
+import { FaTelegram, FaWhatsapp } from 'react-icons/fa';
 
 const PaymentOptions = ({ cartItems }) => {
     // Function to format cart items into a message
@@ -20,11 +22,13 @@ const PaymentOptions = ({ cartItems }) => {
     return (
         <div className='flex flex-col items-center space-y-4 mt-5'>
             <div className='flex flex-row items-center space-x-2 p-2 border rounded-lg shadow-md cursor-pointer' onClick={whatsappClick}>
-                <img src={whatsappImageUrl} alt='whatsapp' className='w-8 h-8' />
+                {/* <img src={whatsappImageUrl} alt='whatsapp' className='w-8 h-8' />  */}
+                <FaWhatsapp size={20} /> 
                 <span>Proceed via WhatsApp</span>
             </div>
             <div className='flex flex-row items-center space-x-2 p-2 border rounded-lg shadow-md cursor-pointer' onClick={telegramClick}>
-                <img src={telegramImageUrl} alt='telegram' className='w-8 h-8' />
+                {/* <img src={telegramImageUrl} alt='telegram' className='w-8 h-8' /> */}
+                <FaTelegram size={20} />
                 <span>Proceed via Telegram</span>
             </div>
         </div>
