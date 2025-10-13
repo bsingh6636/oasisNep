@@ -1,6 +1,4 @@
 import React from 'react';
-import { telegramImageUrl, whatsappImageUrl } from '../../Const/url';
-import { BsWhatsapp } from 'react-icons/bs';
 import { FaTelegram, FaWhatsapp } from 'react-icons/fa';
 
 const PaymentOptions = ({ cartItems }) => {
