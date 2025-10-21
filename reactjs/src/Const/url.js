@@ -3,7 +3,7 @@
 //   ? 'http://localhost:8080/api' 
 //   : 'https://oasis-nep.vercel.app/api';
 
- export const BackendPort = 'http://localhost:8080/api' 
+ export const BackendPort =  process.env == 'development' ? 'http://localhost:8080/api' : 'https://www.subsnepal.com/api' ;
 
 
 export const whatsappImageUrl = 'https://res.cloudinary.com/bsingh6636/image/upload/v1722901156/page/ott%20icons/WhatsApp_d7blgr.svg'
