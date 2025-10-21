@@ -8,16 +8,16 @@ const VERCEL_REDIS_URL = process.env.VERCE_REDIS_URL;
   try {
     redis = createClient({ url: VERCEL_REDIS_URL });
     await redis.connect();
-    console.log("✅ Redis connected successfully");
+    console.log('✅ Redis connected successfully');
   } catch (err) {
-    console.error("❌ Redis connection error:", err);
+    console.error('❌ Redis connection error:', err);
   }
 })();
 
 const setRedis = async (key, value, expire) => {
   try {
     if (!redis?.isOpen) {
-      console.warn("⚠️ Redis is not connected. Attempting reconnect...");
+      console.warn('⚠️ Redis is not connected. Attempting reconnect...');
       await redis.connect();
     }
     console.log(`📝 Setting key: ${key}, value: ${value}, expire: ${expire}s`);
@@ -26,7 +26,7 @@ const setRedis = async (key, value, expire) => {
     console.log(`✅ Key set result: ${data}`);
     return data;
   } catch (error) {
-    console.error("❌ Error in setRedis:", error);
+    console.error('❌ Error in setRedis:', error);
     return null;
   }
 };
@@ -34,7 +34,7 @@ const setRedis = async (key, value, expire) => {
 const getRedis = async (key) => {
   try {
     if (!redis?.isOpen) {
-      console.warn("⚠️ Redis is not connected. Attempting reconnect...");
+      console.warn('⚠️ Redis is not connected. Attempting reconnect...');
       await redis.connect();
     }
     console.log(`🔍 Getting key: ${key}`);
@@ -43,7 +43,7 @@ const getRedis = async (key) => {
     const parsedValue = typeof data === 'string' ? JSON.parse(data) : data;
     return parsedValue;
   } catch (error) {
-    console.error("❌ Error in getRedis:", error);
+    console.error('❌ Error in getRedis:', error);
     return null;
   }
 };

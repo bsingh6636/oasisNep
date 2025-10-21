@@ -1,5 +1,3 @@
-
-
 const requestLogger = (req, res, next) => {
   const logData = {
     timestamp: new Date().toISOString(),

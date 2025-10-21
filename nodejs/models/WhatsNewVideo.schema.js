@@ -1,35 +1,38 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const WhatsNewVideoSchema = mongoose.Schema({
+const WhatsNewVideoSchema = mongoose.Schema(
+  {
     Name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     TrailerLink: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
 
     Platform: {
-        type: String,
-        required: true
-    }
-},
-    { timestamps: true })
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
 
-const UpdatesSchema = mongoose.Schema({
+const UpdatesSchema = mongoose.Schema(
+  {
     Title: {
-        type: String,
+      type: String,
     },
     Description: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     ImageUrl: {
-        type: String
+      type: String,
     },
-},
-    { timestamps: true })
-export const Updates = mongoose.model('Updates', UpdatesSchema)
-export const WhatsNewVideo = mongoose.model('WhatsNewVideo', WhatsNewVideoSchema)
-
+  },
+  { timestamps: true },
+);
+export const Updates = mongoose.model('Updates', UpdatesSchema);
+export const WhatsNewVideo = mongoose.model('WhatsNewVideo', WhatsNewVideoSchema);

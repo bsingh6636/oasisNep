@@ -9,8 +9,8 @@ const openEmailAndExtractMessage = async (emailUrl) => {
     await page.goto(emailUrl, { waitUntil: 'networkidle2' });
 
     // Wait for the element containing the message
-    await page.waitForSelector('.message-class');  // Adjust selector as needed for your website
-    const message = await page.$eval('.message-class', el => el.textContent);
+    await page.waitForSelector('.message-class'); // Adjust selector as needed for your website
+    const message = await page.$eval('.message-class', (el) => el.textContent);
 
     console.log('Extracted message:', message);
 

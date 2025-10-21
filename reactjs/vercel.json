@@ -1,4 +1,4 @@
 {
   "source": "/api/:path*",
-  "destination": "http://api.subsnepal.com/"
+  "destination": "http://api.subsnepal.com/api/:path*"
 }

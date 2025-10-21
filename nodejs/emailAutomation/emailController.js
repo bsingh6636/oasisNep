@@ -29,7 +29,7 @@ const fetchAndExtractMessage = async (req, res) => {
     const emails = await connection.search(searchCriteria, fetchOptions);
     let messageResponse = '';
 
-    for (let email of emails) {
+    for (const email of emails) {
       const parsed = await simpleParser(email.parts[1].body);
       const body = parsed.text;
 
@@ -49,9 +49,8 @@ const fetchAndExtractMessage = async (req, res) => {
 
     if (messageResponse) {
       return res.json({ success: true, message: messageResponse });
-    } else {
-      return res.status(404).json({ success: false, message: 'No recent emails found with a valid link' });
     }
+    return res.status(404).json({ success: false, message: 'No recent emails found with a valid link' });
   } catch (error) {
     console.error('Error fetching emails:', error);
     return res.status(500).json({ success: false, message: 'Internal Server Error' });

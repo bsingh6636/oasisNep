@@ -1,9 +1,3 @@
-
-
-export const asyncErrorHandler =(TheFunction) =>{
-    return (req,res,next) =>{
-       
-        Promise.resolve(TheFunction(req,res,next)).catch(next);
-    }
-}
-
+export const asyncErrorHandler = (TheFunction) => (req, res, next) => {
+  Promise.resolve(TheFunction(req, res, next)).catch(next);
+};
