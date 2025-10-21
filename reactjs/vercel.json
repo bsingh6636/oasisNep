@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://api.subsnepal.com/:path*"
+      "destination": "http://api.subsnepal.com/"
     }
   ]
 }
