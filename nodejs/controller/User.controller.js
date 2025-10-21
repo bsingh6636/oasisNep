@@ -4,12 +4,12 @@ import jwt from "jsonwebtoken";
 import { asyncErrorHandler } from "../utils/asynchandler.js";
 
 export const register = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { fullName : name, email, password, phone , username } = req.body;
     try {
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ success: false, message: 'User Already Exists' });
 
-        user = new User({ name, email, password });
+        user = new User({ name, email, password, phone, username });
         await user.save();
 
         const payload = { user: { id: user.id } };
@@ -51,3 +51,15 @@ export const login = asyncErrorHandler(async (req, res) => {
         message: "Login successful.",
     });
 });
+
+const getUser = ( req , res ) => {
+    try {
+        // console.log(req)
+        res.status(200).json(req.decodedUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export { getUser };
+

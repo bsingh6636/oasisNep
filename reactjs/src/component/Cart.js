@@ -5,7 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { deleteItemCart } from "../Const/cartslice";
 import PaymentOtions from './small component/PaymentOtions';
-import { MyContext } from './App';
+import { MyContext } from '../App';
 
 export const Cart = () => {
     const cartItems = useSelector((store) => store.cart.items)
@@ -31,18 +31,18 @@ export const Cart = () => {
     console.log(cartItems)
 
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+        <div className={`h-full transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
             {/* Header with dark mode toggle */}
-            <div className={`sticky top-0 z-10 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-md px-4 py-3 mb-4 transition-colors duration-300`}>
+            {/* <div className={`sticky top-0 z-10 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-md px-4 py-3 mb-4 transition-colors duration-300`}>
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center space-x-2">
                         <FaShoppingCart className={`h-6 w-6 ${isDarkMode ? 'text-teal-400' : 'text-teal-500'}`} />
                         <h1 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Shopping Cart</h1>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20"> */}
                 {/* Cart Items */}
                 <div className="mb-8">
                     {cartItems.length === 0 ? (
@@ -169,6 +169,6 @@ export const Cart = () => {
                     </div>
                 )}
             </div>
-        </div>
+        // </div>
     );
 };

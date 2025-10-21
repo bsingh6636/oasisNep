@@ -39,10 +39,7 @@ const SearchBar = () => {
     );
   };
 
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  
 
   return (
     <div className={`p-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>

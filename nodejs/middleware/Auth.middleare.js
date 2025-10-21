@@ -29,7 +29,7 @@ export const Auth = async (req, res, next) => {
             return res.status(401).json({ success: false, message: 'Invalid token' });
         } else if (error.name === 'TokenExpiredError') {
             // Clear the cookie
-            res.clearCookie('yourCookieName');
+            res.clearCookie('adminToken');
 
             // Send the response
             return res.status(403).json({ success: false, message: 'Token has expired' });

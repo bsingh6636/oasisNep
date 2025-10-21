@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { TMDB_API_KEY } from '../../Const/url';
+import { BackendPort } from '../../Const/url';
+import axios from 'axios';
 
 // Enhanced WhatsNew component with responsive design and device-specific card limits
 const WhatsNew = () => {
@@ -35,8 +36,9 @@ const WhatsNew = () => {
         
         // Option 2: Using TMDB API (need to replace with your API key)
         // Example API call to get trending/new content
-        const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`);
-        const data = await response.json();
+        // const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`);
+        const response = await axios.get(BackendPort + '/whatToWatch');
+        const data = await response.data;
         
         // Transform the data to match our component needs
         if (data.results) {
@@ -256,7 +258,7 @@ const WhatsNew = () => {
         )}
         
         {/* "See All" button */}
-        <div className="text-center mt-6 md:mt-10">
+        {/* <div className="text-center mt-6 md:mt-10">
           <a 
             href="/all-content" 
             className="inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-sm"
@@ -266,7 +268,7 @@ const WhatsNew = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -29,17 +29,17 @@ const AdminDisplay = () => {
         };
 
         verifyUser()
-        // eslint-disable-next-line
-    }, [navigate, setLoginState]);
+         
+    }, [navigate, setLoginState, setUserInfo]);
 
-    useEffect(() => {
-        if (loginState) {
-            navigate('/admin/dashboard');
-        } else {
-            navigate('/admin/login');
-        }
-        // eslint-disable-next-line
-    }, [loginState, navigate]);
+    // useEffect(() => {
+    //     if (loginState) {
+    //         navigate('/admin/dashboard');
+    //     } else {
+    //         navigate('/admin/login');
+    //     }
+    //     // eslint-disable-next-line
+    // }, [loginState, navigate]);
 
     const handleLogout = async () => {
         const response = await fetch(`${BackendPort}/admin/logout`, { credentials: 'include' })

@@ -29,7 +29,7 @@ export const EmptyCart = () => {
           </h2>
           
           <p className="text-gray-600 dark:text-gray-300">
-            Looks like you haven't added anything to your cart yet.
+            Looks like you haven&apos;t added anything to your cart yet.
           </p>
           
           <div className="pt-4">

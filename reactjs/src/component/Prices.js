@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState, useMemo } from "react";
 import { Pricelist as PricelistMock } from "../const";
 import { useParams, Link } from "react-router-dom";
 import "../css/body.css";
-import { MyContext } from "./App";
+import { MyContext } from "../App";
 import { priceUpdate } from "../helper/priceUpdate";
-import AllPricesShimmer from './small component/Shimmer/AllPricesShimmer';
+
 import { Search, Filter, X, ChevronRight } from "lucide-react";
 import { renderSkeletons } from "./Update";
+import LazyImage from "./ui/lazy-image";
 
 export const Prices = () => {
   const { priceListAll, setPriceListAll } = useContext(MyContext);
@@ -28,6 +29,7 @@ export const Prices = () => {
 
   useEffect(() => {
     // Fetch and update prices only if priceListAll is empty
+    console.log(31);
     if (!priceListAll.length) {
       const updatePrices = async () => {
         setIsLoading(true);
@@ -269,15 +271,16 @@ const AllPrices = ({ Pricelistcopy }) => {
                 
                 {/* Logo Container centered in the top 2/3 of the card */}
                 <div className="absolute top-0 left-0 w-full h-3/5 p-4 flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-                  <img 
-                    src={item.imgid || item.ImageId || "/api/placeholder/400/250"} 
+                  {/* <img 
+                    src={item.imgid || item.ImageId } 
                     alt={item.Name} 
                     className="max-h-full max-w-full object-contain"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "/api/placeholder/400/250";
+                      // e.target.src = "/api/placeholder/400/250";
                     }}
-                  />
+                  /> */}
+                  <LazyImage src={item.imgid || item.ImageId} alt={item.Name} className="max-h-full max-w-full object-contain" />
                 </div>
                 
                 {/* Content section */}

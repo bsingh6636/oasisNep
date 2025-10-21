@@ -36,7 +36,7 @@ const EnhancedImage = ({ src, alt, className }) => {
 };
 
 // Badge component with different color variants
-const Badge = ({ text, variant = 'default' }) => {
+const Badge = ({ text }) => {
   // Color variants for badges
   const variants = {
     default: 'from-blue-600 to-indigo-700',

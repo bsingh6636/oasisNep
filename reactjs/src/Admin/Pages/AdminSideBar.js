@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../RoutesAdmin';
-import { Home, DollarSign, Video, Bell, Image, Settings, LogOut, Menu, ChevronRight } from 'lucide-react';
+import { Home, DollarSign, Video, Bell, Image, Menu, ChevronRight } from 'lucide-react';
 
 const AdminSideBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -15,7 +15,7 @@ const AdminSideBar = () => {
     { path: '/admin/whatsNewVideo', name: 'What\'s New Video', icon: <Video size={18} /> },
     { path: '/admin/update', name: 'Updates', icon: <Bell size={18} /> },
     { path: '/admin/carousel', name: 'Carousel', icon: <Image size={18} /> },
-    { path: '/admin/settings', name: 'Settings', icon: <Settings size={18} /> },
+    // { path: '/admin/settings', name: 'Settings', icon: <Settings size={18} /> },
   ];
 
   useEffect(() => {
@@ -97,9 +97,8 @@ const AdminSideBar = () => {
             ))}
           </ul>
 
-          <div className="my-6 border-t border-gray-800"></div>
 
-          <button
+          {/* <button
             className="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-200"
             onClick={() => {
               console.log('Logging out');
@@ -107,15 +106,15 @@ const AdminSideBar = () => {
           >
             <LogOut size={18} className="mr-3" />
             <span>Logout</span>
-          </button>
+          </button> */}
         </nav>
 
 
-        <div className="absolute bottom-0 w-full p-4 border-t border-gray-800">
+        {/* <div className="absolute bottom-0 w-full p-4">
           <p className="text-xs text-gray-500 text-center">
             Admin Panel v1.0.0
           </p>
-        </div>
+        </div> */}
       </aside>
     </>
   );

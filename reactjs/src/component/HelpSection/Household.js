@@ -17,7 +17,7 @@ export const Household = () => {
         </div>
 
         <div className="animate-fadeIn delay-200">
-          <h3 className="text-lg font-semibold text-gray-700 p-2">Step 3: Open Netflix. You'll see a "No internet connection" error</h3>
+          <h3 className="text-lg font-semibold text-gray-700 p-2">Step 3: Open Netflix. You&apos;ll see a &quot;No internet connection&quot; error</h3>
           <img className="w-full max-w-md mx-auto rounded-lg shadow-lg" src="https://res.cloudinary.com/bsingh6636/image/upload/v1716634455/page/IMG_8112_hrfjnp.jpg" alt="household step 3" />
         </div>
 
@@ -28,7 +28,7 @@ export const Household = () => {
 
         <div className="p-4 border-2 border-red-500 rounded-lg bg-red-50 animate-fadeIn delay-400">
           <h3 className="text-lg font-semibold text-red-700">Step 5: Netflix settled</h3>
-          <p className="text-red-700">Don't remove the Netflix app from recent to avoid this issue</p>
+          <p className="text-red-700">Don&apos;t remove the Netflix app from recent to avoid this issue</p>
           <img className="w-full max-w-md mx-auto rounded-lg shadow-lg mt-2" src="https://res.cloudinary.com/bsingh6636/image/upload/v1716634456/page/IMG_8114_aegeok.jpg" alt="household step 5" />
         </div>
       </div>
