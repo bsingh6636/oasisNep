@@ -1,4 +1,6 @@
 {
-  "source": "/api/:path*",
-  "destination": "http://api.subsnepal.com/api/:path*"
+  "rewrites": { 
+    "source": "/api/:path*", 
+    "destination": "http://api.subsnepal.com/api/:path*"
+  }
 }
