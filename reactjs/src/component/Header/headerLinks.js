@@ -3,9 +3,9 @@ export const navLinks = [
   { path: "/prices", name: "Prices", icon: "fa-tag" },
   { path: "/updates", name: "Updates", icon: "fa-bell" },
   { path: "/aboutUs", name: "About Us", icon: "fa-info-circle" },
-  { path: "/help", name: "Help", icon: "fa-question-circle" },
+  // { path: "/help", name: "Help", icon: "fa-question-circle" },
   { path: "/contact", name: "Support", icon: "fa-envelope" },
-  { path: "signIn", name: "Sign In", icon: "fa-user" },
+  // { path: "signIn", name: "Sign In", icon: "fa-user" },
 ];
 
 // SOCIAL LINKS (used for both header + mobile menu)

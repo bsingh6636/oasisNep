@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -14,8 +15,8 @@ export const Footer = () => {
                   <span className="text-white text-xl font-bold">O</span>
                 </div>
               </div>
-              <h2 className="text-lg font-bold mb-1">Oasis Nepal</h2>
-              <p className="text-xs text-gray-400">&copy; 2025 Oasis Nepal. All rights reserved.</p>
+              <h2 className="text-lg font-bold mb-1">Subscription Nepal</h2>
+              <p className="text-xs text-gray-400">&copy; 2025 Subscription Nepal. All rights reserved.</p>
             </div>
             
             {/* Contact Us section */}
@@ -36,14 +37,14 @@ export const Footer = () => {
                   </span>
                 </a>
                 <a 
-                  href="mailto:ottnepal4474@gmail.com" 
+                  href="mailto:subscription.for.nepal@gmail.com" 
                   className="block text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   <span className="inline-flex items-center">
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.7l-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"/>
                     </svg>
-                    ottnepal4474@gmail.com
+                    subscription.for.nepal@gmail.com
                   </span>
                 </a>
               </div>
@@ -102,36 +103,41 @@ export const Footer = () => {
                 <div className="h-10 w-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <span className="text-white text-xl font-bold">O</span>
                 </div>
-                <h2 className="text-xl font-bold">Oasis Nepal</h2>
+                <h2 className="text-xl font-bold">Subscription Nepal</h2>
               </div>
               <p className="text-sm text-gray-400 mb-6 max-w-xs">
                 Your one-stop destination for premium entertainment services and streaming solutions.
               </p>
-              <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} Oasis Nepal. All rights reserved.</p>
+              <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} Subscription Nepal. All rights reserved.</p>
             </div>
             
             <div className="lg:col-span-1">
               <h3 className="text-base font-semibold mb-4 uppercase tracking-wider text-gray-300">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="/" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+               
+                  <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                     Home
-                  </a>
+                  </Link>
+
                 </li>
                 <li>
-                  <a href="/services" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                 
+                  <Link to="/prices" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pricing" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+              
+                  <Link to="/prices" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/about" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+              
+                  <Link to="/aboutus" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                     About Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -154,13 +160,13 @@ export const Footer = () => {
                 </li>
                 <li>
                   <a 
-                    href="mailto:ottnepal4474@gmail.com" 
+                    href="mailto:subscription.for.nepal@gmail.com" 
                     className="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     <svg className="w-5 h-5 mr-3 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.7l-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"/>
                     </svg>
-                    <span className="text-sm">ottnepal4474@gmail.com</span>
+                    <span className="text-sm">subscription.for.nepal@gmail.com</span>
                   </a>
                 </li>
                 <li>
@@ -240,7 +246,7 @@ export const Footer = () => {
           <div className="border-t border-gray-800 my-8"></div>
           <div className="flex justify-between items-center">
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} Oasis Nepal. All rights reserved.
+              © {new Date().getFullYear()} Subscription Nepal. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="/privacy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">

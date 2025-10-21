@@ -85,8 +85,8 @@ export const ContactUs = () => {
             <ContactCard 
               icon={<EmailIcon />}
               label="Email"
-              value="ottnepal4474@gmail.com"
-              link="mailto:ottnepal4474@gmail.com"
+              value="subscription.for.nepal@gmail.com"
+              link="mailto:subscription.for.nepal@gmail.com"
               lightColors="from-blue-500 to-cyan-400"
               darkColors="from-blue-600 to-cyan-500"
               activeCard={activeCard}
