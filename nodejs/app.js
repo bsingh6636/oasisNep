@@ -8,7 +8,10 @@ import router from "./Router/router.js"
 // import router from './Router/router.js'
 import http from 'http'
 import initializeSocket from './utils/socket.js'
+import requestLogger from "./middleware/requestLogger.middleware.js";
 const app = express()
+
+app.use(requestLogger);
 
 app.use(cookieParser())
 
