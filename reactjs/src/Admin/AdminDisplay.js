@@ -32,36 +32,30 @@ const AdminDisplay = () => {
          
     }, [navigate, setLoginState, setUserInfo]);
 
-    // useEffect(() => {
-    //     if (loginState) {
-    //         navigate('/admin/dashboard');
-    //     } else {
-    //         navigate('/admin/login');
-    //     }
-    //     // eslint-disable-next-line
-    // }, [loginState, navigate]);
+    useEffect(() => {
+        if (loginState) {
+            navigate('/admin/dashboard');
+        } else {
+            navigate('/admin/login');
+        }
+        // eslint-disable-next-line
+    }, [loginState, navigate]);
 
-    const handleLogout = async () => {
-        const response = await fetch(`${BackendPort}/admin/logout`, { credentials: 'include' })
-        const data = await response.json();
-        console.log(data)
-        //needs handling , when network reponse faile or any error
-        setLoginState(false);
-    };
-    return (
-        <div
-            className={`p-4 rounded-lg shadow-lg transition-transform transform ${isActive ? 'bg-blue-500 text-white scale-100' : 'bg-gray-100 text-black'}`}
-            onClick={() => setIsActive(!isActive)}
-        >
-            <label className="text-xl font-bold">Admin</label>
-            {loginState && (
-                <button className='m-1 p-2 rounded-lg bg-red-400 hover:bg-red-600' onClick={handleLogout}>
-                    Logout
-                </button>
-            )}
 
-        </div>
-    );
+    // return (
+    //     <div
+    //         className={`p-4 rounded-lg shadow-lg transition-transform transform ${isActive ? 'bg-blue-500 text-white scale-100' : 'bg-gray-100 text-black'}`}
+    //         onClick={() => setIsActive(!isActive)}
+    //     >
+    //         <label className="text-xl font-bold">Admin</label>
+    //         {loginState && (
+    //             <button className='m-1 p-2 rounded-lg bg-red-400 hover:bg-red-600' onClick={handleLogout}>
+    //                 Logout
+    //             </button>
+    //         )}
+
+    //     </div>
+    // );
 };
 
 export default AdminDisplay;

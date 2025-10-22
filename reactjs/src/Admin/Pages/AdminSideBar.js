@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../RoutesAdmin';
-import { Home, DollarSign, Video, Bell, Image, Menu, ChevronRight } from 'lucide-react';
+import { Home, DollarSign, Video, Bell, Image, Menu, ChevronRight, LogOut } from 'lucide-react';
+import { handleAdminLogout } from '../utils/services';
 
 const AdminSideBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -26,6 +27,15 @@ const AdminSideBar = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+
+  const logOut = async () =>{
+    try {
+      await handleAdminLogout();
+      setLoginState(false);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   if(!userInfo) return null;
 
@@ -95,6 +105,21 @@ const AdminSideBar = () => {
                 </Link>
               </li>
             ))}
+          </ul>
+          <ul>
+            <li  >
+              {/* Logout */}
+              <div>
+                <button
+                  className="flex items-center w-full px-4 py-3 text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-200"
+                  onClick={logOut}
+                >
+                  <LogOut size={18} className="mr-3" />
+                  <span>Logout</span>
+                </button>
+              </div>
+
+            </li>
           </ul>
 
 
