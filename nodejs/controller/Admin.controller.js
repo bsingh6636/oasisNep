@@ -8,8 +8,11 @@ export const register = async (req, res) => {
     userName, password, name, email, phone,
   } = req.body;
   try {
+    if(!userName || !password || !name || !email || !phone) return res.status(400).json({ sucess: false, message: 'All fields are required' });
+
     let admin = await Admin.findOne({ userName });
     if (admin) return res.status(200).json('User Already Exists');
+    else console.log('User not found creating new one');
 
     admin = new Admin({
       userName, password, name, email, phone,
