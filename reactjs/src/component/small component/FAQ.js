@@ -21,9 +21,9 @@ const FAQ = ({ choosedMonth, details }) => {
   ];
 
   useEffect(() => {
-    if (details.status === "shared") {
+    if (details.status?.toLowerCase() === "shared") {
       setQuestionsFAQ(questionsFAQShared);
-    } else if (details.status === "private") {
+    } else if (details.status?.toLowerCase() === "private") {
       setQuestionsFAQ(questionsFAQPrivate);
     }
      

@@ -71,7 +71,7 @@ const FlipkartCartUnified = () => {
           {/* Plan Details - Responsive layout */}
           <div className="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
             <span className="inline-flex items-center px-2 py-0.5 md:py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">
-              {item.month} month{item.month > 1 ? 's' : ''}
+              {item.chosenMonth} month{item.chosenMonth > 1 ? 's' : ''}
             </span>
             <span className="inline-flex items-center px-2 py-0.5 md:py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">
               {item.selectedDevice} user{item.selectedDevice > 1 ? 's' : ''}
@@ -88,9 +88,9 @@ const FlipkartCartUnified = () => {
                 ₹{Math.round(item.cost * 1.2)}
               </span>
             </div>
-            <span className="text-xs text-green-600 dark:text-green-400 font-medium">
+            {/* <span className="text-xs text-green-600 dark:text-green-400 font-medium">
               17% off
-            </span>
+            </span> */}
           </div>
         </div>
       </div>

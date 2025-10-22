@@ -98,6 +98,7 @@ export const PriceDetails = () => {
         name: Name,
         selectedMonth,
         selectedDevice,
+        chosenMonth,
         image: ImageId,
         cost: totalCost,
       })
@@ -153,6 +154,8 @@ export const PriceDetails = () => {
   // Custom select options for months and devices
   const monthOptions = details?.plans ? Object.entries(details.plans) : [];
   const deviceOptions = [1, 2, 3];
+
+  console.log(chosenMonth);
 
   if (!details) return <PriceDetailsShimmer />;
 
@@ -311,11 +314,9 @@ export const PriceDetails = () => {
           <FAQ chosenMonth={chosenMonth} details={details} />
         </div>
 
-        {/* Comments Section */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 transition-colors duration-200">
+        {/* <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 transition-colors duration-200">
           <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Comments</h2>
           
-          {/* Feature Coming Soon Notice */}
           <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-lg p-4 mb-4 transition-colors duration-200">
             <h3 className="font-medium text-amber-700 dark:text-amber-400 mb-1 transition-colors duration-200">Feature Coming Soon!</h3>
             <p className="text-amber-800 dark:text-amber-200 text-sm transition-colors duration-200">
@@ -323,8 +324,7 @@ export const PriceDetails = () => {
             </p>
           </div>
           
-          {/* <CommentSection /> */}
-        </div>
+        </div> */}
       </div>
 
       {/* Add CSS animations */}

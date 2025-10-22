@@ -66,7 +66,7 @@ const FlipkartLayout = ({
             
             {/* Desktop view controls */}
             <div className="hidden md:flex items-center gap-3">
-              <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+              {/* <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-md transition-colors ${
@@ -87,24 +87,24 @@ const FlipkartLayout = ({
                 >
                   <List size={16} />
                 </button>
-              </div>
+              </div> */}
               
-              <button
+              {/* <button
                 onClick={() => setShowFilters(!showFilters)}
                 className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <SlidersHorizontal size={16} />
                 Filters
-              </button>
+              </button> */}
             </div>
 
             {/* Mobile filter button */}
-            <button
+            {/* <button
               onClick={() => setShowFilters(!showFilters)}
               className="md:hidden p-2 bg-gray-100 dark:bg-gray-800 rounded-lg"
             >
               <Filter size={20} />
-            </button>
+            </button> */}
           </div>
 
           {/* Search Bar */}
@@ -147,16 +147,13 @@ const FlipkartLayout = ({
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex gap-6">
-          {/* Sidebar Filters - Desktop */}
           {showFilters && (
             <div className="hidden md:block w-64 flex-shrink-0">
               <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-4 sticky top-24">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Filters</h3>
                 
-                {/* Sort */}
                 <div className="mb-6">
                   <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Sort by</h4>
                   <select
@@ -172,7 +169,6 @@ const FlipkartLayout = ({
                   </select>
                 </div>
 
-                {/* Price Range */}
                 <div className="mb-6">
                   <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Price Range</h4>
                   <div className="space-y-2">
@@ -191,7 +187,6 @@ const FlipkartLayout = ({
                   </div>
                 </div>
 
-                {/* Clear Filters */}
                 <button className="w-full py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
                   Clear All Filters
                 </button>

@@ -71,7 +71,7 @@ const FlipkartGrid = ({ items, isLoading = false }) => {
         </p>
         
         {/* Sort options - Flipkart style */}
-        <div className="hidden sm:flex items-center gap-2 text-sm">
+        {/* <div className="hidden sm:flex items-center gap-2 text-sm">
           <span className="text-gray-600 dark:text-gray-400">Sort by:</span>
           <select className="bg-transparent border-none text-gray-900 dark:text-white font-medium cursor-pointer focus:outline-none">
             <option>Relevance</option>
@@ -80,7 +80,7 @@ const FlipkartGrid = ({ items, isLoading = false }) => {
             <option>Newest First</option>
             <option>Popularity</option>
           </select>
-        </div>
+        </div> */}
       </div>
 
       {/* Responsive Grid */}

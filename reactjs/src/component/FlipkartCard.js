@@ -5,7 +5,6 @@ import LazyImage from './ui/lazy-image';
 
 const FlipkartCard = ({ item, index }) => {
   // Get the first plan if available
-  console.log(item, item.Name);
   let firstPlanKey, firstPlanValue, originalPrice;
   if (item.plans && Object.keys(item.plans).length > 0) {
     firstPlanKey = Object.keys(item.plans)[0];
@@ -39,7 +38,6 @@ const FlipkartCard = ({ item, index }) => {
             </span>
           </div>
         </div>
-        {console.log(item.category)}
 
         {/* Content */}
         <div className="p-3 space-y-2">
