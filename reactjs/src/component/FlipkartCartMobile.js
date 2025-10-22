@@ -181,12 +181,6 @@ const FlipkartCartMobile = () => {
               <span className="text-gray-600 dark:text-gray-400">Discount</span>
               <span className="text-green-600 dark:text-green-400">-₹{savings}</span>
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600 dark:text-gray-400">Delivery</span>
-              <span className={deliveryFee === 0 ? "text-green-600 dark:text-green-400" : "text-gray-900 dark:text-white"}>
-                {deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`}
-              </span>
-            </div>
             <hr className="border-gray-200 dark:border-gray-700" />
             <div className="flex justify-between font-semibold">
               <span className="text-gray-900 dark:text-white">Total</span>

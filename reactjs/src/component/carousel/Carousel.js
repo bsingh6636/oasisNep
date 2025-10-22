@@ -244,7 +244,7 @@ export const CarouselTransition = ({ autoPlayInterval = 5000 }) => {
                     <EnhancedImage
                       src={item.image}
                       alt={`${item.title} promotional image`}
-                      className="w-full h-full"
+                      className="w-full h-full max-h-96"
                     />
                     
                     {/* Badge */}
