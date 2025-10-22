@@ -220,7 +220,7 @@ const HeaderSocial = () => (
     <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
       <div className="mb-2 sm:mb-0 text-sm">
         <i className="fa-solid fa-headset mr-1" /> Support:{" "}
-        <a href="tel:+9779804805541" className="hover:text-blue-400">
+        <a href="tel:+9779800806223" className="hover:text-blue-400">
           +977 9804 805 541
         </a>
       </div>

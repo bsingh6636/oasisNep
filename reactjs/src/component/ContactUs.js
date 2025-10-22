@@ -73,8 +73,8 @@ export const ContactUs = () => {
             <ContactCard 
               icon={<WhatsAppIcon />}
               label="WhatsApp"
-              value="+977 980-4805541"
-              link="https://wa.me/+9779804805541"
+              value="+977 9800806223"
+              link="https://wa.me/+9779800806223"
               lightColors="from-green-500 to-emerald-400"
               darkColors="from-green-600 to-emerald-500"
               activeCard={activeCard}

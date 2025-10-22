@@ -169,27 +169,16 @@ export const PriceDetails = () => {
                   className="w-full h-full object-contain"
                   src={details.ImageId || "/api/placeholder/600/600"}
                   alt={details.Name}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/api/placeholder/600/600";
-                  }}
+                  // onError={(e) => {
+                  //   e.target.onerror = null;
+                  //   e.target.src = "/api/placeholder/600/600";
+                  // }}
                 />
               </div>
             </div>
 
             {/* Product Details - Right side */}
             <div className="w-full md:w-1/2 p-6 relative">
-              {/* Cart icon indicator for animation target */}
-              <div className="absolute top-4 right-4 z-10" id="cart-icon">
-                <div className="relative">
-                  <ShoppingCart className="w-6 h-6 text-gray-400 dark:text-gray-300" />
-                  {animatingItem && (
-                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white animate-pulse">
-                      +1
-                    </span>
-                  )}
-                </div>
-              </div>
               
               {/* Product Name */}
               <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-200">

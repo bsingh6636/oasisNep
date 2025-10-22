@@ -23,7 +23,7 @@ export const socialLinks = [
     label: "Telegram",
   },
   {
-    href: "https://wa.me/+9779804805541",
+    href: "https://wa.me/+9779800806223",
     icon: "fa-whatsapp",
     color: "text-green-500 hover:text-green-400",
     label: "WhatsApp",

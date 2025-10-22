@@ -4,15 +4,34 @@ let redis;
 
 const VERCEL_REDIS_URL = process.env.VERCE_REDIS_URL;
 
-(async () => {
+
+const initializeRedisClient = async () => {
   try {
-    redis = createClient({ url: VERCEL_REDIS_URL });
+    redis = createClient({
+      url: VERCEL_REDIS_URL,
+      socket: {
+        // 1. CRITICAL: Prevents firewalls/proxies from dropping idle connections
+        keepAlive: 10000, // Send a TCP keep-alive probe every 10 seconds
+      },
+    });
+
+    // 2. CRITICAL: Prevents process crash (Unhandled 'error' event)
+    redis.on('error', (err) => {
+      console.error('❌ Redis Client Error (Unhandled):', err.code, err.message);
+      // The client library handles the reconnection logic internally.
+      // Do not attempt to call redis.connect() or process.exit() here.
+    });
+
     await redis.connect();
     console.log('✅ Redis connected successfully');
   } catch (err) {
-    console.error('❌ Redis connection error:', err);
+    console.error('❌ Initial Redis connection error:', err);
+    // In a production app, you might want to exit or retry here if initial connection fails
   }
-})();
+};
+
+initializeRedisClient();
+
 
 const setRedis = async (key, value, expire) => {
   try {

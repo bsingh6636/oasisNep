@@ -9,7 +9,7 @@ const PaymentOptions = ({ cartItems }) => {
 
     function whatsappClick() {
         const message = encodeURIComponent(formatCartItems(cartItems));
-        window.location.href = `https://api.whatsapp.com/send/?phone=%2B9779804805541&text=${message}`;
+        window.location.href = `https://api.whatsapp.com/send/?phone=%2B9779800806223&text=${message}`;
     }
 
     function telegramClick() {

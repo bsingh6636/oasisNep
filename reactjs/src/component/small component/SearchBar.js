@@ -33,7 +33,7 @@ const SearchBar = () => {
     setSearchItem(
       query.length > 1
         ? Pricelist.filter((item) =>
-            item.Name.toLowerCase().includes(query.toLowerCase())
+            item.Name?.toLowerCase().includes(query.toLowerCase())
           )
         : []
     );
