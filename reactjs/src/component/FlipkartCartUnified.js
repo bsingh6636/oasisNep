@@ -26,8 +26,7 @@ const FlipkartCartUnified = () => {
 
   const finalCartCost = cartItems.reduce((total, currentItem) => total + currentItem.cost, 0);
   const savings = Math.round(finalCartCost * 0.15);
-  const deliveryFee = finalCartCost > 500 ? 0 : 40;
-  const totalAmount = finalCartCost + deliveryFee;
+  const totalAmount = finalCartCost;
 
   const deleteItem = (id) => {
     dispatch(deleteItemCart(id));
@@ -124,9 +123,7 @@ const FlipkartCartUnified = () => {
           <span className="text-gray-900 dark:text-white">₹{totalAmount}</span>
         </div>
         
-        <div className="text-sm text-green-600 dark:text-green-400 font-medium">
-          You will save ₹{savings} on this order
-        </div>
+
       </div>
     </div>
   );
