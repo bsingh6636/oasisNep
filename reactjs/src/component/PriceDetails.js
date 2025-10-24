@@ -206,7 +206,7 @@ export const PriceDetails = () => {
                           }`}
                           onClick={() => handleMonthClick(key, value)}
                         >
-                          <span className="text-base font-bold">{key}</span>
+                          <span className="text-base font-bold">{key} {key > 1 ? "Months" : "Month"}</span>
                           <span className="text-sm opacity-90">NPR {value}</span>
                         </Button>
                       ))}
