@@ -9,10 +9,10 @@ import { PriceDetailsShimmer } from "../import";
 import { ShoppingCart, Check, Plus, ArrowUpRight, Package, Clock, Sparkles } from "lucide-react";
 import { MyContext } from "../App";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "../components/ui/badge";
-import { Separator } from "../components/ui/separator";
+import { Separator } from "./ui//separator";
+import { Alert, AlertDescription } from "./ui//alert";
 import { Button } from "./ui/button";
-import { Alert, AlertDescription } from "../components/ui/alert";
+import { Badge } from "./ui/badge";
 
 
 export const PriceDetails = () => {
