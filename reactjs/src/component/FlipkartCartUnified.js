@@ -155,7 +155,7 @@ const FlipkartCartUnified = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-4 lg:pb-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-40 lg:pb-6">
       {/* Header */}
       <div className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-3 md:py-4">
