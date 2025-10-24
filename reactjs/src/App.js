@@ -10,6 +10,7 @@ import Chat from './app/chat';
 import AuthPage from './app/login';
 import Header from './component/Header';
 import useDevice from './hooks/useDeivce';
+import { BackendPort } from './Const/url';
 // Lazy imports
 const Prices = React.lazy(() => import('./component/Prices'));
 const Error = React.lazy(() => import('./component/Error').then(m => ({ default: m.Error })));
@@ -36,7 +37,7 @@ export const AppLayout = () => {
 
   const getUser = async () => {
     try {
-      const user = await getRequest('user/auth');
+      const user = await getRequest(`${BackendPort}/user/auth`);
       setUser(user);
     } catch (error) {
       console.log(error);
