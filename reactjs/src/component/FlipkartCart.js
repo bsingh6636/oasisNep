@@ -131,10 +131,6 @@ const FlipkartCart = () => {
           <span className="text-gray-900 dark:text-white">₹{finalCartCost}</span>
         </div>
         
-        <div className="flex justify-between text-sm">
-          <span className="text-gray-600 dark:text-gray-400">Discount</span>
-          <span className="text-green-600 dark:text-green-400">-₹{savings}</span>
-        </div>
         
       
         

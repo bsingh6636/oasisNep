@@ -109,10 +109,7 @@ const FlipkartCartUnified = () => {
           <span className="text-gray-900 dark:text-white">₹{finalCartCost}</span>
         </div>
         
-        <div className="flex justify-between text-sm">
-          <span className="text-gray-600 dark:text-gray-400">Discount</span>
-          <span className="text-green-600 dark:text-green-400">-₹{savings}</span>
-        </div>
+     
         
     
         
@@ -246,10 +243,7 @@ const FlipkartCartUnified = () => {
               </span>
               <span className="text-gray-900 dark:text-white">₹{finalCartCost}</span>
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600 dark:text-gray-400">Discount</span>
-              <span className="text-green-600 dark:text-green-400">-₹{savings}</span>
-            </div>
+         
            
             <hr className="border-gray-200 dark:border-gray-700" />
             <div className="flex justify-between font-semibold">
