@@ -11,6 +11,8 @@ import AuthPage from './app/login';
 import Header from './component/Header';
 import useDevice from './hooks/useDeivce';
 import { BackendPort } from './Const/url';
+import { getAllPrices } from 'functions/services';
+import { Pricelist } from 'const';
 // Lazy imports
 const Prices = React.lazy(() => import('./component/Prices'));
 const Error = React.lazy(() => import('./component/Error').then(m => ({ default: m.Error })));
@@ -23,7 +25,6 @@ const Help = React.lazy(() => import('./component/Help').then(m => ({ default: m
 const Cart = React.lazy(() => import('./component/Cart').then(m => ({ default: m.Cart })));
 const AdminRoutes = React.lazy(() => import('./Admin/RoutesAdmin'));
 const HouseHoldCode = React.lazy(() => import('./pages/HouseHoldCode'));
-
 
 
 export const MyContext = React.createContext();
@@ -44,6 +45,24 @@ export const AppLayout = () => {
     }
   }
 
+  const getPrices = async () => {
+    if (priceListAll.length) return priceListAll;
+
+    const serverPrices = await getAllPrices();
+    const localOnlyPrices = Pricelist.filter(
+      local =>
+        !serverPrices.some(
+          remote =>
+            remote.Name?.trim().toLowerCase() === local.Name?.trim().toLowerCase()
+        )
+    );
+
+    const mergedPrices = [...localOnlyPrices, ...serverPrices];
+    setPriceListAll(mergedPrices);
+
+    return mergedPrices;
+  };
+
   React.useEffect(() => {
     if (!user?._id) {
       getUser()
@@ -54,7 +73,7 @@ export const AppLayout = () => {
       {/* bg-gradient-to-br from-gray-200 via-blue-200 to-green-300 */}
 
       <Provider store={reduxstore}>
-        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode, user, device }} >
+        <MyContext.Provider value={{ priceListAll, setPriceListAll, isDarkMode, setIsDarkMode, user, device, getPrices }} >
           <Header />
 
           <React.Suspense fallback={<Loader />} >
@@ -86,8 +105,8 @@ const Approuter = createBrowserRouter([
       { path: '/netflixCode', element: <HouseHoldCode /> },
       { path: 'signIn', element: <AuthPage /> },
       { path: 'signUp', element: <AuthPage /> },
-      { path : 'user/profile', element : <Profile /> },
-      { path : 'chat' , element : <Chat /> },
+      { path: 'user/profile', element: <Profile /> },
+      { path: 'chat', element: <Chat /> },
       { path: '*', element: <Error /> }
     ],
   },
