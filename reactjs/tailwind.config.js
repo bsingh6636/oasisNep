@@ -66,19 +66,18 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        'typing-bounce': 'typing-bounce 1.4s ease-in-out infinite',
-      },
-       keyframes: {
         'typing-bounce': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-2px)' },
         },
       },
     },
+    animation: {
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+      'typing-bounce': 'typing-bounce 1.4s ease-in-out infinite',
+    },
+
   },
   plugins: [require("tailwindcss-animate")],
 }

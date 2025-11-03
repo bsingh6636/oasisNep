@@ -1,4 +1,4 @@
-import  { useContext, useEffect, useState, useMemo } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
 import { Pricelist as PricelistMock } from "../const";
 import { useParams } from "react-router-dom";
 import { MyContext } from "../App";
@@ -26,7 +26,6 @@ export const Prices = () => {
 
   useEffect(() => {
     // Fetch and update prices only if priceListAll is empty
-    console.log(31);
     if (!priceListAll.length) {
       const updatePrices = async () => {
         setIsLoading(true);
@@ -54,7 +53,7 @@ export const Prices = () => {
   }, [cat]);
 
   const handleSearch = (e) => {
-    setSearchValue(e?.target?.value);
+    setSearchValue(e);
   };
 
   const clearSearch = () => {
@@ -64,15 +63,15 @@ export const Prices = () => {
   const buttonFilter = (buttonName) => {
     setActiveFilter(buttonName);
     setShowFilterDrawer(false);
-    
+
     if (buttonName === "all") {
       setPriceListCopy(priceListAll.length ? priceListAll : PricelistMock);
       return;
     }
-    
+
     setPriceListCopy(
-      priceListAll.length ? 
-        priceListAll.filter((data) => data.category === buttonName) : 
+      priceListAll.length ?
+        priceListAll.filter((data) => data.category === buttonName) :
         PricelistMock.filter((data) => data.category === buttonName)
     );
   };
