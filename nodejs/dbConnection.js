@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { MONGO_URI } from './import.js';
 
- const dbConnection = () => mongoose.connect(MONGO_URI, {
+const dbConnection = () => mongoose.connect(MONGO_URI, {
   dbName: 'subscriptionNepal',
 }).then(() => {
   console.log('Successfully Connected to database');

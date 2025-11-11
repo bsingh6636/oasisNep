@@ -1,5 +1,5 @@
 import { Updates, WhatsNewVideo } from '../models/WhatsNewVideo.schema.js';
-import { asyncErrorHandler } from '../utils/asynchandler.js';
+import asyncErrorHandler from '../utils/asynchandler.js';
 
 export const whatsNewVideo = asyncErrorHandler(async (req, res) => {
   const { Name, Platform, TrailerLink } = req.body;

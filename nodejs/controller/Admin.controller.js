@@ -1,18 +1,18 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { Admin } from '../models/Admin.Schema.js';
-import { asyncErrorHandler } from '../utils/asynchandler.js';
+import asyncErrorHandler from '../utils/asynchandler.js';
 
 export const register = async (req, res) => {
   const {
     userName, password, name, email, phone,
   } = req.body;
   try {
-    if(!userName || !password || !name || !email || !phone) return res.status(400).json({ sucess: false, message: 'All fields are required' });
+    if (!userName || !password || !name || !email || !phone) return res.status(400).json({ sucess: false, message: 'All fields are required' });
 
     let admin = await Admin.findOne({ userName });
     if (admin) return res.status(200).json('User Already Exists');
-    else console.log('User not found creating new one');
+    console.log('User not found creating new one');
 
     admin = new Admin({
       userName, password, name, email, phone,

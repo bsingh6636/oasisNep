@@ -1,4 +1,4 @@
-import { asyncErrorHandler } from '../utils/asynchandler.js';
+import asyncErrorHandler from '../utils/asynchandler.js';
 import { PageVisited, UserIp } from '../models/userip.schema.js';
 import { twilioWhatsApp } from '../utils/twilio.js';
 
