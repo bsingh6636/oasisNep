@@ -8,3 +8,4 @@ export const PORT = process.env.PORT || 9999;
 
 export const TWILIO_SID = process.env.TWILIO_ACCOUNT_SID;
 export const TWILIO_TOKEN = process.env.TWILIO_AUTHENTICATION_KEY;
+export const TWILIO_PHONE_NUMBER = '+12029465991';

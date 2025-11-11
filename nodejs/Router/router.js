@@ -1,6 +1,7 @@
 import express from 'express';
 import { CarouselController } from '../controller/Carousel.Controlller.js';
 import { getwhatToWatchFromTMDB } from '../controller/Services/tmdb.js';
+import { getLatestTwilioMessage } from '../controller/test.Contoller.js';
 
 const router = express.Router();
 
@@ -16,5 +17,7 @@ router.get('/whatToWatch', async (req, res) => {
     res.status(500).json({ message: 'Error fetching carousel data', error });
   }
 });
+
+router.get('/latest-message', getLatestTwilioMessage);
 
 export default router;

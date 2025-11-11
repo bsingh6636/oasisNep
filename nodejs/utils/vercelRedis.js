@@ -4,7 +4,6 @@ let redis;
 
 const VERCEL_REDIS_URL = process.env.VERCE_REDIS_URL;
 
-
 const initializeRedisClient = async () => {
   try {
     redis = createClient({
@@ -31,7 +30,6 @@ const initializeRedisClient = async () => {
 };
 
 initializeRedisClient();
-
 
 const setRedis = async (key, value, expire) => {
   try {

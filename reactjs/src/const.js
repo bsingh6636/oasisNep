@@ -19,9 +19,9 @@ export const Pricelist = [
     //     Name: "Netflix",
     //     Info: "Netflix - Stream TV shows and movies anytime, anywhere. Watch on your phone, tablet, laptop, and TV without paying more.",
     //     ImageId: "https://cdn.dribbble.com/users/9378043/screenshots/16832559/media/10b207c918d604662e088308d16b366d.png",
-    //     imagALt: "https://res.cloudinary.com/bsingh6636/image/upload/v1725168600/page/ott%20icons/Netflix_fpns7r.png",
+    //     imagALt : "https://res.cloudinary.com/bsingh6636/image/upload/v1725168600/page/ott%20icons/Netflix_fpns7r.png",
     //     category: "ott",
-    //     status: 'shared',
+    //     status :'shared',
     //     plans: {
     //         "1": "300",
     //         "3": "880",

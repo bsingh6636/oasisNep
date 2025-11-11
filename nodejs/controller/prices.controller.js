@@ -1,5 +1,5 @@
 import { Prices } from '../models/prices.schema.js';
-import { asyncErrorHandler } from '../utils/asynchandler.js';
+import asyncErrorHandler from '../utils/asynchandler.js';
 
 export const addprice = async (req, res, next) => {
   const {
