@@ -1,81 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useSearchParams } from 'react-router-dom';
-
-const PaymentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  font-family: sans-serif;
-  color: white;
-`;
-
-const PaymentOptions = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-`;
-
-const PaymentButton = styled.button`
-  background-color: ${props => props.active ? '#4CAF50' : '#f0f0f0'};
-  color: ${props => props.active ? 'white' : 'black'};
-  border: 1px solid #ddd;
-  padding: 1rem 2rem;
-  margin: 0 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    background-color: #ddd;
-  }
-
-  i {
-    margin-right: 0.5rem;
-  }
-`;
-
-const PaymentDetails = styled.div`
-  border: 1px solid #ddd;
-  padding: 2rem;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 500px;
-  background-color: #333;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    width: 100px;
-    margin-right: 1rem;
-  }
-`;
-
-const Detail = styled.p`
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
-  line-height: 1.5;
-`;
-
-const Strong = styled.strong`
-  font-weight: bold;
-`;
-
-const Warning = styled.p`
-    color: red;
-    font-weight: bold;
-`
+import { Button } from './ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { Alert, AlertDescription } from './ui/alert';
+import { FaWallet, FaMobileAlt, FaUniversity } from 'react-icons/fa';
 
 const PaymentMethod = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -85,44 +14,84 @@ const PaymentMethod = () => {
     setSearchParams({ method });
   };
 
+  const paymentOptions = [
+    { id: 'esewa', label: 'eSewa', icon: <FaWallet className="mr-2 h-4 w-4" /> },
+    { id: 'khalti', label: 'Khalti', icon: <FaMobileAlt className="mr-2 h-4 w-4" /> },
+    { id: 'bank', label: 'Bank Transfer', icon: <FaUniversity className="mr-2 h-4 w-4" /> },
+  ];
+
   const renderDetails = () => {
     switch (selectedMethod) {
       case 'esewa':
         return (
-          <PaymentDetails>
-            <Title>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQobMXYNheAlDT6Ukz4smf2K33xv3hZ7ELrqA&s" alt="eSewa" />
-              eSewa Payment
-            </Title>
-            <Detail><Strong>Name:</Strong> Bijesh Kumar Kushwaha</Detail>
-            <Detail><Strong>Number:</Strong> 9800858635</Detail>
-            <Detail><Strong>Amount:</Strong> Rs</Detail>
-            <Detail><Strong>How to send❔</Strong></Detail>
-            <Detail>✅ Use "Send Money" feature</Detail>
-            <Detail>✅ Purpose: Personal Use</Detail>
-            <Detail>✅ Remarks: Your Name ONLY</Detail>
-            <Warning>❌ Do not send top-up/recharge</Warning>
-            <Detail>⚠️ send screenshot after successful payment</Detail>
-          </PaymentDetails>
+          <Card className="w-full p-4 max-w-md bg-gray-800 border-gray-700 text-white">
+            <CardHeader>
+              <CardTitle className="flex items-center text-xl">
+                <Avatar className="mr-4">
+                  <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQobMXYNheAlDT6Ukz4smf2K33xv3hZ7ELrqA&s" alt="eSewa" />
+                  <AvatarFallback>E</AvatarFallback>
+                </Avatar>
+                eSewa Payment
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <p><strong className="font-semibold">Name:</strong> Bijesh Kumar Kushwaha</p>
+              <p><strong className="font-semibold">Number:</strong> 9800858635</p>
+              <p><strong className="font-semibold">Amount:</strong> Rs __</p>
+              <div>
+                <p className="font-semibold">How to send❔</p>
+                <ul className="list-disc list-inside pl-2 text-gray-300">
+                  <li>Use "Send Money" feature</li>
+                  <li>Purpose: Personal Use</li>
+                  <li>Remarks: Your Name ONLY</li>
+                </ul>
+              </div>
+              <Alert variant="destructive" className="bg-red-900 border-red-700 text-white">
+                <AlertDescription>
+                  ❌ Do not send top-up/recharge
+                </AlertDescription>
+              </Alert>
+              <Alert className="bg-blue-900 border-blue-700 text-white">
+                <AlertDescription>
+                  ⚠️ Send screenshot after successful payment
+                </AlertDescription>
+              </Alert>
+            </CardContent>
+          </Card>
         );
       case 'khalti':
         return (
-          <PaymentDetails>
-            <Title>
-              <img src="https://cdn.aptoide.com/imgs/b/2/c/b2c3c82e2890203b7a4b0cfb188b3f71_icon.png" alt="Khalti" />
-              Khalti Payment
-            </Title>
-            <Detail><Strong>Name:</Strong> Brijesh Kushwaha</Detail>
-            <Detail><Strong>Number:</Strong> 9800858635</Detail>
-            <Detail>⚠️ send screenshot after successful payment</Detail>
-          </PaymentDetails>
+          <Card className="w-full max-w-md bg-gray-800 border-gray-700 text-white p-4">
+            <CardHeader>
+              <CardTitle className="flex items-center text-xl">
+                <Avatar className="mr-4">
+                  <AvatarImage src="https://cdn.aptoide.com/imgs/b/2/c/b2c3c82e2890203b7a4b0cfb188b3f71_icon.png" alt="Khalti" />
+                  <AvatarFallback>KH</AvatarFallback>
+                </Avatar>
+                Khalti Payment
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <p><strong className="font-semibold">Name:</strong> Brijesh Kushwaha</p>
+              <p><strong className="font-semibold">Number:</strong> 9800858635</p>
+              <Alert className="bg-blue-900 border-blue-700 text-white">
+                <AlertDescription>
+                  ⚠️ Send screenshot after successful payment
+                </AlertDescription>
+              </Alert>
+            </CardContent>
+          </Card>
         );
       case 'bank':
         return (
-          <PaymentDetails>
-            <Title>Direct Bank Transfer</Title>
-            <Detail>For direct bank transfer, please contact admin.</Detail>
-          </PaymentDetails>
+          <Card className="w-full p-4 max-w-md bg-gray-800 border-gray-700 text-white">
+            <CardHeader>
+              <CardTitle className="text-xl">Direct Bank Transfer</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm">
+              <p>For direct bank transfer, please contact admin.</p>
+            </CardContent>
+          </Card>
         );
       default:
         return null;
@@ -130,23 +99,24 @@ const PaymentMethod = () => {
   };
 
   return (
-    <PaymentContainer>
-      <PaymentOptions>
-        <PaymentButton active={selectedMethod === 'esewa'} onClick={() => handleMethodChange('esewa')}>
-          <i className="fas fa-wallet"></i>
-          eSewa
-        </PaymentButton>
-        <PaymentButton active={selectedMethod === 'khalti'} onClick={() => handleMethodChange('khalti')}>
-          <i className="fas fa-mobile-alt"></i>
-          Khalti
-        </PaymentButton>
-        <PaymentButton active={selectedMethod === 'bank'} onClick={() => handleMethodChange('bank')}>
-          <i className="fas fa-university"></i>
-          Bank Transfer
-        </PaymentButton>
-      </PaymentOptions>
-      {renderDetails()}
-    </PaymentContainer>
+    <div className="bg-gray-900 min-h-screen text-white p-4 flex flex-col items-center">
+      <div className="w-full max-w-md">
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {paymentOptions.map((option) => (
+            <Button
+              key={option.id}
+              variant={selectedMethod === option.id ? 'default' : 'outline'}
+              onClick={() => handleMethodChange(option.id)}
+              className={`flex-1 sm:flex-grow-0 sm:flex-shrink-0 basis-1/3 sm:basis-auto ${selectedMethod === option.id ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600'}`}
+            >
+              {option.icon}
+              {option.label}
+            </Button>
+          ))}
+        </div>
+        {renderDetails()}
+      </div>
+    </div>
   );
 };
 
