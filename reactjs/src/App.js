@@ -12,7 +12,7 @@ import Header from './component/Header';
 import useDevice from './hooks/useDeivce';
 import { BackendPort } from './Const/url';
 import { getAllPrices } from 'functions/services';
-import { Pricelist } from 'const';
+import { Pricelist } from './const';
 // Lazy imports
 const Prices = React.lazy(() => import('./component/Prices'));
 const Error = React.lazy(() => import('./component/Error').then(m => ({ default: m.Error })));
@@ -25,6 +25,7 @@ const Help = React.lazy(() => import('./component/Help').then(m => ({ default: m
 const Cart = React.lazy(() => import('./component/Cart').then(m => ({ default: m.Cart })));
 const AdminRoutes = React.lazy(() => import('./Admin/RoutesAdmin'));
 const HouseHoldCode = React.lazy(() => import('./pages/HouseHoldCode'));
+const PaymentMethod = React.lazy(() => import('./component/PaymentMethod'));
 
 
 export const MyContext = React.createContext();
@@ -107,6 +108,7 @@ const Approuter = createBrowserRouter([
       { path: 'signUp', element: <AuthPage /> },
       { path: 'user/profile', element: <Profile /> },
       { path: 'chat', element: <Chat /> },
+      { path: 'paymentMethod', element: <PaymentMethod /> },
       { path: '*', element: <Error /> }
     ],
   },
