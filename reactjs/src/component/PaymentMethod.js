@@ -24,7 +24,7 @@ const PaymentMethod = () => {
     switch (selectedMethod) {
       case 'esewa':
         return (
-          <Card className="w-full p-4 max-w-md bg-gray-800 border-gray-700 text-white">
+          <Card className="w-full p-4 max-w-md">
             <CardHeader>
               <CardTitle className="flex items-center text-xl">
                 <Avatar className="mr-4">
@@ -40,18 +40,18 @@ const PaymentMethod = () => {
               <p><strong className="font-semibold">Amount:</strong> Rs __</p>
               <div>
                 <p className="font-semibold">How to send❔</p>
-                <ul className="list-disc list-inside pl-2 text-gray-300">
+                <ul className="list-disc list-inside pl-2">
                   <li>Use "Send Money" feature</li>
                   <li>Purpose: Personal Use</li>
                   <li>Remarks: Your Name ONLY</li>
                 </ul>
               </div>
-              <Alert variant="destructive" className="bg-red-900 border-red-700 text-white">
+              <Alert variant="destructive">
                 <AlertDescription>
                   ❌ Do not send top-up/recharge
                 </AlertDescription>
               </Alert>
-              <Alert className="bg-blue-900 border-blue-700 text-white">
+              <Alert>
                 <AlertDescription>
                   ⚠️ Send screenshot after successful payment
                 </AlertDescription>
@@ -61,7 +61,7 @@ const PaymentMethod = () => {
         );
       case 'khalti':
         return (
-          <Card className="w-full max-w-md bg-gray-800 border-gray-700 text-white p-4">
+          <Card className="w-full max-w-md p-4">
             <CardHeader>
               <CardTitle className="flex items-center text-xl">
                 <Avatar className="mr-4">
@@ -74,7 +74,7 @@ const PaymentMethod = () => {
             <CardContent className="space-y-3 text-sm">
               <p><strong className="font-semibold">Name:</strong> Brijesh Kushwaha</p>
               <p><strong className="font-semibold">Number:</strong> 9800858635</p>
-              <Alert className="bg-blue-900 border-blue-700 text-white">
+              <Alert>
                 <AlertDescription>
                   ⚠️ Send screenshot after successful payment
                 </AlertDescription>
@@ -84,7 +84,7 @@ const PaymentMethod = () => {
         );
       case 'bank':
         return (
-          <Card className="w-full p-4 max-w-md bg-gray-800 border-gray-700 text-white">
+          <Card className="w-full p-4 max-w-md">
             <CardHeader>
               <CardTitle className="text-xl">Direct Bank Transfer</CardTitle>
             </CardHeader>
@@ -99,7 +99,7 @@ const PaymentMethod = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white p-4 flex flex-col items-center">
+    <div className="min-h-screen p-4 flex flex-col items-center">
       <div className="w-full max-w-md">
         <div className="flex flex-wrap justify-center gap-2 mb-6">
           {paymentOptions.map((option) => (
@@ -107,7 +107,7 @@ const PaymentMethod = () => {
               key={option.id}
               variant={selectedMethod === option.id ? 'default' : 'outline'}
               onClick={() => handleMethodChange(option.id)}
-              className={`flex-1 sm:flex-grow-0 sm:flex-shrink-0 basis-1/3 sm:basis-auto ${selectedMethod === option.id ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600'}`}
+              className="flex-1 sm:flex-grow-0 sm:flex-shrink-0 basis-1/3 sm:basis-auto"
             >
               {option.icon}
               {option.label}
