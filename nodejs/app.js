@@ -24,7 +24,9 @@ app.use(express.json());
 app.use('/api/prices', priceRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/user', userRouter);
+import testRouter from './Router/test.router.js';
 app.use('/api', router);
+app.use('/api/test', testRouter);
 
 // Catch-all route for undefined routes
 
