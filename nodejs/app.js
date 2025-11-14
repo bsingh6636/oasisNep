@@ -5,6 +5,7 @@ import http from 'http';
 import priceRouter from './Router/prices.router.js';
 import adminRouter from './Router/admin.router.js';
 import userRouter from './Router/user.router.js';
+import authRouter from './Router/auth.js';
 import router from './Router/router.js';
 // import router from './Router/router.js'
 import initializeSocket from './utils/socket.js';
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use('/api/prices', priceRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/user', userRouter);
+app.use('/api/auth', authRouter);
 // import testRouter from './Router/test.router.js';
 app.use('/api', router);
 // app.use('/api/test', testRouter);
