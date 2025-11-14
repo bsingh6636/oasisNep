@@ -27,35 +27,6 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = asyncErrorHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await User.findOne({ email });
-  if (!user) {
-    return res.status(400).json({
-      success: false,
-      message: 'User not found, try signing up.',
-    });
-  }
-
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    return res.status(400).json({
-      success: false,
-      message: 'Invalid credentials.',
-    });
-  }
-
-  const payload = { user: { id: user.id } };
-  const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '300hr' });
-
-  res.cookie('userToken', token, { httpOnly: true, secure: true, sameSite: 'None' });
-  return res.json({
-    success: true,
-    message: 'Login successful.',
-  });
-});
-
 const getUser = (req, res) => {
   try {
     // console.log(req)
