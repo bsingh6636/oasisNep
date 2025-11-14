@@ -1,7 +1,7 @@
 import twilio from 'twilio';
 import { TWILIO_SID, TWILIO_TOKEN, TWILIO_PHONE_NUMBER } from '../import.js';
 
-export const twilioWhatsApp = (userIpDetails, next) => {
+export const twilioWhatsApp = (userIpDetails) => {
   const data = JSON.stringify(userIpDetails);
   const client = twilio(TWILIO_SID, TWILIO_TOKEN);
   client.messages
@@ -12,7 +12,6 @@ export const twilioWhatsApp = (userIpDetails, next) => {
     })
     .then((message) => console.log(message.sid))
     .catch((error) => console.error('Error sending message:', error));
-  next;
 };
 
 export const getLatestMessage = async () => {

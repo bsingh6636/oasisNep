@@ -19,7 +19,7 @@ export const Auth = async (req, res, next) => {
       console.log('user not found');
       return res.status(404).json({ success: false, message: 'user not found' });
     } delete user.password;
-    next();
+    return next();
 
     // Call next to proceed to the next middleware or route handler
   } catch (error) {

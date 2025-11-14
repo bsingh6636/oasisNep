@@ -1,7 +1,7 @@
 import express from 'express';
 import { CarouselController } from '../controller/Carousel.Controlller.js';
 import { getwhatToWatchFromTMDB } from '../controller/Services/tmdb.js';
-import { getLatestTwilioMessage } from '../controller/test.Contoller.js';
+// import { getLatestTwilioMessage } from '../controller/test.Contoller.js';
 
 const router = express.Router();
 
@@ -18,6 +18,6 @@ router.get('/whatToWatch', async (req, res) => {
   }
 });
 
-router.get('/latest-message', getLatestTwilioMessage);
+// router.get('/latest-message', getLatestTwilioMessage);
 
 export default router;

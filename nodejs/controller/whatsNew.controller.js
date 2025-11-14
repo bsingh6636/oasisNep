@@ -12,7 +12,7 @@ export const whatsNewVideo = asyncErrorHandler(async (req, res) => {
       { Name, Platform, TrailerLink },
       { new: true, upsert: true },
     );
-    res.status(200).json({ success: true, item, messagge: 'Item updated sucessfully' });
+    return res.status(200).json({ success: true, item, messagge: 'Item updated sucessfully' });
   } catch (error) {
     return res.status(400).json({ sucess: false, error });
   }
@@ -28,7 +28,7 @@ export const deleteVideoByName = asyncErrorHandler(async (req, res) => {
     if (!result) {
       return res.status(400).json({ success: false, message: 'Item not found' });
     }
-    res.status(200).json({ success: true, message: 'Item deleted successfully' });
+    return res.status(200).json({ success: true, message: 'Item deleted successfully' });
   } catch (error) {
     return res.status(400).json({ sucess: false, error });
   }
@@ -43,7 +43,7 @@ export const viewAllWhatsNewVideo = asyncErrorHandler(async (req, res) => {
   }
 });
 
-export const viewAllUpdates = asyncErrorHandler(async (req, res, next) => {
+export const viewAllUpdates = asyncErrorHandler(async (req, res) => {
   try {
     const items = await Updates.find({});
     return res.status(200).json({ success: true, data: items });

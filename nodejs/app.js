@@ -24,17 +24,17 @@ app.use(express.json());
 app.use('/api/prices', priceRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/user', userRouter);
-import testRouter from './Router/test.router.js';
+// import testRouter from './Router/test.router.js';
 app.use('/api', router);
-app.use('/api/test', testRouter);
+// app.use('/api/test', testRouter);
 
 // Catch-all route for undefined routes
 
-app.use('/api/check', (req, res, next) => {
+app.use('/api/check', (req, res) => {
   res.status(200).json({ message: 'success' });
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   if (err) {
     // console.error(err);
     console.log('error');
@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 

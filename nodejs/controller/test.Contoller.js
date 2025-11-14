@@ -6,7 +6,7 @@ const testEmail = asyncHandler(async (req, res) => {
     await sendEmail({
       to: 'bsingh6636@gmail.com',
       subject: 'Test Email',
-      text: 'This is a test email.'
+      text: 'This is a test email.',
     });
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {

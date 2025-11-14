@@ -1,4 +1,4 @@
-export const errorHandler = (req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
   if (!res.headersSent) {
     res.status(500).json({

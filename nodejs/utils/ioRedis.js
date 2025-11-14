@@ -7,13 +7,13 @@ const redisClient = new Redis({
 });
 
 const RedisUtils = {
-  set: async (key, value) => await redisClient.set(key, value),
+  set: async (key, value) => redisClient.set(key, value),
 
-  get: async (key) => await redisClient.get(key),
+  get: async (key) => redisClient.get(key),
 
-  delete: async (key) => await redisClient.del(key),
+  delete: async (key) => redisClient.del(key),
 
-  flushAll: async () => await redisClient.flushall(),
+  flushAll: async () => redisClient.flushall(),
 };
 
 export default RedisUtils;

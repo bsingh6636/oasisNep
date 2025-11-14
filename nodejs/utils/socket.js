@@ -12,7 +12,7 @@ const initializeSocket = (server) => {
 
   io.on('connection', (socket) => {
     console.log('a user connected');
-    socket.on('joinChat', ({ userId, userInfo, id }) => {
+    socket.on('joinChat', ({ userId, userInfo }) => {
       console.log('user joined chat', userId, userInfo);
       socket.join(userId);
     });

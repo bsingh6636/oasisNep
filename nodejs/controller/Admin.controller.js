@@ -24,7 +24,7 @@ export const register = async (req, res) => {
     return res.status(201).json({ sucess: true, message: 'User Created Sucess ' });
   } catch (error) {
     console.error(error);
-    res.status(500).json(error);
+    return res.status(500).json(error);
   }
 };
 
@@ -57,19 +57,14 @@ export const login = asyncErrorHandler(async (req, res) => {
 });
 
 export const testFunction = asyncErrorHandler(async (req, res) => {
-  try {
-    // Fetch all records from the Admin collection
-    const data = await Admin.find();
+  // Fetch all records from the Admin collection
+  const data = await Admin.find();
 
-    // Respond with the fetched data
-    res.json({
-      successs: true,
-      data,
-    });
-  } catch (error) {
-    // Error will be caught by asyncErrorHandler
-    throw error;
-  }
+  // Respond with the fetched data
+  res.json({
+    successs: true,
+    data,
+  });
 });
 
 export const logOutUser = asyncErrorHandler(async (req, res) => {

@@ -23,7 +23,7 @@ export const register = async (req, res) => {
     return res.status(201).json({ success: true, message: 'User Created Successfully' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+    return res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };
 
@@ -59,9 +59,10 @@ export const login = asyncErrorHandler(async (req, res) => {
 const getUser = (req, res) => {
   try {
     // console.log(req)
-    res.status(200).json(req.decodedUser);
+    return res.status(200).json(req.decodedUser);
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };
 

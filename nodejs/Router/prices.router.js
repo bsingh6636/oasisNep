@@ -9,5 +9,5 @@ router.post('/', Auth, addprice);
 router.get('/', getAllPrices);
 router.put('/', updatePrice);
 router.delete('/:Name', Auth, deletePrice);
-router.get;
+
 export default router;
