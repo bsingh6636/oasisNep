@@ -10,14 +10,14 @@ export const ContactUs = () => {
       const cards = document.querySelectorAll('.contact-card');
       const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
       const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-      
+
       cards.forEach(card => {
         card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
       });
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -39,7 +39,7 @@ export const ContactUs = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
           <div className="absolute inset-0 bg-grid-pattern-light opacity-10"></div>
         </div>
-        
+
         {/* Dark background (visible only in dark mode) */}
         <div className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#1e0e3d,transparent_60%)]"></div>
@@ -49,7 +49,7 @@ export const ContactUs = () => {
           <div className="absolute inset-0 bg-grid-pattern-dark opacity-5"></div>
         </div>
       </div>
-      
+
       {/* Content container */}
       <div className={`relative z-10 flex flex-col justify-center items-center min-h-screen p-4 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="w-full max-w-md">
@@ -61,16 +61,16 @@ export const ContactUs = () => {
             <p className="text-gray-600 dark:text-gray-400 mb-4">
               We&apos;d love to hear from you!
             </p>
-            
+
             {/* Animated underline */}
             <div className="w-24 h-1 mx-auto relative overflow-hidden rounded-full">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 animate-gradient-x"></div>
             </div>
           </div>
-          
+
           {/* Contact cards */}
           <div className="space-y-5">
-            <ContactCard 
+            <ContactCard
               icon={<WhatsAppIcon />}
               label="WhatsApp"
               value="+977 9800806223"
@@ -81,20 +81,20 @@ export const ContactUs = () => {
               setActiveCard={setActiveCard}
               id="whatsapp"
             />
-            
-            <ContactCard 
+
+            <ContactCard
               icon={<EmailIcon />}
               label="Email"
-              value="subscription.for.nepal@gmail.com"
-              link="mailto:subscription.for.nepal@gmail.com"
+              value="system@subsnepal.com"
+              link="mailto:system@subsnepal.com"
               lightColors="from-blue-500 to-cyan-400"
               darkColors="from-blue-600 to-cyan-500"
               activeCard={activeCard}
               setActiveCard={setActiveCard}
               id="email"
             />
-            
-            <ContactCard 
+
+            <ContactCard
               icon={<TelegramIcon />}
               label="Telegram"
               value="bsingh4474"
@@ -106,30 +106,30 @@ export const ContactUs = () => {
               id="telegram"
             />
           </div>
-          
+
           {/* Social media section */}
           <div className="mt-10">
             <h3 className="text-xl font-semibold text-center mb-6 text-gray-700 dark:text-gray-300">
               Follow Us
             </h3>
             <div className="flex justify-center space-x-6">
-              <SocialLink 
+              <SocialLink
                 href="https://www.facebook.com/onlinepurchasenepal6636"
                 icon={<FacebookIcon />}
                 label="Facebook"
                 lightColor="from-blue-500 to-blue-600"
                 darkColor="from-blue-600 to-blue-700"
               />
-              
-              <SocialLink 
+
+              <SocialLink
                 href="https://whatsapp.com/channel/0029VaFZsmD2Jl89TAqCbl1j"
                 icon={<WhatsAppChannelIcon />}
                 label="WhatsApp Channel"
                 lightColor="from-green-500 to-green-600"
                 darkColor="from-green-600 to-green-700"
               />
-              
-              <SocialLink 
+
+              <SocialLink
                 href="https://t.me/purchase6636"
                 icon={<TelegramChannelIcon />}
                 label="Telegram Channel"
@@ -138,17 +138,17 @@ export const ContactUs = () => {
               />
             </div>
           </div>
-          
+
           {/* Contact decoration */}
           <div className="mt-12 text-center">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full p-3 animate-pulse-slow bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm shadow-md dark:shadow-none">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                className="w-6 h-6 text-indigo-600 dark:text-indigo-400" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-indigo-600 dark:text-indigo-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -167,11 +167,11 @@ export const ContactUs = () => {
 // Enhanced contact card component
 const ContactCard = ({ icon, label, value, link, lightColors, darkColors, activeCard, setActiveCard, id }) => {
   const isActive = activeCard === id;
-  
+
   return (
-    <a 
+    <a
       href={link}
-      target="_blank" 
+      target="_blank"
       rel="noreferrer"
       className="block"
       onMouseEnter={() => setActiveCard(id)}
@@ -179,46 +179,42 @@ const ContactCard = ({ icon, label, value, link, lightColors, darkColors, active
       onTouchStart={() => setActiveCard(id)}
       onTouchEnd={() => setTimeout(() => setActiveCard(null), 1000)}
     >
-      <div 
+      <div
         className={`contact-card relative rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-500 ease-out
           ${isActive ? 'bg-white/70 dark:bg-gray-800/50 shadow-glow-light dark:shadow-glow-dark' : 'bg-white/50 dark:bg-gray-800/30 shadow-md dark:shadow-lg'}`}
         style={{ transformStyle: 'preserve-3d', perspective: '1000px', transform: 'rotateX(0) rotateY(0)' }}
       >
         {/* Gradient border */}
-        <div 
-          className={`absolute inset-0 bg-gradient-to-r ${lightColors} dark:${darkColors} opacity-0 transition-opacity duration-500 ${
-            isActive ? 'opacity-30' : ''
-          }`}
+        <div
+          className={`absolute inset-0 bg-gradient-to-r ${lightColors} dark:${darkColors} opacity-0 transition-opacity duration-500 ${isActive ? 'opacity-30' : ''
+            }`}
         ></div>
-        
+
         {/* Card content with 3D effect */}
         <div className="relative z-10 p-4 flex items-center" style={{ transform: 'translateZ(20px)' }}>
           {/* Icon container */}
-          <div 
-            className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center mr-4 transition-all duration-500 ${
-              isActive 
-                ? `bg-gradient-to-r ${lightColors} dark:${darkColors} shadow-glow-light dark:shadow-glow-dark` 
-                : 'bg-gray-200 dark:bg-gray-700'
-            }`}
+          <div
+            className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center mr-4 transition-all duration-500 ${isActive
+              ? `bg-gradient-to-r ${lightColors} dark:${darkColors} shadow-glow-light dark:shadow-glow-dark`
+              : 'bg-gray-200 dark:bg-gray-700'
+              }`}
           >
             <div className="text-white">{icon}</div>
           </div>
-          
+
           {/* Text content */}
           <div>
             <div className="text-sm font-medium mb-1 text-gray-500 dark:text-gray-400">{label}</div>
-            <div className={`font-semibold transition-colors duration-500 ${
-              isActive ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'
-            }`}>
+            <div className={`font-semibold transition-colors duration-500 ${isActive ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'
+              }`}>
               {value}
             </div>
           </div>
-          
+
           {/* Arrow icon */}
-          <div 
-            className={`ml-auto transform transition-all duration-500 ${
-              isActive ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0'
-            }`}
+          <div
+            className={`ml-auto transform transition-all duration-500 ${isActive ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0'
+              }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -233,9 +229,9 @@ const ContactCard = ({ icon, label, value, link, lightColors, darkColors, active
 // Social media link component
 const SocialLink = ({ href, icon, label, lightColor, darkColor }) => {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noreferrer"
       className="group relative"
       aria-label={label}
@@ -252,7 +248,7 @@ const SocialLink = ({ href, icon, label, lightColor, darkColor }) => {
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
   </svg>
 );
 
@@ -265,25 +261,25 @@ const EmailIcon = () => (
 
 const TelegramIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
   </svg>
 );
 
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-    <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0014.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"/>
+    <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0014.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z" />
   </svg>
 );
 
 const WhatsAppChannelIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
   </svg>
 );
 
 const TelegramChannelIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
   </svg>
 );
 
